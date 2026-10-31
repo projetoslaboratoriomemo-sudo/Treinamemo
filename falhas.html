@@ -20,10 +20,10 @@
 .diagram .compressPulse{animation:strokePump .42s linear infinite}
 .diagram .readout text{font-family:system-ui,sans-serif}
 .diagram{overflow-x:auto;overscroll-behavior-inline:contain}
-.diagram svg{display:block;width:100%;min-width:720px;height:auto}
-@media(max-width:900px){.diagram svg{min-width:640px}}
+.diagram svg{display:block;width:100%;min-width:0;height:auto}
+@media(max-width:900px){.diagram svg{min-width:0}}
 @media(prefers-reduced-motion:reduce){.diagram .vaporMove,.diagram .liquidMove,.diagram .lowMove,.diagram .beerMove,.diagram .bubble,.diagram .waveBoiler,.diagram .compressPulse{animation:none}}
-</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V21 • Entrada e saída do chope melhoradas</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Boiler, sifão e serpentina idênticos à visualização principal. A falha é aplicada sobre este circuito.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V22 • Layout corrigido</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Boiler, sifão e serpentina idênticos à visualização principal. A falha é aplicada sobre este circuito.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -36,7 +36,7 @@
 </defs>
 <rect width="1280" height="760" fill="#071522"/>
 <text x="30" y="30" font-size="14" fill="#95c7d5" font-weight="bold">EXPANSÃO DIRETA · R134a · CIRCUITO INUNDADO</text>
-<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler esquemático: sifão ligado à sucção, entrada do chope por baixo do boiler e saída por cima para a torneira</text>
+<text x="30" y="51" font-size="12" fill="#83a7bb">Chope: entrada inferior • saída superior • sifão ligado à sucção</text>
 <!-- Complete pipe routes are separate and preserve physical topology. -->
 <!-- Compressor discharge (right to upper condenser right, then left) -->
 <path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#682a3e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
@@ -98,9 +98,9 @@
     <circle cx="609" cy="501" r="4.5" fill="#d6f9ff"/>
         <!-- Serpentina do chope: entrada por baixo e saída por cima -->
     <g id="serpentinaChope">
-      <path id="beerCoil" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-      <path class="beerMove" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
+      <path id="beerCoil" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="beerMove" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
     </g>
     <!-- entrada de refrigerante após capilar, separada da serpentina do chope -->
     <path d="M548 553 H575" stroke="#053c73" stroke-width="17" fill="none" stroke-linecap="round"/>
@@ -109,42 +109,40 @@
   </g>
   <rect x="530" y="443" width="227" height="15" rx="6" fill="#b3cbd7"/>
 </g>
-<!-- barril de chope na entrada -->
+<!-- barril de chope: afastado da tubulação de expansão e das leituras -->
 <g id="beerKeg" aria-label="Barril de chope na entrada">
-  <ellipse cx="210" cy="660" rx="52" ry="13" fill="#506b79" opacity=".9"/>
-  <rect x="158" y="592" width="104" height="68" rx="18" fill="#91a7b3" stroke="#e7f0f5" stroke-width="4"/>
-  <ellipse cx="210" cy="592" rx="52" ry="13" fill="#bccbd3" stroke="#eef8ff" stroke-width="3"/>
-  <ellipse cx="210" cy="660" rx="52" ry="13" fill="#6d8592" stroke="#d9ebf5" stroke-width="3"/>
-  <rect x="176" y="612" width="68" height="18" rx="8" fill="#284155" stroke="#bfd8e6" stroke-width="2"/>
-  <path d="M246 632 H260" stroke="#d8e8f2" stroke-width="10" stroke-linecap="round"/>
-  <text x="210" y="687" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Barril de chope</text>
+  <rect x="340" y="624" width="92" height="71" rx="16" fill="#819da9" stroke="#e7f0f5" stroke-width="3"/>
+  <ellipse cx="386" cy="624" rx="46" ry="12" fill="#bfcdd5" stroke="#e8f8ff" stroke-width="3"/>
+  <ellipse cx="386" cy="695" rx="46" ry="12" fill="#6b8290" stroke="#d7e9f2" stroke-width="3"/>
+  <rect x="354" y="643" width="64" height="20" rx="8" fill="#25475a" stroke="#d9ecf7" stroke-width="2"/>
+  <text x="386" y="658" text-anchor="middle" font-size="12" fill="#e9f8ff" font-weight="bold">CHOPE</text>
+  <path d="M428 659 H449" stroke="#d6e6ef" stroke-width="8" stroke-linecap="round"/>
 </g>
-<!-- circuito do chope: entra por baixo do boiler -->
-<path d="M260 632 V665 H547" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M260 632 V665 H547" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path class="beerMove" d="M260 632 V665 H547" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
-<!-- saída do chope: sai por cima do boiler para a torneira -->
-<path d="M722 555 H850" fill="none" stroke="#995625" stroke-width="15" stroke-linecap="round"/>
-<path d="M722 555 H850" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linecap="round"/>
-<path class="beerMove" d="M722 555 H850" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
-<!-- torneira e copo enchendo -->
-<g id="beerTap" aria-label="Torneira com copo enchendo" transform="translate(856 499)">
-  <rect x="0" y="0" width="30" height="78" rx="12" fill="#9eb4c0" stroke="#eff8ff" stroke-width="4"/>
-  <rect x="11" y="-28" width="8" height="29" rx="4" fill="#88a0ad" stroke="#e5f4fc" stroke-width="2"/>
-  <rect x="-8" y="-40" width="46" height="12" rx="6" fill="#c2d0d8" stroke="#eef9ff" stroke-width="2.5"/>
-  <path d="M29 42 H58 Q64 42 64 49 V54" fill="none" stroke="#9eb4c0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M29 42 H58 Q64 42 64 49 V54" fill="none" stroke="#eff8ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-  <text x="15" y="101" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Torneira</text>
+<!-- entrada do chope por baixo: barril -> base da serpentina -->
+<path d="M449 659 V665 H547" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M449 659 V665 H547" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="beerMove" d="M449 659 V665 H547" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
+<!-- saída do chope por cima, roteada ABAIXO da linha azul de sucção -->
+<path d="M722 595 H821 V629" fill="none" stroke="#995625" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M722 595 H821 V629" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="beerMove" d="M722 595 H821 V629" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
+<!-- torneira localizada abaixo da sucção e afastada da válvula solenoide -->
+<g id="beerTap" aria-label="Torneira de chope" transform="translate(807 614)">
+  <rect x="3" y="12" width="22" height="50" rx="7" fill="#8ea6b6" stroke="#e2f3fc" stroke-width="3"/>
+  <rect x="10" y="-15" width="8" height="28" rx="3" fill="#859dac" stroke="#e3f4fb" stroke-width="2"/>
+  <rect x="-4" y="-19" width="35" height="9" rx="4" fill="#d0e2eb" stroke="#f0f9ff" stroke-width="2"/>
+  <path d="M24 41 H51 Q57 41 57 48 V53" fill="none" stroke="#92a9b7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 41 H51 Q57 41 57 48 V53" fill="none" stroke="#e9f8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<path d="M920 553 V583" fill="none" stroke="#d49a2d" stroke-width="7" stroke-linecap="round" opacity=".95"/>
-<path class="beerMove" d="M920 553 V583" fill="none" stroke="#fff1b8" stroke-width="2.8" stroke-dasharray="5 12" opacity=".95"/>
-<g id="beerGlass" transform="translate(898 583)">
-  <path d="M0 0 H42 L35 76 H7 Z" fill="#d8f4ff" fill-opacity=".16" stroke="#cbefff" stroke-width="4"/>
-  <path d="M7 30 H35 L30 70 H12 Z" fill="#d6a13b" fill-opacity=".92"/>
-  <rect x="7" y="25" width="28" height="8" rx="4" fill="#f7f2e8" opacity=".95"/>
-  <text x="21" y="96" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Copo</text>
+<!-- fluxo que cai no copo, com animação -->
+<path d="M864 667 V687" stroke="#daa745" stroke-width="6" stroke-linecap="round"/>
+<path class="beerMove" d="M864 667 V687" stroke="#fff5c8" stroke-width="2.6" stroke-dasharray="4 12"/>
+<g id="beerGlass" transform="translate(844 685)" aria-label="Copo de chope">
+  <path d="M0 0 H40 L34 67 H6 Z" fill="#ddf5ff" fill-opacity=".12" stroke="#ccefff" stroke-width="3.5"/>
+  <path class="glassBeer" d="M6 28 H34 L30 61 H10 Z" fill="#d7a044" opacity=".94"/>
+  <rect x="6" y="24" width="28" height="7" rx="3.5" fill="#f6f4e8"/>
 </g>
-<!-- nenhuma legenda escrita sobre o boiler: identificação no painel abaixo -->
+<!-- Sem rótulos sobre a linha de sucção; circuito do chope identificado na legenda externa -->
 <!-- suction solenoid (near compressor, as reference) -->
 <g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
 <text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
@@ -168,7 +166,7 @@
  <rect x="392" y="45" width="489" height="42" rx="12" fill="#0b2837" stroke="#44788a" stroke-width="1.5"/>
  <text id="faultOverlayLabel" x="636" y="72" text-anchor="middle" fill="#d7f5ff" font-size="17" font-weight="700">Operação normal</text>
 </g>
-</svg></div><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div></section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small>Índice didático, não medição de UA</small></div><div class="metric"><small>Pressão alta medida no ensaio E038</small><strong>198,7 <small>psig</small></strong><small>Ensaio E038 • referência</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama permanecem os valores reais de referência do E038; pressões previstas em psig e carga térmica do chope: <b>não calculadas nesta versão de diagnóstico</b>. Não são substituídas por valores inventados.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? A pressão de alta, a sucção ou a temperatura do chope? Explique a sequência e quais sensores confirmariam sua hipótese.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Confira primeiro a redução da troca térmica do condensador e a tendência de elevação da temperatura/pressão de condensação. Em seguida, acompanhe a descarga, a capacidade de refrigeração e o desempenho do chope. A sucção depende do equilíbrio do circuito e não deve ser presumida.</div></div></aside></div></main><script>
+</svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div></section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small>Índice didático, não medição de UA</small></div><div class="metric"><small>Pressão alta medida no ensaio E038</small><strong>198,7 <small>psig</small></strong><small>Ensaio E038 • referência</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama permanecem os valores reais de referência do E038; pressões previstas em psig e carga térmica do chope: <b>não calculadas nesta versão de diagnóstico</b>. Não são substituídas por valores inventados.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? A pressão de alta, a sucção ou a temperatura do chope? Explique a sequência e quais sensores confirmariam sua hipótese.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Confira primeiro a redução da troca térmica do condensador e a tendência de elevação da temperatura/pressão de condensação. Em seguida, acompanhe a descarga, a capacidade de refrigeração e o desempenho do chope. A sucção depende do equilíbrio do circuito e não deve ser presumida.</div></div></aside></div></main><script>
 const $=id=>document.getElementById(id);const cases={condenser:{name:'Condensador obstruído',detail:'Obstrução reduz a troca térmica e pode restringir o ar. A pressão de alta tende a subir.',trends:[['Vazão de ar','↓ Geralmente diminui','down'],['Pressão de condensação','↑ Aumenta','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down'],['Vazão máxima a 3 °C','↓ Tende a cair','down'],['Pressão de sucção','Indeterminada sem solução do circuito','unknown']]},fan:{name:'Rotação reduzida',detail:'Menor rotação do ventilador reduz o ar que atravessa o condensador.',trends:[['Vazão de ar','↓ Diminui','down'],['Pressão de alta','↑ Tende a subir','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down']]},capillary:{name:'Restrição no capilar',detail:'Restrição reduz alimentação de refrigerante no evaporador.',trends:[['Vazão mássica do refrigerante','↓ Tende a diminuir','down'],['Pressão de evaporação','↓ Pode cair','down'],['Superaquecimento de sucção','↑ Pode aumentar','up'],['Capacidade frigorífica','↓ Geralmente diminui','down']]},compressor:{name:'Perda de eficiência',detail:'Desgaste interno reduz a capacidade de deslocamento efetivo e a compressão.',trends:[['Capacidade frigorífica','↓ Tende a cair','down'],['Pressão de sucção','↑ Pode subir','up'],['Pressão de condensação','↓ Pode cair','down'],['Temperatura de saída do chope','↑ Pode subir','up']]},suction:{name:'Perda de pressão na sucção',detail:'Maior resistência na sucção faz aumentar a diferença entre pressão do boiler e pressão de entrada do compressor.',trends:[['ΔP boiler − sucção','↑ Aumenta','up'],['Densidade na entrada do compressor','↓ Pode cair','down'],['Eficiência / capacidade frigorífica','↓ Pode diminuir','down'],['Retorno de óleo','Depende da geometria/velocidade; requer validação','unknown']]}};
 function render(){let val=Number($('severity').value),s=val/100,key=$('fault').value,c=cases[key];$('pct').textContent=val+'%';$('description').textContent=c.detail;$('ua').textContent=(key==='condenser'||key==='fan'?Math.round(100-65*s):100)+'%';
 $('condenserDirt').setAttribute('opacity',key==='condenser'?String(Math.min(.98,s)): '0');

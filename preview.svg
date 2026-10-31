@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+<defs>
+ <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
+ <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
+ <linearGradient id="compressMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7597ac"/><stop offset=".35" stop-color="#1e3957"/><stop offset=".67" stop-color="#12223d"/><stop offset="1" stop-color="#7898aa"/></linearGradient>
+ <pattern id="coilFins" width="10" height="8" patternUnits="userSpaceOnUse"><path d="M1 0V8" stroke="#7ea4bc" stroke-width="2"/></pattern>
+ <clipPath id="boilerClip"><rect x="548" y="465" width="190" height="216" rx="13"/></clipPath>
+ <filter id="gblue"><feGaussianBlur stdDeviation="4"/></filter>
+ <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#d8fbff"/></marker>
+
+</defs>
+<rect width="1280" height="760" fill="#071522"/>
+<text x="30" y="30" font-size="14" fill="#95c7d5" font-weight="bold">EXPANSÃO DIRETA · R134a · CIRCUITO INUNDADO</text>
+<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler esquemático: sifão ligado à sucção, entrada do chope por baixo do boiler e saída por cima para a torneira</text>
+<!-- Complete pipe routes are separate and preserve physical topology. -->
+<!-- Compressor discharge (right to upper condenser right, then left) -->
+<path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#682a3e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#f64b68" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="vaporMove" d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#ffd5d7" stroke-width="4" stroke-dasharray="6 26" stroke-linecap="round"/>
+<!-- Condenser liquid outlet: goes left, downward through filter, solenoid, capillary into boiler -->
+<path d="M587 177 H200 Q183 177 183 198 V515 Q183 553 221 553 H548" fill="none" stroke="#8d631e" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M587 177 H200 Q183 177 183 198 V397" fill="none" stroke="#efad3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="liquidMove" d="M587 177 H200 Q183 177 183 198 V397" fill="none" stroke="#fff6b6" stroke-width="3.5" stroke-dasharray="6 23" stroke-linecap="round"/>
+<path d="M183 397 V515 Q183 553 221 553 H548" fill="none" stroke="#074d91" stroke-width="18" stroke-linejoin="round"/>
+<path d="M183 397 V515 Q183 553 221 553 H548" fill="none" stroke="#19baff" stroke-width="11" stroke-linejoin="round"/>
+<path class="lowMove" d="M183 397 V515 Q183 553 221 553 H548" fill="none" stroke="#d4fbff" stroke-width="3.5" stroke-dasharray="7 24" stroke-linecap="round"/>
+<!-- Suction returns from boiler to compressor via solenoid on right -->
+<path d="M737 550 H1014 Q1034 550 1034 530 V453" fill="none" stroke="#04507e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M737 550 H1014 Q1034 550 1034 530 V453" fill="none" stroke="#21b5ff" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="lowMove" d="M737 550 H1014 Q1034 550 1034 530 V453" fill="none" stroke="#d5f7ff" stroke-width="4" stroke-dasharray="7 28" stroke-linecap="round"/>
+<!-- Condenser and fan in reference-video position -->
+<rect x="592" y="126" width="122" height="112" rx="10" fill="#193449" stroke="#9bb6c8" stroke-width="6"/>
+<rect x="600" y="134" width="106" height="96" fill="url(#coilFins)" opacity=".9"/>
+<circle cx="652" cy="182" r="45" fill="#1c3548" stroke="#a9ccda" stroke-width="4"/>
+<g id="fan" transform="translate(652 182)">
+  <!-- A carcaça e o centro permanecem fixos. Só as pás giram em coordenadas locais. -->
+  <g id="fanBlades">
+    <path d="M-7 -9 Q-28 -43 -9 -40 Q15 -36 9 -6Z" fill="#b7dce9" opacity=".92"/>
+    <path d="M-7 -9 Q-28 -43 -9 -40 Q15 -36 9 -6Z" fill="#b7dce9" opacity=".92" transform="rotate(90)"/>
+    <path d="M-7 -9 Q-28 -43 -9 -40 Q15 -36 9 -6Z" fill="#b7dce9" opacity=".92" transform="rotate(180)"/>
+    <path d="M-7 -9 Q-28 -43 -9 -40 Q15 -36 9 -6Z" fill="#b7dce9" opacity=".92" transform="rotate(270)"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+  </g>
+  <circle r="9" fill="#243e54" stroke="#e3f6ff" stroke-width="2"/>
+</g>
+<text x="652" y="255" text-anchor="middle" fill="#d4edf7" font-size="16" font-weight="bold">CONDENSADOR</text>
+<!-- filter dryer at left upper vertical -->
+<rect x="172" y="244" width="22" height="46" rx="6" fill="#91a0a8" stroke="#e0ecf4" stroke-width="2"/><rect x="176" y="249" width="14" height="34" fill="#455e71"/><path d="M176 254H190M176 280H190" stroke="#d4d9dc" stroke-width="3"/>
+<text x="110" y="263" text-anchor="end" fill="#d6edfa" font-size="14">Filtro</text><text x="110" y="280" text-anchor="end" fill="#d6edfa" font-size="14">secador</text>
+<!-- solenoid on liquid side -->
+<g transform="translate(183 349)"><rect x="-29" y="-14" width="58" height="29" rx="4" fill="#d89232" stroke="#ffe4a0" stroke-width="3"/><path d="M-15 -19L0 -33L15 -19" fill="#eaa94a"/><rect x="-14" y="-39" width="28" height="18" rx="3" fill="#1f8dc1" stroke="#98e7ff" stroke-width="2"/><path d="M-18 0H18" stroke="#ffedb3" stroke-width="5"/></g>
+<text x="93" y="330" fill="#eaf5fb" font-size="14">Solenoide</text><text x="93" y="347" fill="#eaf5fb" font-size="14">de líquido</text>
+<!-- Capillary modeled as restriction just after solenoid, not full-length evaporator coil -->
+<g transform="translate(183 420)"><path d="M0 0 V84" stroke="#65d7ff" stroke-width="4"/><path d="M-9 5L9 12L-9 19L9 26L-9 33L9 40L-9 47L9 54L-9 61L9 68L-9 75" fill="none" stroke="#b6def2" stroke-width="2"/></g>
+<text x="124" y="467" fill="#def4ff" font-size="14" text-anchor="end">Capilar</text>
+<!-- Boiler esquemático: sem legendas internas e sem tubo vermelho -->
+<g id="boilerAssembly" aria-label="Boiler inundado: serpentinas do chope em dourado, sifão azul conectado à sucção, entrada do refrigerante em azul">
+  <rect x="531" y="445" width="225" height="254" rx="22" fill="url(#boilerMetal)" stroke="#c6e4f0" stroke-width="5"/>
+  <rect x="543" y="464" width="201" height="220" rx="12" fill="#11283c"/>
+  <g clip-path="url(#boilerClip)">
+    <rect x="548" y="465" width="190" height="115" fill="#204860" opacity=".8"/>
+    <rect x="548" y="580" width="190" height="104" fill="url(#refrigWater)"/>
+    <path class="waveBoiler" d="M548 580 Q578 573 606 580 T666 580 T738 580" fill="none" stroke="#7af0ff" stroke-width="3.5"/>
+    <g fill="#b2f6ff" opacity=".8">
+      <circle cx="559" cy="662" r="3" class="bubble b1"/><circle cx="571" cy="647" r="4" class="bubble b2"/>
+      <circle cx="587" cy="659" r="3" class="bubble b3"/><circle cx="718" cy="661" r="3" class="bubble b4"/>
+      <circle cx="731" cy="645" r="4" class="bubble b5"/><circle cx="611" cy="663" r="2.5" class="bubble b6"/>
+    </g>
+    <!-- Sifão contínuo: boca de captação na zona de vapor, tubo banhado pelo líquido e saída conectada à sucção -->
+    <path id="siphonPipe" d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#084268" stroke-width="17" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#72d7ff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+    <path class="lowMove" d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#ecfbff" stroke-width="3" stroke-dasharray="7 23" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="609" cy="501" r="4.5" fill="#d6f9ff"/>
+        <!-- Serpentina do chope: entrada por baixo e saída por cima -->
+    <g id="serpentinaChope">
+      <path id="beerCoil" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="beerMove" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 575 V595 H722" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
+    </g>
+    <!-- entrada de refrigerante após capilar, separada da serpentina do chope -->
+    <path d="M548 553 H575" stroke="#053c73" stroke-width="17" fill="none" stroke-linecap="round"/>
+    <path d="M548 553 H575" stroke="#32c6ff" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path class="lowMove" d="M548 553 H575" stroke="#e4fcff" stroke-width="3" stroke-dasharray="5 16" fill="none"/>
+  </g>
+  <rect x="530" y="443" width="227" height="15" rx="6" fill="#b3cbd7"/>
+</g>
+<!-- barril de chope: afastado da tubulação de expansão e das leituras -->
+<g id="beerKeg" aria-label="Barril de chope na entrada">
+  <rect x="340" y="624" width="92" height="71" rx="16" fill="#819da9" stroke="#e7f0f5" stroke-width="3"/>
+  <ellipse cx="386" cy="624" rx="46" ry="12" fill="#bfcdd5" stroke="#e8f8ff" stroke-width="3"/>
+  <ellipse cx="386" cy="695" rx="46" ry="12" fill="#6b8290" stroke="#d7e9f2" stroke-width="3"/>
+  <rect x="354" y="643" width="64" height="20" rx="8" fill="#25475a" stroke="#d9ecf7" stroke-width="2"/>
+  <text x="386" y="658" text-anchor="middle" font-size="12" fill="#e9f8ff" font-weight="bold">CHOPE</text>
+  <path d="M428 659 H449" stroke="#d6e6ef" stroke-width="8" stroke-linecap="round"/>
+</g>
+<!-- entrada do chope por baixo: barril -> base da serpentina -->
+<path d="M449 659 V665 H547" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M449 659 V665 H547" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="beerMove" d="M449 659 V665 H547" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
+<!-- saída do chope por cima, roteada ABAIXO da linha azul de sucção -->
+<path d="M722 595 H821 V629" fill="none" stroke="#995625" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M722 595 H821 V629" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="beerMove" d="M722 595 H821 V629" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
+<!-- torneira localizada abaixo da sucção e afastada da válvula solenoide -->
+<g id="beerTap" aria-label="Torneira de chope" transform="translate(807 614)">
+  <rect x="3" y="12" width="22" height="50" rx="7" fill="#8ea6b6" stroke="#e2f3fc" stroke-width="3"/>
+  <rect x="10" y="-15" width="8" height="28" rx="3" fill="#859dac" stroke="#e3f4fb" stroke-width="2"/>
+  <rect x="-4" y="-19" width="35" height="9" rx="4" fill="#d0e2eb" stroke="#f0f9ff" stroke-width="2"/>
+  <path d="M24 41 H51 Q57 41 57 48 V53" fill="none" stroke="#92a9b7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 41 H51 Q57 41 57 48 V53" fill="none" stroke="#e9f8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- fluxo que cai no copo, com animação -->
+<path d="M864 667 V687" stroke="#daa745" stroke-width="6" stroke-linecap="round"/>
+<path class="beerMove" d="M864 667 V687" stroke="#fff5c8" stroke-width="2.6" stroke-dasharray="4 12"/>
+<g id="beerGlass" transform="translate(844 685)" aria-label="Copo de chope">
+  <path d="M0 0 H40 L34 67 H6 Z" fill="#ddf5ff" fill-opacity=".12" stroke="#ccefff" stroke-width="3.5"/>
+  <path class="glassBeer" d="M6 28 H34 L30 61 H10 Z" fill="#d7a044" opacity=".94"/>
+  <rect x="6" y="24" width="28" height="7" rx="3.5" fill="#f6f4e8"/>
+</g>
+<!-- Sem rótulos sobre a linha de sucção; circuito do chope identificado na legenda externa -->
+<!-- suction solenoid (near compressor, as reference) -->
+<g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
+<text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
+<!-- compressor right; drive movement localized -->
+<g id="compressorUnit"><rect x="974" y="358" width="130" height="109" rx="24" fill="url(#compressMetal)" stroke="#bdd6e7" stroke-width="4"/><rect x="989" y="347" width="103" height="19" rx="6" fill="#9ab6c7"/><rect x="990" y="389" width="98" height="59" rx="13" fill="#193047" stroke="#6c91a8" stroke-width="2"/><path d="M1020 423L1036 403L1055 423L1037 444Z" stroke="#9fd6f2" stroke-width="4" fill="none" class="compressPulse"/><circle cx="1037" cy="422" r="6" fill="#c9ebfb"/></g>
+<text x="1037" y="489" text-anchor="middle" font-size="16" fill="#eaf6ff" font-weight="bold">COMPRESSOR</text>
+<!-- Static sensor names are kept separated from readings: 6 live readout ids must exist -->
+<g transform="translate(26 73)" class="readout"><rect width="157" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Ambiente</text><text id="svg-ambient" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(884 75)" class="readout"><rect width="185" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Condensação</text><text id="svg-pCond" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 253)" class="readout"><rect width="174" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Descarga</text><text id="svg-discharge" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 514)" class="readout"><rect width="170" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Sucção</text><text id="svg-pSuc" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(26 625)" class="readout"><rect width="166" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Vazão de chope</text><text id="svg-flow" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1060 637)" class="readout"><rect width="186" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Saída do chope</text><text id="svg-beerOut" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g fill="#bfd3de" font-size="12"><text x="384" y="151">Líquido · alta pressão</text><text x="820" y="150">Vapor · alta pressão</text><text x="251" y="534">Baixa pressão após expansão</text><text x="774" y="574">Sucção · baixa pressão</text></g>
+
+<!-- Fault-only overlay: dust covers the actual condenser, not a replacement diagram. -->
+<g id="condenserDirt" aria-hidden="true" opacity="0" pointer-events="none">
+ <rect x="597" y="129" width="112" height="104" rx="9" fill="#6c4e2b" opacity=".40"/>
+ <g fill="#b68b4d" stroke="#cfaa67" stroke-width="1" opacity=".86">
+  <circle cx="606" cy="147" r="8"/><circle cx="620" cy="169" r="11"/>
+  <circle cx="684" cy="143" r="10"/><circle cx="699" cy="163" r="8"/>
+  <circle cx="609" cy="207" r="11"/><circle cx="696" cy="210" r="10"/>
+  <circle cx="653" cy="223" r="6"/><circle cx="688" cy="189" r="6"/>
+ </g>
+</g>
+<g id="faultConditionText" aria-hidden="true" pointer-events="none">
+ <rect x="392" y="45" width="489" height="42" rx="12" fill="#0b2837" stroke="#44788a" stroke-width="1.5"/>
+ <text id="faultOverlayLabel" x="636" y="72" text-anchor="middle" fill="#d7f5ff" font-size="17" font-weight="700">Operação normal</text>
+</g>
+</svg>
