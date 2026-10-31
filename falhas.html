@@ -23,7 +23,7 @@
 .diagram svg{display:block;width:100%;min-width:720px;height:auto}
 @media(max-width:900px){.diagram svg{min-width:640px}}
 @media(prefers-reduced-motion:reduce){.diagram .vaporMove,.diagram .liquidMove,.diagram .lowMove,.diagram .beerMove,.diagram .bubble,.diagram .waveBoiler,.diagram .compressPulse{animation:none}}
-</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V20 • Mesmo circuito do simulador</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Boiler, sifão e serpentina idênticos à visualização principal. A falha é aplicada sobre este circuito.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V21 • Entrada e saída do chope melhoradas</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Boiler, sifão e serpentina idênticos à visualização principal. A falha é aplicada sobre este circuito.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -36,7 +36,7 @@
 </defs>
 <rect width="1280" height="760" fill="#071522"/>
 <text x="30" y="30" font-size="14" fill="#95c7d5" font-weight="bold">EXPANSÃO DIRETA · R134a · CIRCUITO INUNDADO</text>
-<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler esquemático: sifão ligado à sucção, sem tubo vermelho e legendas fora do desenho</text>
+<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler esquemático: sifão ligado à sucção, entrada do chope por baixo do boiler e saída por cima para a torneira</text>
 <!-- Complete pipe routes are separate and preserve physical topology. -->
 <!-- Compressor discharge (right to upper condenser right, then left) -->
 <path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#682a3e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
@@ -96,11 +96,11 @@
     <path d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#72d7ff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
     <path class="lowMove" d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#ecfbff" stroke-width="3" stroke-dasharray="7 23" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="609" cy="501" r="4.5" fill="#d6f9ff"/>
-    <!-- Serpentina do chope, múltiplas voltas horizontais, um único percurso contínuo -->
+        <!-- Serpentina do chope: entrada por baixo e saída por cima -->
     <g id="serpentinaChope">
-      <path id="beerCoil" d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-      <path class="beerMove" d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
+      <path id="beerCoil" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="beerMove" d="M547 665 H581 Q592 665 592 654 V649 H699 Q710 649 710 639 Q710 629 699 629 H581 Q571 629 571 619 Q571 610 581 610 H699 Q710 610 710 600 Q710 590 699 590 H583 Q574 590 574 580 V575 Q574 565 584 565 H696 Q707 565 707 555 H722" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
     </g>
     <!-- entrada de refrigerante após capilar, separada da serpentina do chope -->
     <path d="M548 553 H575" stroke="#053c73" stroke-width="17" fill="none" stroke-linecap="round"/>
@@ -109,13 +109,41 @@
   </g>
   <rect x="530" y="443" width="227" height="15" rx="6" fill="#b3cbd7"/>
 </g>
-<!-- circuito do chope, separado da sucção e conectado à serpentina -->
-<path d="M300 624 H548" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round"/>
-<path d="M300 624 H548" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round"/>
-<path class="beerMove" d="M300 624 H548" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
-<path d="M643 677 V706 H803 V684 H855" fill="none" stroke="#995625" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M643 677 V706 H803 V684 H855" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
-<path class="beerMove" d="M643 677 V706 H803 V684 H855" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
+<!-- barril de chope na entrada -->
+<g id="beerKeg" aria-label="Barril de chope na entrada">
+  <ellipse cx="210" cy="660" rx="52" ry="13" fill="#506b79" opacity=".9"/>
+  <rect x="158" y="592" width="104" height="68" rx="18" fill="#91a7b3" stroke="#e7f0f5" stroke-width="4"/>
+  <ellipse cx="210" cy="592" rx="52" ry="13" fill="#bccbd3" stroke="#eef8ff" stroke-width="3"/>
+  <ellipse cx="210" cy="660" rx="52" ry="13" fill="#6d8592" stroke="#d9ebf5" stroke-width="3"/>
+  <rect x="176" y="612" width="68" height="18" rx="8" fill="#284155" stroke="#bfd8e6" stroke-width="2"/>
+  <path d="M246 632 H260" stroke="#d8e8f2" stroke-width="10" stroke-linecap="round"/>
+  <text x="210" y="687" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Barril de chope</text>
+</g>
+<!-- circuito do chope: entra por baixo do boiler -->
+<path d="M260 632 V665 H547" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M260 632 V665 H547" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="beerMove" d="M260 632 V665 H547" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
+<!-- saída do chope: sai por cima do boiler para a torneira -->
+<path d="M722 555 H850" fill="none" stroke="#995625" stroke-width="15" stroke-linecap="round"/>
+<path d="M722 555 H850" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linecap="round"/>
+<path class="beerMove" d="M722 555 H850" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
+<!-- torneira e copo enchendo -->
+<g id="beerTap" aria-label="Torneira com copo enchendo" transform="translate(856 499)">
+  <rect x="0" y="0" width="30" height="78" rx="12" fill="#9eb4c0" stroke="#eff8ff" stroke-width="4"/>
+  <rect x="11" y="-28" width="8" height="29" rx="4" fill="#88a0ad" stroke="#e5f4fc" stroke-width="2"/>
+  <rect x="-8" y="-40" width="46" height="12" rx="6" fill="#c2d0d8" stroke="#eef9ff" stroke-width="2.5"/>
+  <path d="M29 42 H58 Q64 42 64 49 V54" fill="none" stroke="#9eb4c0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 42 H58 Q64 42 64 49 V54" fill="none" stroke="#eff8ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+  <text x="15" y="101" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Torneira</text>
+</g>
+<path d="M920 553 V583" fill="none" stroke="#d49a2d" stroke-width="7" stroke-linecap="round" opacity=".95"/>
+<path class="beerMove" d="M920 553 V583" fill="none" stroke="#fff1b8" stroke-width="2.8" stroke-dasharray="5 12" opacity=".95"/>
+<g id="beerGlass" transform="translate(898 583)">
+  <path d="M0 0 H42 L35 76 H7 Z" fill="#d8f4ff" fill-opacity=".16" stroke="#cbefff" stroke-width="4"/>
+  <path d="M7 30 H35 L30 70 H12 Z" fill="#d6a13b" fill-opacity=".92"/>
+  <rect x="7" y="25" width="28" height="8" rx="4" fill="#f7f2e8" opacity=".95"/>
+  <text x="21" y="96" text-anchor="middle" fill="#d9edf8" font-size="14" font-weight="bold">Copo</text>
+</g>
 <!-- nenhuma legenda escrita sobre o boiler: identificação no painel abaixo -->
 <!-- suction solenoid (near compressor, as reference) -->
 <g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
