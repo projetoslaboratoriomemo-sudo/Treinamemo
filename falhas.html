@@ -72,8 +72,8 @@
 <!-- filter dryer at left upper vertical -->
 <rect x="172" y="244" width="22" height="46" rx="6" fill="#91a0a8" stroke="#e0ecf4" stroke-width="2"/><rect x="176" y="249" width="14" height="34" fill="#455e71"/><path d="M176 254H190M176 280H190" stroke="#d4d9dc" stroke-width="3"/>
 <text x="110" y="263" text-anchor="end" fill="#d6edfa" font-size="14">Filtro</text><text x="110" y="280" text-anchor="end" fill="#d6edfa" font-size="14">secador</text>
-<!-- solenoid on liquid side -->
-<g transform="translate(183 349)"><rect x="-29" y="-14" width="58" height="29" rx="4" fill="#d89232" stroke="#ffe4a0" stroke-width="3"/><path d="M-15 -19L0 -33L15 -19" fill="#eaa94a"/><rect x="-14" y="-39" width="28" height="18" rx="3" fill="#1f8dc1" stroke="#98e7ff" stroke-width="2"/><path d="M-18 0H18" stroke="#ffedb3" stroke-width="5"/></g>
+<!-- alert halos for solenoid fault modes --><circle id="liquidSolenoidAlert" cx="183" cy="349" r="48" fill="#ff8a57" opacity="0" filter="url(#gblue)"/><circle id="suctionSolenoidAlert" cx="921" cy="550" r="48" fill="#ff8a57" opacity="0" filter="url(#gblue)"/><!-- solenoid on liquid side -->
+<g id="liquidSolenoid" transform="translate(183 349)"><rect x="-29" y="-14" width="58" height="29" rx="4" fill="#d89232" stroke="#ffe4a0" stroke-width="3"/><path d="M-15 -19L0 -33L15 -19" fill="#eaa94a"/><rect x="-14" y="-39" width="28" height="18" rx="3" fill="#1f8dc1" stroke="#98e7ff" stroke-width="2"/><path d="M-18 0H18" stroke="#ffedb3" stroke-width="5"/></g>
 <text x="93" y="330" fill="#eaf5fb" font-size="14">Solenoide</text><text x="93" y="347" fill="#eaf5fb" font-size="14">de líquido</text>
 <!-- Capillary modeled as restriction just after solenoid, not full-length evaporator coil -->
 <g transform="translate(183 420)"><path d="M0 0 V84" stroke="#65d7ff" stroke-width="4"/><path d="M-9 5L9 12L-9 19L9 26L-9 33L9 40L-9 47L9 54L-9 61L9 68L-9 75" fill="none" stroke="#b6def2" stroke-width="2"/></g>
@@ -144,7 +144,7 @@
 </g>
 <!-- Sem rótulos sobre a linha de sucção; circuito do chope identificado na legenda externa -->
 <!-- suction solenoid (near compressor, as reference) -->
-<g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
+<g id="suctionSolenoid" transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
 <text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
 <!-- compressor right; drive movement localized -->
 <g id="compressorUnit"><rect x="974" y="358" width="130" height="109" rx="24" fill="url(#compressMetal)" stroke="#bdd6e7" stroke-width="4"/><rect x="989" y="347" width="103" height="19" rx="6" fill="#9ab6c7"/><rect x="990" y="389" width="98" height="59" rx="13" fill="#193047" stroke="#6c91a8" stroke-width="2"/><path d="M1020 423L1036 403L1055 423L1037 444Z" stroke="#9fd6f2" stroke-width="4" fill="none" class="compressPulse"/><circle cx="1037" cy="422" r="6" fill="#c9ebfb"/></g>
@@ -166,18 +166,146 @@
  <rect x="392" y="45" width="489" height="42" rx="12" fill="#0b2837" stroke="#44788a" stroke-width="1.5"/>
  <text id="faultOverlayLabel" x="636" y="72" text-anchor="middle" fill="#d7f5ff" font-size="17" font-weight="700">Operação normal</text>
 </g>
-</svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div></section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small>Índice didático, não medição de UA</small></div><div class="metric"><small>Pressão alta medida no ensaio E038</small><strong>198,7 <small>psig</small></strong><small>Ensaio E038 • referência</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama permanecem os valores reais de referência do E038; pressões previstas em psig e carga térmica do chope: <b>não calculadas nesta versão de diagnóstico</b>. Não são substituídas por valores inventados.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? A pressão de alta, a sucção ou a temperatura do chope? Explique a sequência e quais sensores confirmariam sua hipótese.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Confira primeiro a redução da troca térmica do condensador e a tendência de elevação da temperatura/pressão de condensação. Em seguida, acompanhe a descarga, a capacidade de refrigeração e o desempenho do chope. A sucção depende do equilíbrio do circuito e não deve ser presumida.</div></div></aside></div></main><script>
-const $=id=>document.getElementById(id);const cases={condenser:{name:'Condensador obstruído',detail:'Obstrução reduz a troca térmica e pode restringir o ar. A pressão de alta tende a subir.',trends:[['Vazão de ar','↓ Geralmente diminui','down'],['Pressão de condensação','↑ Aumenta','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down'],['Vazão máxima a 3 °C','↓ Tende a cair','down'],['Pressão de sucção','Indeterminada sem solução do circuito','unknown']]},fan:{name:'Rotação reduzida',detail:'Menor rotação do ventilador reduz o ar que atravessa o condensador.',trends:[['Vazão de ar','↓ Diminui','down'],['Pressão de alta','↑ Tende a subir','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down']]},capillary:{name:'Restrição no capilar',detail:'Restrição reduz alimentação de refrigerante no evaporador.',trends:[['Vazão mássica do refrigerante','↓ Tende a diminuir','down'],['Pressão de evaporação','↓ Pode cair','down'],['Superaquecimento de sucção','↑ Pode aumentar','up'],['Capacidade frigorífica','↓ Geralmente diminui','down']]},compressor:{name:'Perda de eficiência',detail:'Desgaste interno reduz a capacidade de deslocamento efetivo e a compressão.',trends:[['Capacidade frigorífica','↓ Tende a cair','down'],['Pressão de sucção','↑ Pode subir','up'],['Pressão de condensação','↓ Pode cair','down'],['Temperatura de saída do chope','↑ Pode subir','up']]},suction:{name:'Perda de pressão na sucção',detail:'Maior resistência na sucção faz aumentar a diferença entre pressão do boiler e pressão de entrada do compressor.',trends:[['ΔP boiler − sucção','↑ Aumenta','up'],['Densidade na entrada do compressor','↓ Pode cair','down'],['Eficiência / capacidade frigorífica','↓ Pode diminuir','down'],['Retorno de óleo','Depende da geometria/velocidade; requer validação','unknown']]}};
-function render(){let val=Number($('severity').value),s=val/100,key=$('fault').value,c=cases[key];$('pct').textContent=val+'%';$('description').textContent=c.detail;$('ua').textContent=(key==='condenser'||key==='fan'?Math.round(100-65*s):100)+'%';
-$('condenserDirt').setAttribute('opacity',key==='condenser'?String(Math.min(.98,s)): '0');
-$('faultOverlayLabel').textContent=val===0?'Operação normal':c.name+' • '+val+'%';
-const fanRotation=document.querySelector('#fanBlades animateTransform');
-if(fanRotation){const duration=key==='fan'?(4/(Math.max(.07,1-.93*s))):4;fanRotation.setAttribute('dur',duration.toFixed(1)+'s');try{fanRotation.beginElement()}catch(e){}}
-const fanAir=key==='fan'?(100-90*s):(key==='condenser'?(100-75*s):100);
-const v=document.querySelector('#svg-ambient');if(v)v.textContent='24,2 °C';
-const pc=document.querySelector('#svg-pCond');if(pc)pc.textContent='198,7 psig';
-const ps=document.querySelector('#svg-pSuc');if(ps)ps.textContent='24,1 psig';
-const pd=document.querySelector('#svg-discharge');if(pd)pd.textContent='84,7 °C';
-const fl=document.querySelector('#svg-flow');if(fl)fl.textContent='59,4 L/h';
-const bo=document.querySelector('#svg-beerOut');if(bo)bo.textContent='2,98 °C';
-$('trends').innerHTML=c.trends.map(t=>'<div class="trend"><span>'+t[0]+'</span><strong class="'+(val===0?'unknown':t[2])+'">'+(val===0?'Referência':t[1])+'</strong></div>').join('');$('steps').innerHTML=val===0?'<li>Condição normal: equipamento sem falha inserida.</li>':'<li>Falha: '+c.name+' (intensidade didática de '+val+'%).</li><li>'+c.detail+'</li><li>Observe quais pressões e temperaturas tendem a responder.</li><li>Avalie o impacto na capacidade de extração e investigue a causa.</li>'}['severity','fault'].forEach(id=>$(id).addEventListener('input',render));$('reset').onclick=()=>{$('severity').value=0;$('fault').value='condenser';render()};$('reveal').onclick=()=>{$('explanation').hidden=!$('explanation').hidden};render();</script></body></html>
+</svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div></section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="liquid_no_close">Solenoide de líquido não fecha</option><option value="liquid_no_open">Solenoide de líquido não abre</option><option value="suction_no_open">Solenoide de sucção não abre</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small id="uaNote">Índice didático, não medição de UA</small></div><div class="metric"><small>Grandeza / efeito dominante</small><strong id="dominant">Referência</strong><small id="dominantNote">Sem falha ativa</small></div><div class="metric"><small>Lógica de controle</small><strong id="controlLogic">Normal</strong><small id="controlNote">Sem comutação indevida</small></div><div class="metric"><small>Proteção com maior risco</small><strong id="protectionRisk">Baixo</strong><small id="protectionNote">Sem risco relevante</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama continuam sendo os valores reais de referência do ensaio E038. Nesta página, o foco é didático: <b>mostrar a sequência de sintomas e proteções</b> quando uma falha é inserida.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? Qual proteção ou lógica elétrica tenderia a atuar? Relacione a falha com os sinais do circuito.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Selecione uma falha e observe a sequência didática proposta para interpretar sintomas, pressões, temperaturas e atuação das proteções.</div></div></aside></div></main><script>
+const $=id=>document.getElementById(id);
+const cases={
+  condenser:{
+    name:'Condensador obstruído',
+    detail:'Obstrução reduz a troca térmica e restringe a passagem de ar. A pressão de alta e a temperatura de descarga tendem a subir.',
+    status:(val,s)=>`Passagem de ar visual: ${Math.round(100-75*s)}%`,
+    ua:(val,s)=>`${Math.round(100-65*s)}%`,
+    dominant:'Alta pressão', dominantNote:'Condensação e descarga tendem a subir',
+    control:'Compressor em carga', controlNote:'Sem comutação anormal, porém trabalhando mais pesado',
+    protection:'Minipressostato de alta', protectionNote:'Quanto maior a obstrução, maior o risco de desarme',
+    trends:[['Vazão de ar','↓ Geralmente diminui','down'],['Pressão de condensação','↑ Aumenta','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down'],['Vazão máxima a 3 °C','↓ Tende a cair','down'],['Temperatura de saída do chope','↑ Tende a subir','up']],
+    steps:(val)=>[`Falha inserida: condensador obstruído (${val}%).`,`A troca térmica no condensador piora e a pressão de alta tende a subir.`,`A descarga do compressor esquenta mais e a capacidade efetiva cai.`,`Se o agravamento continuar, o minipressostato de alta pode atuar.`],
+    explanation:'Observe primeiro a piora da troca térmica do condensador. Depois, associe a elevação da condensação e da descarga à redução da capacidade frigorífica. Em estágio severo, a proteção de alta é a mais sensível.'
+  },
+  fan:{
+    name:'Ventilador com rotação reduzida',
+    detail:'Menor rotação do ventilador reduz o ar que atravessa o condensador e reproduz sintomas parecidos com condensador sujo.',
+    status:(val,s)=>`Rotação relativa do ventilador: ${Math.round(100-90*s)}%`,
+    ua:(val,s)=>`${Math.round(100-60*s)}%`,
+    dominant:'Ar insuficiente', dominantNote:'Queda da ventilação no condensador',
+    control:'Ventilador deficiente', controlNote:'Compressor permanece em carga, porém com pior rejeição de calor',
+    protection:'Minipressostato de alta', protectionNote:'Pode atuar se a pressão de alta subir demais',
+    trends:[['Vazão de ar','↓ Diminui','down'],['Pressão de alta','↑ Tende a subir','up'],['Temperatura de descarga','↑ Tende a subir','up'],['Capacidade frigorífica','↓ Tende a cair','down'],['Temperatura de saída do chope','↑ Tende a subir','up']],
+    steps:(val)=>[`Falha inserida: ventilador com rotação reduzida (${val}%).`,`Com menos ar no condensador, a rejeição de calor fica prejudicada.`,`A pressão de alta sobe e o sistema começa a perder desempenho.`,`Em condição severa, a proteção de alta pode desligar o compressor.`],
+    explanation:'A lógica física é semelhante à de condensador obstruído, mas a causa é a ventilação insuficiente. Vale comparar o aspecto do condensador com o comportamento do ventilador para diferenciar as hipóteses.'
+  },
+  liquid_no_close:{
+    name:'Solenoide de líquido não fecha',
+    detail:'A linha de líquido continua alimentando o boiler quando deveria interromper. A pressão do boiler tende a se equalizar com a pressão de condensação.',
+    status:(val,s)=>`Estado da solenoide de líquido: ${val===0?'normal':'cada vez mais travada aberta'}`,
+    ua:(val,s)=>'100%',
+    dominant:'Equalização indevida', dominantNote:'Boiler tende a aproximar-se da pressão de condensação',
+    control:'Pressostato de baixa ciclando', controlNote:'Liga/desliga rápido sem necessariamente haver extração de chope',
+    protection:'Pressostato de baixa', protectionNote:'Comutação rápida e repetitiva é o sintoma principal',
+    trends:[['Pressão do boiler','↑ Sobe e tende a equalizar com a condensação','up'],['ΔP condensação × boiler','↓ Tende a diminuir','down'],['Comando do pressostato de baixa','Cicla muito rápido','up'],['Compressor','Liga e desliga em sequência curta','up'],['Extração de chope','Pode não existir mesmo com o controle atuando','unknown']],
+    steps:(val)=>[`Falha inserida: solenoide de líquido não fecha (${val}%).`,`O boiler continua recebendo refrigerante mesmo fora da condição correta.`,`A pressão do boiler se aproxima da pressão de condensação e o controle perde estabilidade.`,`O pressostato de baixa passa a acionar e desacionar rapidamente, sem relação direta com a extração de chope.`],
+    explanation:'Essa é uma falha de comando/vedação. A grande pista para o aluno é o chaveamento rápido do pressostato de baixa, acompanhado da tendência de equalização entre boiler e condensação mesmo sem tiragem de chope.'
+  },
+  liquid_no_open:{
+    name:'Solenoide de líquido não abre',
+    detail:'A alimentação de líquido para o boiler fica bloqueada. O sistema passa a apresentar sintomas didáticos de entupimento / falta de alimentação.',
+    status:(val,s)=>`Estado da solenoide de líquido: ${val===0?'normal':'cada vez mais travada fechada'}`,
+    ua:(val,s)=>'100%',
+    dominant:'Falta de alimentação', dominantNote:'Boiler perde alimentação de líquido refrigerante',
+    control:'Sintoma de entupimento', controlNote:'A lógica de controle percebe perda de desempenho do circuito',
+    protection:'Minipressostato de alta', protectionNote:'Pode atuar e desligar o compressor conforme a severidade / comando',
+    trends:[['Alimentação de líquido ao boiler','↓ Tende a zerar','down'],['Sintoma percebido','Semelhante a entupimento','unknown'],['Capacidade frigorífica','↓ Cai fortemente','down'],['Temperatura de saída do chope','↑ Tende a subir','up'],['Minipressostato de alta','Pode atuar','up']],
+    steps:(val)=>[`Falha inserida: solenoide de líquido não abre (${val}%).`,`O boiler deixa de ser alimentado corretamente com refrigerante.`,`O comportamento percebido no campo lembra entupimento do circuito.`,`Se a condição persistir, o minipressostato de alta pode atuar e desligar o compressor.`],
+    explanation:'O aluno deve associar a falta de alimentação ao sumiço da capacidade frigorífica. Mesmo sem inventar valores, a sequência correta é: queda de alimentação → perda de capacidade → elevação da temperatura do chope → possível atuação de proteção.'
+  },
+  suction_no_open:{
+    name:'Solenoide de sucção não abre',
+    detail:'O retorno pela sucção fica bloqueado. O sistema tende a apresentar sintoma de bloqueio do circuito e instabilidade operacional.',
+    status:(val,s)=>`Estado da solenoide de sucção: ${val===0?'normal':'cada vez mais travada fechada'}`,
+    ua:(val,s)=>'100%',
+    dominant:'Bloqueio na sucção', dominantNote:'Retorno do boiler ao compressor fica comprometido',
+    control:'Sintoma de entupimento', controlNote:'O circuito perde continuidade e a máquina fica instável',
+    protection:'Minipressostato de alta', protectionNote:'Pode atuar e desligar o compressor',
+    trends:[['Retorno pela sucção','↓ Fica restringido / pode zerar','down'],['Sintoma percebido','Semelhante a entupimento','unknown'],['Capacidade frigorífica','↓ Cai','down'],['Temperatura de saída do chope','↑ Tende a subir','up'],['Minipressostato de alta','Pode atuar','up']],
+    steps:(val)=>[`Falha inserida: solenoide de sucção não abre (${val}%).`,`O retorno do refrigerante do boiler ao compressor fica bloqueado.`,`O sistema passa a se comportar como se houvesse um bloqueio importante no circuito.`,`Como consequência, pode ocorrer atuação do minipressostato de alta e desligamento do compressor.`],
+    explanation:'Aqui a leitura didática deve focar no bloqueio do retorno e na perda de continuidade do circuito. Para treinamento, trate essa falha como sintoma de entupimento severo, com risco de atuação da proteção de alta.'
+  },
+  capillary:{
+    name:'Restrição no capilar',
+    detail:'Restrição reduz a alimentação de refrigerante no boiler e produz sintomas próximos aos de entupimento.',
+    status:(val,s)=>`Grau ilustrativo de restrição no capilar: ${val}%`,
+    ua:(val,s)=>'100%',
+    dominant:'Restrição de fluxo', dominantNote:'Menos refrigerante atravessa o capilar',
+    control:'Sistema desbalanceado', controlNote:'Capacidade e estabilidade de operação caem',
+    protection:'Depende da severidade', protectionNote:'Proteções podem atuar conforme o restante do circuito',
+    trends:[['Vazão mássica do refrigerante','↓ Tende a diminuir','down'],['Pressão de evaporação','↓ Pode cair','down'],['Superaquecimento de sucção','↑ Pode aumentar','up'],['Capacidade frigorífica','↓ Geralmente diminui','down'],['Temperatura de saída do chope','↑ Pode subir','up']],
+    steps:(val)=>[`Falha inserida: restrição no capilar (${val}%).`,`A alimentação do boiler é reduzida pela restrição.`,`O sistema perde capacidade e a temperatura do chope tende a subir.`,`A leitura de pressões e superaquecimento ajuda a confirmar a hipótese.`],
+    explanation:'Essa falha é útil para comparar com a solenoide de líquido que não abre. Ambas lembram entupimento, mas a origem está em componentes diferentes do circuito.'
+  },
+  compressor:{
+    name:'Perda de eficiência do compressor',
+    detail:'Desgaste interno reduz a capacidade de deslocamento efetivo e a compressão.',
+    status:(val,s)=>`Perda relativa de eficiência do compressor: ${val}%`,
+    ua:(val,s)=>'100%',
+    dominant:'Compressor enfraquecido', dominantNote:'Menor capacidade de compressão e deslocamento',
+    control:'Opera sem estabilidade plena', controlNote:'A máquina trabalha, porém entrega menos refrigeração',
+    protection:'Baixo a moderado', protectionNote:'A falha é mais de desempenho do que de proteção imediata',
+    trends:[['Capacidade frigorífica','↓ Tende a cair','down'],['Pressão de sucção','↑ Pode subir','up'],['Pressão de condensação','↓ Pode cair','down'],['Temperatura de saída do chope','↑ Pode subir','up']],
+    steps:(val)=>[`Falha inserida: perda de eficiência do compressor (${val}%).`,`A compressão efetiva diminui e o circuito perde rendimento.`,`A máquina refrigera menos e a temperatura do chope tende a subir.`,`O diagnóstico depende de comparar pressões, capacidade e comportamento do compressor.`],
+    explanation:'Essa falha é diferente das obstruções: não é uma interrupção localizada do circuito, e sim uma perda global de capacidade do compressor.'
+  },
+  suction:{
+    name:'Perda de pressão na sucção / sifão',
+    detail:'Maior resistência na sucção aumenta a diferença entre pressão do boiler e pressão de entrada do compressor.',
+    status:(val,s)=>`Perda de carga relativa na sucção / sifão: ${val}%`,
+    ua:(val,s)=>'100%',
+    dominant:'ΔP boiler − sucção', dominantNote:'A diferença de pressão aumenta',
+    control:'Sistema perde rendimento', controlNote:'O compressor recebe vapor em pior condição de sucção',
+    protection:'Risco variável', protectionNote:'Depende da geometria, da carga térmica e do restante do circuito',
+    trends:[['ΔP boiler − sucção','↑ Aumenta','up'],['Densidade na entrada do compressor','↓ Pode cair','down'],['Eficiência / capacidade frigorífica','↓ Pode diminuir','down'],['Retorno de óleo','Requer validação conforme geometria e velocidade','unknown']],
+    steps:(val)=>[`Falha inserida: perda de pressão na sucção / sifão (${val}%).`,`A diferença entre a pressão do boiler e a pressão na entrada do compressor aumenta.`,`O compressor recebe vapor em pior condição e o sistema perde rendimento.`,`A análise do retorno de óleo e da geometria do sifão ajuda a confirmar a hipótese.`],
+    explanation:'Use esse modo para explicar por que o sifão e a sucção precisam ser analisados junto com retorno de óleo e perda de carga. Nem toda queda de desempenho vem do lado da alta pressão.'
+  }
+};
+const reference={ambient:'24,2 °C',pCond:'198,7 psig',pSuc:'24,1 psig',discharge:'84,7 °C',flow:'59,4 L/h',beerOut:'2,98 °C'};
+function setText(id,val){const el=$(id); if(el) el.textContent=val;}
+function render(){
+  const val=Number($('severity').value), s=val/100, key=$('fault').value, c=cases[key];
+  setText('pct', val+'%');
+  setText('description', c.detail);
+  setText('airlabel', c.status(val,s));
+  setText('ua', c.ua(val,s));
+  setText('dominant', val===0?'Referência':c.dominant);
+  setText('dominantNote', val===0?'Sem falha ativa':c.dominantNote);
+  setText('controlLogic', val===0?'Normal':c.control);
+  setText('controlNote', val===0?'Sem comutação indevida':c.controlNote);
+  setText('protectionRisk', val===0?'Baixo':c.protection);
+  setText('protectionNote', val===0?'Sem risco relevante':c.protectionNote);
+  $('condenserDirt').setAttribute('opacity',key==='condenser'?String(Math.min(.98,s)): '0');
+  $('liquidSolenoidAlert').setAttribute('opacity', (val>0 && (key==='liquid_no_close' || key==='liquid_no_open')) ? String(0.22 + 0.48*s) : '0');
+  $('suctionSolenoidAlert').setAttribute('opacity', (val>0 && key==='suction_no_open') ? String(0.22 + 0.48*s) : '0');
+  $('faultOverlayLabel').textContent=val===0?'Operação normal':c.name+' • '+val+'%';
+  const fanRotation=document.querySelector('#fanBlades animateTransform');
+  if(fanRotation){
+    let duration=4;
+    if(key==='fan') duration=4/(Math.max(.07,1-.93*s));
+    fanRotation.setAttribute('dur',duration.toFixed(1)+'s');
+    try{fanRotation.beginElement()}catch(e){}
+  }
+  setText('svg-ambient', reference.ambient);
+  setText('svg-pCond', reference.pCond);
+  setText('svg-pSuc', reference.pSuc);
+  setText('svg-discharge', reference.discharge);
+  setText('svg-flow', reference.flow);
+  setText('svg-beerOut', reference.beerOut);
+  $('trends').innerHTML=c.trends.map(t=>'<div class="trend"><span>'+t[0]+'</span><strong class="'+(val===0?'unknown':t[2])+'">'+(val===0?'Referência':t[1])+'</strong></div>').join('');
+  const steps=val===0
+    ? ['Condição normal: equipamento sem falha inserida.','As leituras exibidas são os valores de referência do ensaio E038.','Insira uma falha para observar a sequência física e de controle.']
+    : c.steps(val);
+  $('steps').innerHTML=steps.map(item=>'<li>'+item+'</li>').join('');
+  $('explanation').textContent=val===0 ? 'Selecione uma falha e observe a sequência didática proposta para interpretar sintomas, pressões, temperaturas e atuação das proteções.' : c.explanation;
+}
+['severity','fault'].forEach(id=>$(id).addEventListener('input',render));
+$('reset').onclick=()=>{$('severity').value=0;$('fault').value='condenser';render()};
+$('reveal').onclick=()=>{$('explanation').hidden=!$('explanation').hidden};
+render();
+</script></body></html>
