@@ -1,8 +1,43 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TreinaMEMO • Laboratório de refrigeração</title><meta name="theme-color" content="#061321"><style>
 :root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#e8f5ff;background:#061321;--panel:#102738;--line:#294658;--muted:#a7bfca;--teal:#43d2b3;--red:#f27c78;--blue:#55c4ff;--gold:#fbc264}*{box-sizing:border-box}body{margin:0}header{background:#071b2b;border-bottom:1px solid #254353;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}header strong{font-size:19px;letter-spacing:.5px}header strong::first-letter{color:#ef4e67}header small{display:block;color:#9ab8c7;font-size:10px;letter-spacing:1.4px}a{color:#76e7d3}.wrap{max-width:1440px;padding:18px;margin:auto}h1{font-size:25px;margin:7px 0}h2{font-size:16px;margin:0 0 8px}p{color:var(--muted);line-height:1.5}button,input,select{font:inherit}button,.btn{background:#174359;border:1px solid #40667a;color:#eaf8ff;border-radius:9px;padding:10px 13px;cursor:pointer}button:hover{border-color:var(--teal)}button.primary{background:#0a856f;border-color:#1eaf99;color:white}button.active{background:#146d62}.panel{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:15px;min-width:0}.tag{font-size:11px;border:1px solid #42748a;padding:5px 9px;border-radius:24px;color:#aee9df;white-space:nowrap}.hero{display:flex;justify-content:space-between;align-items:start;gap:10px;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.85fr);gap:14px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.control{display:flex;flex-direction:column;gap:5px;min-width:0}.control label{font-size:12px;color:#c1d6e0}.control input,.control select{border:1px solid #3b6278;background:#081f30;border-radius:8px;color:white;padding:10px;width:100%;min-width:0}.control small{color:#88a7b6;font-size:10px}.mode{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}.mode button{flex:1}.keycards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}.metric{background:#102a3d;border:1px solid #365369;border-radius:12px;padding:12px;min-width:0}.metric small{color:#b2c6d2;display:block;font-size:11px}.metric b{display:block;font-size:23px;margin:5px 0;font-variant-numeric:tabular-nums}.delta{font-size:12px;font-weight:700;color:#e7d69a}.delta.up{color:#ffb1a8}.delta.down{color:#7cd8ec}.delta.same{color:#a8bfcb}.diagram{overflow-x:auto;border-radius:10px;background:#071828;border:1px solid #294759}.diagram svg{display:block;min-width:810px;width:100%;height:auto}.readgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.reading{background:#0b2335;border:1px solid #31526a;padding:10px;border-radius:9px;min-width:0}.reading .name{font-size:11px;color:#a8c2d0}.reading b{display:block;margin:5px 0;font-size:17px;font-variant-numeric:tabular-nums}.reading .sub{font-size:11px;color:#8fb2c3}.sectiontitle{font-weight:700;margin:17px 0 9px;display:flex;justify-content:space-between}.notice{background:#142f40;border:1px solid #487082;border-radius:10px;padding:10px;font-size:12px;color:#c0d6e0;line-height:1.6}.warning{border-color:#856539;color:#f8d2a0}.legend{display:flex;gap:12px;flex-wrap:wrap;color:#bed5df;font-size:11px;margin:10px 0}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}.bottom{margin-top:14px}.monitor .editor,.monitor .intro,.monitor .secondary{display:none}.monitor .layout{grid-template-columns:1fr}.monitor .diagram svg{min-width:810px}.monitor .readgrid{grid-template-columns:repeat(5,minmax(0,1fr))}.monitor .wrap{max-width:1800px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.tiny{font-size:11px;color:var(--muted)}.no-data{color:#e6af73}.status{font-size:12px;color:#91d9cc}table{width:100%;border-collapse:collapse}td,th{padding:7px;border-bottom:1px solid #26475b;text-align:right;font-size:12px}td:first-child,th:first-child{text-align:left}.hide{display:none!important}@media(max-width:970px){.layout,.columns{grid-template-columns:1fr}.readgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.keycards{grid-template-columns:repeat(2,minmax(0,1fr))}.monitor .readgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:400px){.controls{grid-template-columns:1fr}.metric b{font-size:19px}}
-</style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V14 • Diagnóstico de falhas</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
+
+[hidden]{display:none!important}
+.visual-modes{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.visual-mode,.boiler-part{background:#102d40;color:#d2edf6;border:1px solid #426780;border-radius:9px;padding:10px 12px;font:inherit;font-size:12px;cursor:pointer}
+.visual-mode.active,.boiler-part.active{background:#127b83;color:white;border-color:#5cd4d8}
+.boiler-reference{display:flex;flex-direction:column;align-items:center;border:1px solid #294759;border-radius:12px;background:#040508;padding:12px 12px 16px;overflow:hidden}
+.boiler-art{position:relative;width:100%;max-width:710px;margin:auto;}
+.boiler-art img{display:block;width:100%;height:auto;object-fit:contain;user-select:none}
+.focus-ring{display:none;position:absolute;border:3px solid #8ef8ff;border-radius:50%;box-shadow:0 0 0 6px rgba(95,226,255,.11),0 0 20px #3dd4f8;pointer-events:none;animation:focusBreathe 2.1s ease-in-out infinite}
+@keyframes focusBreathe{50%{box-shadow:0 0 0 10px rgba(95,226,255,.16),0 0 28px #3dd4f8}}
+.boiler-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin:10px 0 8px;max-width:900px}
+.boiler-description{color:#e5f3fa;font-size:13px;line-height:1.6;text-align:center;margin:4px 6px;max-width:760px}
+.boiler-warning{color:#a4bcc9;font-size:11px;line-height:1.5;text-align:center;margin:8px 6px 0;max-width:760px}
+.circuit-hidden{display:none!important}
+@media(max-width:530px){.visual-mode,.boiler-part{padding:8px 10px;font-size:11px}.boiler-reference{padding:6px}.boiler-description{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.focus-ring{animation:none}}
+</style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V17 • Boiler pela referência original</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
 <div class="notice warning intro">Prévia calibrada nos dois ensaios de fio de líquido. A comparação é experimental e local: sem mapa do compressor, sem identificação independente do efeito da vazão sobre as pressões, sem previsão validada fora da faixa observada. Os valores medidos nunca são sobrescritos.</div>
-<div class="layout"><section class="panel"><div class="hero"><div><h2>Circuito instrumentado — expansão direta</h2><span class="tiny">Condensador superior • capilar à esquerda • boiler central • compressor à direita</span></div><span class="tag" id="statusModel">Tendência experimental</span></div><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+<div class="layout"><section class="panel"><div class="hero"><div><h2>Circuito instrumentado — expansão direta</h2><span class="tiny">Condensador superior • capilar à esquerda • boiler central • compressor à direita</span></div><span class="tag" id="statusModel">Tendência experimental</span></div><div class="visual-modes" role="group" aria-label="Visualização do equipamento">
+<button class="visual-mode active" id="viewBoiler" type="button" aria-pressed="true">Boiler — imagem de referência</button>
+<button class="visual-mode" id="viewCircuit" type="button" aria-pressed="false">Circuito frigorífico esquemático</button>
+</div>
+<div id="boilerReference" class="boiler-reference">
+  <div class="boiler-art">
+    <img src="boiler-referencia.jpeg" alt="Imagem de referência enviada: boiler cortado, serpentina dourada de múltiplas espiras horizontais e sifão azul em U, com líquido azul no reservatório" draggable="false"/>
+    <div class="focus-ring" id="boilerFocus" aria-hidden="true"></div>
+  </div>
+  <div class="boiler-controls" aria-label="Identificação dos componentes">
+    <button type="button" class="boiler-part active" data-focus="all">Visão completa</button>
+    <button type="button" class="boiler-part" data-focus="coil">Serpentina do chope</button>
+    <button type="button" class="boiler-part" data-focus="siphon">Sifão de sucção</button>
+    <button type="button" class="boiler-part" data-focus="liquid">Refrigerante líquido</button>
+    <button type="button" class="boiler-part" data-focus="vapor">Zona de vapor</button>
+  </div>
+  <p class="boiler-description" id="boilerDescription">Imagem fornecida por você, preservada sem redesenho. Selecione um componente para destacá-lo; as explicações ficam fora da imagem.</p>
+  <p class="boiler-warning">Referência visual, não desenho de fabricação. As cores e as setas do material original não devem ser usadas isoladamente para determinar o sentido real de cada conexão.</p>
+</div>
+<div class="diagram circuit-hidden" id="circuitDiagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -15,7 +50,7 @@
 </defs>
 <rect width="1280" height="760" fill="#071522"/>
 <text x="30" y="30" font-size="14" fill="#95c7d5" font-weight="bold">EXPANSÃO DIRETA · R134a · CIRCUITO INUNDADO</text>
-<text x="30" y="51" font-size="12" fill="#83a7bb">Traçado inspirado no vídeo MEMO e na foto do boiler real enviada · serpentina do chope mais fiel</text>
+<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler redesenhado para se aproximar da referência enviada · visual limpo com callouts externos</text>
 <!-- Complete pipe routes are separate and preserve physical topology. -->
 <!-- Compressor discharge (right to upper condenser right, then left) -->
 <path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#682a3e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
@@ -58,64 +93,105 @@
 <g transform="translate(183 420)"><path d="M0 0 V84" stroke="#65d7ff" stroke-width="4"/><path d="M-9 5L9 12L-9 19L9 26L-9 33L9 40L-9 47L9 54L-9 61L9 68L-9 75" fill="none" stroke="#b6def2" stroke-width="2"/></g>
 <text x="124" y="467" fill="#def4ff" font-size="14" text-anchor="end">Capilar</text>
 <!-- flooded boiler body -->
+<g id="boilerAssembly">
 <rect x="535" y="450" width="217" height="249" rx="23" fill="url(#boilerMetal)" stroke="#d4ecf5" stroke-width="5"/>
 <rect x="547" y="465" width="193" height="219" rx="12" fill="#102b44"/>
-<rect x="555" y="474" width="177" height="30" rx="8" fill="#173853" opacity=".95"/>
-<text x="644" y="494" text-anchor="middle" fill="#d9eef8" font-size="14" font-weight="bold">TAMPA DO BOILER</text>
+<rect x="555" y="474" width="177" height="26" rx="8" fill="#173853" opacity=".95"/>
 <g clip-path="url(#boilerClip)">
- <rect x="547" y="524" width="193" height="160" fill="url(#refrigWater)"/>
- <path d="M545 526 Q568 515 590 526 T637 526 T683 526 T740 526" stroke="#65eaff" stroke-width="4" fill="none" class="waveBoiler"/>
- <!-- região de ebulição do refrigerante, concentrada perto da entrada do capilar -->
- <ellipse cx="594" cy="603" rx="52" ry="40" fill="#39d6ff" opacity=".13" filter="url(#gblue)"/>
- <ellipse cx="597" cy="602" rx="31" ry="23" fill="#67f1ff" opacity=".22"/>
- <g fill="#b3fbff" opacity=".85">
-  <circle cx="576" cy="654" r="3.5" class="bubble b1"/><circle cx="586" cy="635" r="3" class="bubble b2"/><circle cx="595" cy="648" r="5" class="bubble b3"/><circle cx="603" cy="624" r="3" class="bubble b4"/><circle cx="613" cy="645" r="4" class="bubble b5"/><circle cx="621" cy="631" r="3" class="bubble b6"/>
-  <circle cx="582" cy="618" r="3" class="bubble b1"/><circle cx="602" cy="609" r="2.7" class="bubble b2"/>
- </g>
- <!-- sifão de sucção para captar óleo no fundo do boiler -->
- <path d="M705 546 V626 Q705 648 687 648 H676 Q659 648 659 631 V573" fill="none" stroke="#0b3f67" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
- <path d="M705 546 V626 Q705 648 687 648 H676 Q659 648 659 631 V573" fill="none" stroke="#88dfff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
- <text x="636" y="669" fill="#e8f9ff" font-size="11.5" font-weight="bold">SIFÃO DE SUCÇÃO / RETORNO DE ÓLEO</text>
- <!-- serpentina do chope inspirada no boiler real: múltiplas passagens horizontais -->
- <g id="serpentinaChope" opacity=".98">
-  <!-- coletores e conexões -->
-  <path d="M548 601 H571 V530" fill="none" stroke="#8d4d1f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M548 601 H571 V530" fill="none" stroke="#ffd18f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M571 530 H690 Q706 530 706 545 Q706 560 690 560 H586 Q570 560 570 575 Q570 590 586 590 H690 Q706 590 706 605 Q706 620 690 620 H586 Q570 620 570 635 Q570 650 586 650 H690" fill="none" stroke="#8d4d1f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M571 530 H690 Q706 530 706 545 Q706 560 690 560 H586 Q570 560 570 575 Q570 590 586 590 H690 Q706 590 706 605 Q706 620 690 620 H586 Q570 620 570 635 Q570 650 586 650 H690" fill="none" stroke="#ffd18f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M690 650 Q704 650 704 662 Q704 674 692 674 H626 Q614 674 614 686" fill="none" stroke="#8d4d1f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M690 650 Q704 650 704 662 Q704 674 692 674 H626 Q614 674 614 686" fill="none" stroke="#ffd18f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- brilho interno da serpentina -->
-  <path d="M571 530 H690 Q706 530 706 545 Q706 560 690 560 H586 Q570 560 570 575 Q570 590 586 590 H690 Q706 590 706 605 Q706 620 690 620 H586 Q570 620 570 635 Q570 650 586 650 H690" fill="none" stroke="#fff2bf" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
-  <path d="M690 650 Q704 650 704 662 Q704 674 692 674 H626 Q614 674 614 686" fill="none" stroke="#fff2bf" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
-  <!-- suportes laterais da serpentina -->
-  <g fill="#8094a7" stroke="#c9d9e4" stroke-width="2" opacity=".95">
-   <circle cx="565" cy="532" r="5"/><circle cx="565" cy="560" r="5"/><circle cx="565" cy="590" r="5"/><circle cx="565" cy="620" r="5"/><circle cx="565" cy="650" r="5"/>
-   <circle cx="711" cy="545" r="5"/><circle cx="711" cy="575" r="5"/><circle cx="711" cy="605" r="5"/><circle cx="711" cy="635" r="5"/><circle cx="708" cy="664" r="5"/>
+  <!-- vapor zone -->
+  <rect x="547" y="465" width="193" height="90" fill="#1c3a56" opacity=".35"/>
+  <!-- liquid refrigerant -->
+  <rect x="547" y="555" width="193" height="129" fill="url(#refrigWater)"/>
+  <path d="M548 555 Q575 545 602 555 T654 555 T707 555 T740 555" stroke="#70ecff" stroke-width="4" fill="none" class="waveBoiler"/>
+  <!-- bubbles in liquid -->
+  <g fill="#b2fbff" opacity=".88">
+   <circle cx="569" cy="642" r="4" class="bubble b1"/><circle cx="582" cy="622" r="3.2" class="bubble b2"/><circle cx="596" cy="635" r="4.8" class="bubble b3"/>
+   <circle cx="612" cy="615" r="3.1" class="bubble b4"/><circle cx="627" cy="640" r="4.1" class="bubble b5"/><circle cx="643" cy="624" r="3" class="bubble b6"/>
+   <circle cx="702" cy="650" r="3.3" class="bubble b1"/><circle cx="718" cy="631" r="3" class="bubble b2"/>
   </g>
-  <text x="610" y="515" fill="#fff3dd" font-size="14" font-weight="bold">SERPENTINA DO CHOPE</text>
- </g>
- <!-- indicador de entrada do refrigerante após capilar -->
- <circle cx="549" cy="553" r="12" fill="#1cb8ff" stroke="#d8fbff" stroke-width="3"/>
- <path d="M559 553 H583" stroke="#d8fbff" stroke-width="3" marker-end="url(#arrowBlue)"/>
- <text x="430" y="545" fill="#c6f5ff" font-size="13" font-weight="bold">ENTRADA DO REFRIGERANTE (após capilar)</text>
- <!-- indicador de saída da sucção -->
- <circle cx="737" cy="550" r="12" fill="#1cb8ff" stroke="#d8fbff" stroke-width="3"/>
- <path d="M693 579 H718" stroke="#d8fbff" stroke-width="3" marker-end="url(#arrowBlue)"/>
- <text x="756" y="578" fill="#c6f5ff" font-size="13" font-weight="bold">SAÍDA DO REFRIGERANTE / SUCÇÃO</text>
+  <!-- side supports like the reference -->
+  <g fill="#778b9e" stroke="#d6e5ef" stroke-width="2.4" opacity=".96">
+    <circle cx="571" cy="592" r="8"/><circle cx="571" cy="620" r="8"/><circle cx="571" cy="648" r="8"/><circle cx="571" cy="676" r="8"/>
+    <circle cx="716" cy="592" r="8"/><circle cx="716" cy="620" r="8"/><circle cx="716" cy="648" r="8"/><circle cx="716" cy="676" r="8"/>
+  </g>
+  <!-- capillary / refrigerant inlet descending at left -->
+  <path d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#7c2938" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#ff3f54" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="vaporMove" d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#ffd6db" stroke-width="3" stroke-dasharray="6 18" stroke-linecap="round"/>
+  <!-- suction siphon, mostly submerged, tip in vapor zone -->
+  <path d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#0b3f67" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#8fe3ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="lowMove" d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#e1fbff" stroke-width="3.5" stroke-dasharray="7 20" stroke-linecap="round"/>
+  <circle cx="602" cy="524" r="4.5" fill="#dffcff"/>
+  <!-- beer coil similar to the reference -->
+  <g id="serpentinaChope" opacity=".99">
+    <!-- inlet on left -->
+    <path d="M548 601 H586" fill="none" stroke="#8d4d1f" stroke-width="18" stroke-linecap="round"/>
+    <path d="M548 601 H586" fill="none" stroke="#ffd18f" stroke-width="7" stroke-linecap="round"/>
+    <path class="beerMove" d="M548 601 H586" fill="none" stroke="#fff4bf" stroke-width="3.2" stroke-dasharray="6 20"/>
+    <!-- multi-pass coil -->
+    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#87461a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#ffcf39" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#fff6bf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+    <!-- exit downpipe -->
+    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#87461a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#ffcf39" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#fff6bf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+  </g>
 </g>
 <rect x="532" y="444" width="222" height="15" rx="6" fill="#acc8d7" opacity=".8"/>
-<text x="644" y="718" text-anchor="middle" fill="#e4f5fd" font-size="19" font-weight="bold">BOILER / EVAPORADOR INUNDADO</text>
-<!-- beer route: inlet from left, crosses heat exchanger, returns on right, drops to tap -->
+<text x="644" y="718" text-anchor="middle" fill="#e4f5fd" font-size="18" font-weight="bold">BOILER / EVAPORADOR INUNDADO</text>
+<!-- beer route integrated with bottom exit -->
 <path d="M300 601H548" stroke="#a65d25" stroke-width="16" fill="none" stroke-linecap="round"/>
 <path d="M300 601H548" stroke="#f3c886" stroke-width="7" fill="none" stroke-linecap="round"/>
 <path class="beerMove" d="M300 601H548" stroke="#fff4bf" stroke-width="3.5" stroke-dasharray="7 25" fill="none"/>
-<path d="M614 686 V701 H754 V609 H803 V684 H855" fill="none" stroke="#a65d25" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M614 686 V701 H754 V609 H803 V684 H855" fill="none" stroke="#f3c886" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-<path class="beerMove" d="M614 686 V701 H754 V609 H803 V684 H855" fill="none" stroke="#fff4bf" stroke-width="3.5" stroke-dasharray="7 25"/>
+<path d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#a65d25" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#f3c886" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="beerMove" d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#fff4bf" stroke-width="3.5" stroke-dasharray="7 25"/>
 <rect x="294" y="587" width="31" height="27" rx="5" fill="#c17b38" stroke="#ffdfad" stroke-width="3"/>
 <rect x="839" y="678" width="39" height="22" rx="5" fill="#bb823d" stroke="#ffe1ad" stroke-width="3"/>
-<text x="327" y="635" fill="#ffdba8" font-size="14" font-weight="bold">CHOPE ENTRADA →</text><text x="822" y="731" fill="#ffdba8" font-size="14" text-anchor="middle" font-weight="bold">SAÍDA DO CHOPE</text>
+<text x="328" y="637" fill="#ffdba8" font-size="13" font-weight="bold">CHOPE ENTRADA</text>
+<text x="818" y="730" fill="#ffdba8" font-size="13" text-anchor="middle" font-weight="bold">SAÍDA DO CHOPE</text>
+<!-- external callouts to keep the boiler clean -->
+<g font-family="Inter,system-ui,sans-serif">
+  <g>
+    <path d="M618 542 L500 520" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
+    <rect x="344" y="498" width="152" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
+    <text x="420" y="515" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">ENTRADA DO REFRIGERANTE</text>
+    <text x="420" y="531" text-anchor="middle" fill="#b7dceb" font-size="10.8">pós-capilar • entra no boiler</text>
+  </g>
+  <g>
+    <path d="M605 524 L486 466" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
+    <rect x="324" y="438" width="158" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
+    <text x="403" y="455" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">PONTA DO SIFÃO</text>
+    <text x="403" y="471" text-anchor="middle" fill="#b7dceb" font-size="10.8">capta vapor / gás</text>
+  </g>
+  <g>
+    <path d="M665 618 L808 618" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
+    <rect x="814" y="598" width="154" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
+    <text x="891" y="615" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">CORPO DO SIFÃO</text>
+    <text x="891" y="631" text-anchor="middle" fill="#b7dceb" font-size="10.8">submerso no líquido</text>
+  </g>
+  <g>
+    <path d="M700 502 L834 472" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
+    <rect x="840" y="450" width="148" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
+    <text x="914" y="467" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">SAÍDA / SUCÇÃO</text>
+    <text x="914" y="483" text-anchor="middle" fill="#b7dceb" font-size="10.8">retorno ao compressor</text>
+  </g>
+  <g>
+    <path d="M630 555 L474 575" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
+    <rect x="302" y="554" width="166" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
+    <text x="385" y="571" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">NÍVEL DO LÍQUIDO</text>
+    <text x="385" y="587" text-anchor="middle" fill="#b7dceb" font-size="10.8">refrigerante no boiler</text>
+  </g>
+  <g>
+    <path d="M636 653 L813 682" stroke="#ffe7b0" stroke-width="2.5" fill="none"/>
+    <rect x="819" y="662" width="160" height="42" rx="8" fill="#2a1e09" stroke="#ffd38a" stroke-width="2" opacity=".96"/>
+    <text x="899" y="679" text-anchor="middle" fill="#fff1ce" font-size="11.5" font-weight="700">SERPENTINA DO CHOPE</text>
+    <text x="899" y="695" text-anchor="middle" fill="#f8dca4" font-size="10.8">passagens horizontais</text>
+  </g>
+</g>
+</g>
 <!-- suction solenoid (near compressor, as reference) -->
 <g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
 <text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
@@ -124,21 +200,204 @@
 <text x="1037" y="489" text-anchor="middle" font-size="16" fill="#eaf6ff" font-weight="bold">COMPRESSOR</text>
 <!-- Static sensor names are kept separated from readings: 6 live readout ids must exist -->
 <g transform="translate(26 73)" class="readout"><rect width="157" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Ambiente</text><text id="svg-ambient" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(884 75)" class="readout"><rect width="185" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Condensação</text><text id="svg-pCond" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 253)" class="readout"><rect width="174" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Descarga</text><text id="svg-discharge" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 514)" class="readout"><rect width="170" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Sucção</text><text id="svg-pSuc" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(26 625)" class="readout"><rect width="166" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Vazão de chope</text><text id="svg-flow" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1060 637)" class="readout"><rect width="186" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Saída do chope</text><text id="svg-beerOut" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g fill="#bfd3de" font-size="12"><text x="384" y="151">Líquido · alta pressão</text><text x="820" y="150">Vapor · alta pressão</text><text x="251" y="534">Baixa pressão após expansão</text><text x="774" y="574">Sucção · baixa pressão</text></g>
-</svg></div><div class="legend"><span><i class="dot" style="background:#ef646b"></i>Gás de alta / descarga</span><span><i class="dot" style="background:#e7b04f"></i>Líquido de alta</span><span><i class="dot" style="background:#35b8fa"></i>Baixa pressão / sucção</span><span><i class="dot" style="background:#33d5b3"></i>Chope</span></div><div class="notice">A animação diferencia descarga, líquido de alta, expansão, sucção e chope. O boiler possui ebulição animada localizada. É um desenho esquemático para treinamento, não um P&amp;ID de fabricação; confirme a posição exata de sensores e válvulas com o projeto real.</div></section>
-<aside class="panel editor"><h2>Configurar cenário</h2><div class="control"><label>Ensaio usado como referência</label><select id="reference"><option value="E038">E038 • 24 °C • 59,40 L/h</option><option value="E030">E030 • 32 °C • 37,08 L/h</option><option value="imported">Importado da biblioteca (quando disponível)</option></select></div><div class="mode"><button data-mode="target" class="active" type="button">Saída fixa • calcular vazão</button><button data-mode="flow" type="button">Vazão fixa • calcular saída</button></div><div class="controls"><div class="control"><label for="ambient">Temperatura ambiente (°C)</label><input type="number" step="0.1" id="ambient"></div><div class="control"><label for="beerIn">Entrada do chope (°C)</label><input type="number" step="0.1" id="beerIn"></div><div class="control" id="targetbox"><label for="target">Saída desejada (°C)</label><input type="number" step="0.1" id="target" value="3"></div><div class="control" id="flowbox"><label for="flow">Vazão imposta (L/h)</label><input type="number" step="0.1" id="flow" value="59.4"></div></div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
-<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Temperaturas e pressões são baseadas em médias de E038/E030, com interpolação conjunta em função do ambiente. A leitura não representa calibração independente da vazão.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V12 • Protótipo de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
+</svg></div><div class="legend"><span><i class="dot" style="background:#ef646b"></i>Gás de alta / descarga</span><span><i class="dot" style="background:#e7b04f"></i>Líquido de alta</span><span><i class="dot" style="background:#35b8fa"></i>Baixa pressão / sucção</span><span><i class="dot" style="background:#33d5b3"></i>Chope</span></div><div class="notice">O circuito esquemático (na segunda aba) diferencia descarga, líquido de alta, expansão, sucção e chope. O boiler possui ebulição animada localizada. É um desenho esquemático para treinamento, não um P&amp;ID de fabricação; confirme a posição exata de sensores e válvulas com o projeto real.</div></section>
+<aside class="panel editor"><h2>Configurar cenário</h2><div class="control"><label>Ensaio usado como referência</label><select id="reference"><option value="E038">E038 • 24 °C • 59,40 L/h</option><option value="E030">E030 • 32 °C • 37,08 L/h</option><option value="imported">Importado da biblioteca (quando disponível)</option></select></div><div class="mode"><button data-mode="target" class="active" type="button">Saída fixa • calcular vazão</button><button data-mode="flow" type="button">Vazão fixa • calcular saída</button></div><div class="controls"><div class="control"><label for="ambient">Temperatura ambiente (°C)</label><input type="number" step="0.1" id="ambient"></div><div class="control"><label for="beerIn">Entrada do chope (°C)</label><input type="number" step="0.1" id="beerIn"></div><div class="control" id="targetbox"><label for="target">Saída desejada (°C)</label><input type="number" step="0.1" id="target" value="3"></div><div class="control" id="flowbox"><label for="flow">Vazão imposta (L/h)</label><input type="number" step="0.1" id="flow" value="59.4"></div></div><div class="controls"><div class="control"><label for="pBoilerSet">Pressão do boiler (psig)</label><input type="number" step="0.1" id="pBoilerSet"></div><div class="control"><label for="pSucSet">Pressão de sucção (psig)</label><input type="number" step="0.1" id="pSucSet"></div><div class="control"><label for="deltaPSucBoiler">ΔP boiler − sucção (psi)</label><input type="number" step="0.1" id="deltaPSucBoiler" readonly></div><div class="control"><label for="fault">Falha simulada</label><select id="fault"><option value="none">Nenhuma</option><option value="condObstruction">Condensador obstruído</option><option value="lowDelta">Baixa diferença entre pressão do boiler e sucção</option><option value="highSuctionDrop">Perda de pressão na linha de sucção</option></select></div></div><div class="controls"><div class="control" style="grid-column:1/-1"><label for="faultSeverity">Intensidade da falha (%)</label><input type="range" min="0" max="100" step="5" id="faultSeverity" value="0"><div class="tiny">Intensidade atual: <span id="faultSeverityLabel">0%</span></div></div></div><div id="deltaInfo" class="notice" style="margin-top:12px">A diferença entre pressão do boiler e pressão de sucção influencia o arraste de vapor, o retorno de óleo e a estabilidade do evaporador.</div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
+<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Temperaturas e pressões são baseadas em médias de E038/E030, com interpolação conjunta em função do ambiente. A leitura não representa calibração independente da vazão.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V17 • Protótipo de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
 <style>@keyframes drift{to{stroke-dashoffset:-70}}.pulse{animation:drift 2.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
 @keyframes flowGas{to{stroke-dashoffset: -116}}@keyframes flowLiquid{to{stroke-dashoffset: 116}}@keyframes flowSuction{to{stroke-dashoffset:-112}}@keyframes flowBeer{to{stroke-dashoffset:-96}}@keyframes boilLift{0%{transform:translateY(0);opacity:.1}15%{opacity:.75}85%{opacity:.8}100%{transform:translateY(-125px);opacity:0}}@keyframes surfaceWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes strokePump{0%,100%{opacity:.6}50%{opacity:1}}
 .diagram .vaporMove{animation:flowGas 2.3s linear infinite}.diagram .liquidMove{animation:flowLiquid 2.9s linear infinite}.diagram .lowMove{animation:flowSuction 2.4s linear infinite}.diagram .beerMove{animation:flowBeer 3.1s linear infinite}.diagram .bubble{animation:boilLift 3.1s linear infinite;transform-box:fill-box;transform-origin:center}.diagram .b2{animation-delay:-1.2s}.diagram .b3{animation-delay:-2.3s}.diagram .b4{animation-delay:-.7s}.diagram .b5{animation-delay:-1.8s}.diagram .b6{animation-delay:-2.7s}.diagram .waveBoiler{animation:surfaceWave 2s ease-in-out infinite}.diagram .compressPulse{animation:strokePump .42s linear infinite}.diagram .readout text{font-family:system-ui,sans-serif}
 @media(prefers-reduced-motion:reduce){.diagram .vaporMove,.diagram .liquidMove,.diagram .lowMove,.diagram .beerMove,.diagram .bubble,.diagram .waveBoiler,.diagram .compressPulse{animation:none}}
 </style>
 <script>
-'use strict';const EXAMPLES=[{"id": "E038", "flow": 59.4, "label": "1325-E038", "source": "Média da aba Todos os dados; vazão do ensaio", "ambient": 24.24702, "discharge": 84.71789, "suction": 5.7448, "oil": 54.8638, "dome": 54.82067, "condIn": 83.95312, "condMid": 51.32871, "condOut": 40.99071, "evapOut": 8.17975, "pCond": 198.6699, "satCondSheet": 42.98821, "pSuc": 24.09154, "satEvapSheet": -17.53592, "pBoiler": 33.04577, "subcoolSheet": 1.99778, "superheatSheet": 23.27947, "beerIn": 24.0724, "beerOut": 2.98044, "airIn": 44.91484, "airOut": 24.2, "power": 0.83311}, {"id": "E030", "flow": 37.08, "label": "1325-E030", "source": "Média da aba Todos os dados; vazão do ensaio", "ambient": 32.14702, "discharge": 89.69404, "suction": 3.55798, "oil": 60.68183, "dome": 59.72621, "condIn": 88.97739, "condMid": 57.36311, "condOut": 49.72968, "evapOut": 9.19598, "pCond": 229.86408, "satCondSheet": 60.28488, "pSuc": 24.0, "satEvapSheet": -2.4, "pBoiler": 32.35506, "subcoolSheet": 10.55492, "superheatSheet": 5.95784, "beerIn": 32.00985, "beerOut": 3.03343, "airIn": 32.05908, "airOut": 51.34674, "power": 0.0}];const $=id=>document.getElementById(id);const KEYS=[['discharge','Descarga do compressor','°C'],['suction','Sucção do compressor','°C'],['oil','Óleo do compressor','°C'],['dome','Domo do compressor','°C'],['condIn','Entrada do condensador','°C'],['condMid','Meio do condensador','°C'],['condOut','Saída do condensador','°C'],['airIn','Entrada de ar do condensador','°C'],['airOut','Saída de ar do condensador','°C'],['evapOut','Saída do evaporador','°C'],['pCond','Pressão de condensação','psig'],['pSuc','Pressão de sucção','psig'],['pBoiler','Pressão do boiler','psig'],['satCondSheet','T. saturação (alta) — planilha','°C'],['satEvapSheet','T. saturação (baixa) — planilha','°C'],['beerIn','Entrada do chope','°C'],['beerOut','Saída do chope','°C'],['flow','Vazão do chope','L/h'],['qProduct','Carga térmica do chope','kW'],['power','Potência ativa elétrica','kW']];let imported=null;try{const h=JSON.parse(localStorage.getItem('treinamemo_handoff_v8')||'null');if(h?.measurements){const d=h.measurements;imported={id:'imported',label:h.name||'Ensaio importado',ambient:Number(d.ambient),beerIn:Number(d.beerIn),pCond:Number(d.pCond),flow:Number(h.flow),pSuc:Number(d.pSuc),discharge:Number(d.discharge),beerOut:Number(d.beerOut),source:'Ponto selecionado na Biblioteca'};if(!Number.isFinite(imported.ambient)||!Number.isFinite(imported.beerIn))imported=null;}}catch(e){console.warn(e)}
-if(!imported)$('reference').querySelector('option[value="imported"]').disabled=true;let mode='target',selected=EXAMPLES[0],s={ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:selected.flow},results=null;const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));const q=(flow,tin,tout)=>flow*1.01*3900*(tin-tout)/3600000;const data=EXAMPLES;const weight=t=>(t-data[0].ambient)/(data[1].ambient-data[0].ambient);const mix=(key,t)=>{const a=data[0][key],b=data[1][key];return Number.isFinite(a)&&Number.isFinite(b)?a+(b-a)*weight(t):NaN};const measured=key=>key==='qProduct'?q(selected.flow,selected.beerIn,selected.beerOut):selected[key];
-function calc(){let t=s.ambient,tin=s.beerIn,refCapacity=mix('flow',t)*1.01*3900*(mix('beerIn',t)-mix('beerOut',t))/3600000;let flow,out,valid=true;if(mode==='target'){out=s.target;flow=refCapacity*3600000/(1.01*3900*(tin-out));if(!(tin>out&&flow>0&&Number.isFinite(flow))){flow=NaN;valid=false}}else{flow=s.flow;out=tin-refCapacity*3600000/(Math.max(.01,flow)*1.01*3900);if(!Number.isFinite(out)||out< -5||out>tin){valid=false;out=NaN}}const res={ambient:t,beerIn:tin,flow,beerOut:out,qProduct:q(flow,tin,out),power:mix('power',t)};for(const [key]of KEYS){if(!(key in res))res[key]=mix(key,t)}res.airIn=t;res.ambient=t;return {r:res,valid,inside:t>=data[0].ambient&&t<=data[1].ambient,refCapacity}}
-function rowCard(k,label,unit){const value=results.r[k],origin=measured(k),delta=value-origin,unitStr=unit;const type=Number.isFinite(delta)?delta>0.005?'up':delta< -0.005?'down':'same':'same';let isModeUnknown=mode==='flow'&& !['flow','beerIn','beerOut','qProduct','airIn'].includes(k);const note=isModeUnknown?'Tendência ambiental — efeito da vazão não isolado':k==='beerOut'&&mode==='flow'?'Balanço térmico com capacidade efetiva interpolada':k==='flow'&&mode==='target'?'Capacidade efetiva interpolada':'Média dos dois ensaios / interpolação';return `<div class="reading"><div class="name">${label}</div><b>${fmt(value,unit==='psig'||unit==='L/h'||unit==='kW'?2:1)} ${unitStr}</b><div class="sub">Real: ${fmt(origin,unit==='psig'||unit==='L/h'||unit==='kW'?2:1)} ${unitStr}</div><div class="delta ${type}">${Number.isFinite(delta)?`${delta>0?'▲':delta<0?'▼':'='} ${delta>0?'+':''}${fmt(delta,2)} ${unit}`:'Sem comparação'}</div><div class="tiny">${note}</div></div>`}
-function metric(label,key,unit){const v=results.r[key],delta=v-measured(key);return `<div class="metric"><small>${label}</small><b>${fmt(v,2)} ${unit}</b><span class="delta ${delta>0.005?'up':delta< -0.005?'down':'same'}">${Number.isFinite(delta)?`Antes ${fmt(measured(key),2)} · ${delta>0?'+':''}${fmt(delta,2)} ${unit}`:'Sem comparação'}</span></div>`}
-function render(){results=calc();const res=results.r;$('metrics').innerHTML=metric('Vazão do chope','flow','L/h')+metric('Temperatura de saída','beerOut','°C')+metric('Carga térmica do chope','qProduct','kW')+metric('Pressão de condensação','pCond','psig');$('readings').innerHTML=KEYS.map(([k,l,u])=>rowCard(k,l,u)).join('');for(const [k,u]of [['ambient','°C'],['pCond','psig'],['discharge','°C'],['pSuc','psig'],['flow','L/h'],['beerOut','°C']])$('svg-'+k).textContent=fmt(res[k],k==='flow'||u==='psig'?1:1)+' '+u;$('targetbox').classList.toggle('hide',mode!=='target');$('flowbox').classList.toggle('hide',mode!=='flow');document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));const warnings=[];if(!results.inside)warnings.push('Extrapolação: ambiente fora do intervalo de 24,25 a 32,15 °C. Não considerar previsão validada.');if(!results.valid)warnings.push('Cenário incompatível com o modelo simples; revise a entrada, meta de saída e vazão.');if(imported&&selected.id==='imported')warnings.push('O ponto importado é usado apenas como referência de comparação. O modelo de resposta ainda deriva dos ensaios E038/E030, não está calibrado especificamente para este ponto.');warnings.push('A capacidade térmica efetiva é inferida dos dois ensaios de saída próxima de 3 °C. Não é capacidade frigorífica medida no evaporador e não é mapa de compressor.');$('cautions').textContent=warnings.join(' ');$('methodNote').textContent=mode==='target'?'Modo fio de líquido: a saída escolhida é mantida e a vazão calculada pelo balanço energético a partir da capacidade térmica efetiva interpolada entre E038/E030.':'Modo vazão fixa: a vazão é mantida e a saída é calculada pelo balanço energético com a capacidade térmica efetiva interpolada. Resultado ainda não validado por ensaio de vazão fixa.';$('statusModel').textContent=results.inside&&results.valid?'Interpolação experimental':'⚠ Extrapolação / limite';}
-function syncInputs(){for(let key of ['ambient','beerIn','target','flow'])$(key).value=Number.isFinite(s[key])?s[key]:''}function selectRef(id){selected=id==='E030'?data[1]:id==='imported'&&imported?imported:data[0];s={ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:Number.isFinite(selected.flow)?selected.flow:59.4};syncInputs();render()}
-$('reference').addEventListener('change',e=>selectRef(e.target.value));document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render()}));for(let key of ['ambient','beerIn','target','flow'])$(key).addEventListener('input',e=>{const z=e.target.value;if(z.trim()==='')return;const n=Number(z);if(Number.isFinite(n)){s[key]=n;render()}});$('reset').addEventListener('click',()=>{mode='target';selectRef('E038');$('reference').value='E038'});$('monitor').addEventListener('click',()=>{$('app').classList.toggle('monitor');$('monitor').textContent=$('app').classList.contains('monitor')?'↩ Sair do monitor':'▣ Modo monitor'});$('save').addEventListener('click',()=>{try{localStorage.setItem('treinamemo_v9_scenario',JSON.stringify({mode,ref:selected.id,s}));$('saveStatus').textContent='✓ Cenário salvo neste navegador'}catch(e){$('saveStatus').textContent='Falha ao salvar: armazenamento indisponível'}});$('restore').addEventListener('click',()=>{try{const o=JSON.parse(localStorage.getItem('treinamemo_v9_scenario')||'null');if(!o)throw Error('Não há cenário salvo');selectRef(o.ref);mode=o.mode==='flow'?'flow':'target';s={...s,...o.s};syncInputs();render();$('reference').value=selected.id;$('saveStatus').textContent='✓ Cenário recuperado'}catch(e){$('saveStatus').textContent=e.message}});if(imported){$('reference').value='imported';selectRef('imported')}else{selectRef('E038')}
+'use strict';
+const EXAMPLES=[{"id":"E038","flow":59.4,"label":"1325-E038","source":"Média da aba Todos os dados; vazão do ensaio","ambient":24.24702,"discharge":84.71789,"suction":5.7448,"oil":54.8638,"dome":54.82067,"condIn":83.95312,"condMid":51.32871,"condOut":40.99071,"evapOut":8.17975,"pCond":198.6699,"satCondSheet":42.98821,"pSuc":24.09154,"satEvapSheet":-17.53592,"pBoiler":33.04577,"subcoolSheet":1.99778,"superheatSheet":23.27947,"beerIn":24.0724,"beerOut":2.98044,"airIn":44.91484,"airOut":24.2,"power":0.83311},{"id":"E030","flow":37.08,"label":"1325-E030","source":"Média da aba Todos os dados; vazão do ensaio","ambient":32.14702,"discharge":89.69404,"suction":3.55798,"oil":60.68183,"dome":59.72621,"condIn":88.97739,"condMid":57.36311,"condOut":49.72968,"evapOut":9.19598,"pCond":229.86408,"satCondSheet":60.28488,"pSuc":24.0,"satEvapSheet":-2.4,"pBoiler":32.35506,"subcoolSheet":10.55492,"superheatSheet":5.95784,"beerIn":32.00985,"beerOut":3.03343,"airIn":32.05908,"airOut":51.34674,"power":0.0}];
+const $=id=>document.getElementById(id);
+const KEYS=[
+ ['discharge','Descarga do compressor','°C'],['suction','Sucção do compressor','°C'],['oil','Óleo do compressor','°C'],['dome','Domo do compressor','°C'],
+ ['condIn','Entrada do condensador','°C'],['condMid','Meio do condensador','°C'],['condOut','Saída do condensador','°C'],['airIn','Entrada de ar do condensador','°C'],['airOut','Saída de ar do condensador','°C'],
+ ['evapOut','Saída do evaporador','°C'],['pCond','Pressão de condensação','psig'],['pSuc','Pressão de sucção','psig'],['pBoiler','Pressão do boiler','psig'],['dpBS','ΔP boiler − sucção','psi'],
+ ['satCondSheet','T. saturação (alta) — tendência','°C'],['satEvapSheet','T. saturação (baixa) — tendência','°C'],['superheatSheet','Superaquecimento — tendência','K'],['subcoolSheet','Sub-resfriamento — tendência','K'],
+ ['beerIn','Entrada do chope','°C'],['beerOut','Saída do chope','°C'],['flow','Vazão do chope','L/h'],['qProduct','Carga térmica do chope','kW'],['power','Potência ativa elétrica','kW'],
+ ['oilReturnIdx','Índice de retorno de óleo','%'],['gasCaptureIdx','Captação de vapor na ponta do sifão','%']
+];
+let imported=null;
+try{const h=JSON.parse(localStorage.getItem('treinamemo_handoff_v8')||'null');if(h?.measurements){const d=h.measurements;imported={id:'imported',label:h.name||'Ensaio importado',ambient:Number(d.ambient),beerIn:Number(d.beerIn),pCond:Number(d.pCond),flow:Number(h.flow),pSuc:Number(d.pSuc),pBoiler:Number(d.pBoiler)||32,discharge:Number(d.discharge),beerOut:Number(d.beerOut),source:'Ponto selecionado na Biblioteca'};if(!Number.isFinite(imported.ambient)||!Number.isFinite(imported.beerIn))imported=null;}}catch(e){console.warn(e)}
+if(!imported)$('reference').querySelector('option[value="imported"]').disabled=true;
+let selected=EXAMPLES[0],mode='target';
+let s={ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:selected.flow,pBoiler:selected.pBoiler,pSuc:selected.pSuc,fault:'none',faultSeverity:0};
+let results=null;
+const data=EXAMPLES;
+const rho=1.01, cp=3900;
+const fmt=(v,d=1)=>Number.isFinite(v)?v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const q=(flow,tin,tout)=>flow*rho*cp*(tin-tout)/3600000;
+const weight=t=>(t-data[0].ambient)/(data[1].ambient-data[0].ambient);
+const mix=(key,t)=>{const a=data[0][key],b=data[1][key];return Number.isFinite(a)&&Number.isFinite(b)?a+(b-a)*weight(t):NaN};
+function measured(key){
+ if(key==='qProduct')return q(selected.flow,selected.beerIn,selected.beerOut);
+ if(key==='dpBS')return (selected.pBoiler-selected.pSuc);
+ if(key==='oilReturnIdx')return 100;
+ if(key==='gasCaptureIdx')return 100;
+ return selected[key];
+}
+function baseAt(t){
+ const base={};
+ for(const [k] of KEYS){ if(k==='qProduct'||k==='dpBS'||k==='oilReturnIdx'||k==='gasCaptureIdx') continue; base[k]=mix(k,t); }
+ base.pBoiler=Number.isFinite(base.pBoiler)?base.pBoiler:selected.pBoiler;
+ base.pSuc=Number.isFinite(base.pSuc)?base.pSuc:selected.pSuc;
+ base.dpBS=base.pBoiler-base.pSuc;
+ base.qProduct=q(base.flow,base.beerIn,base.beerOut);
+ return base;
+}
+function faultLabel(v){return ({none:'Nenhuma',condObstruction:'Condensador obstruído',lowDelta:'Baixa diferença boiler-sucção',highSuctionDrop:'Perda de pressão na linha de sucção'})[v]||'Nenhuma'}
+function calc(){
+ const t=s.ambient,tin=s.beerIn,base=baseAt(t); let valid=true;
+ let pBoiler=Number.isFinite(s.pBoiler)?s.pBoiler:base.pBoiler;
+ let pSuc=Number.isFinite(s.pSuc)?s.pSuc:base.pSuc;
+ let f=clamp((Number(s.faultSeverity)||0)/100,0,1);
+ const notes=[];
+ let extraPCond=0, extraDischarge=0, extraPower=0, extraAirOut=0, extraSubcool=0, extraSuperheat=0;
+ if(s.fault==='condObstruction'){
+   extraPCond += 34*f; extraDischarge += 12*f; extraPower += 0.18*f; extraAirOut += 6*f; extraSubcool -= 2.5*f;
+   notes.push('Obstrução do condensador: menor rejeição de calor, pressão de condensação mais alta e tendência de perda de capacidade.');
+ }
+ if(s.fault==='highSuctionDrop'){
+   pSuc -= 3.5*f; extraSuperheat += 3*f; extraPower += 0.05*f;
+   notes.push('Perda de pressão na sucção: menor pressão chegando ao compressor, maior superaquecimento e menor estabilidade do retorno.');
+ }
+ if(s.fault==='lowDelta'){
+   const dpRefLocal=Math.max(base.dpBS,0.2);
+   const targetDp=Math.max(0.4,dpRefLocal*(1-0.65*f));
+   pSuc=Math.min(pBoiler-0.2,pBoiler-targetDp);
+   notes.push('Baixa diferença entre boiler e sucção: menor arraste de vapor e piora do retorno de óleo.');
+ }
+ const dp=pBoiler-pSuc;
+ const dpRef=Math.max(base.dpBS,0.2);
+ const dpRatio=dp/dpRef;
+ if(dp<=0.15) valid=false;
+ let capFactor=1;
+ if(dpRatio<1){ capFactor*=1-clamp((1-dpRatio)*0.24,0,0.24); notes.push('ΔP menor que o ensaio: tendência de menor captação de vapor na ponta do sifão e retorno de óleo menos robusto.'); }
+ if(dpRatio>1){ capFactor*=1+clamp((dpRatio-1)*0.05,0,0.08); notes.push('ΔP maior que o ensaio: tendência de arraste de vapor mais forte, mas o modelo ainda é apenas indicativo.'); }
+ if(s.fault==='condObstruction') capFactor*=1-0.16*f;
+ if(s.fault==='highSuctionDrop') capFactor*=1-0.09*f;
+ const effectiveCap=base.qProduct*capFactor;
+ let flow,out;
+ if(mode==='target'){
+   out=s.target;
+   flow=effectiveCap*3600000/(rho*cp*Math.max(0.1,(tin-out)));
+   if(!(tin>out&&flow>0&&Number.isFinite(flow))){flow=NaN;valid=false}
+ }else{
+   flow=s.flow;
+   out=tin-effectiveCap*3600000/(Math.max(0.01,flow)*rho*cp);
+   if(!Number.isFinite(out)||out<-5||out>tin){out=NaN;valid=false}
+ }
+ const res={...base,ambient:t,beerIn:tin,flow,beerOut:out,pBoiler,pSuc,dpBS:dp,qProduct:q(flow,tin,out)};
+ res.pCond=base.pCond + 0.35*(pBoiler-base.pBoiler) + extraPCond;
+ res.discharge=base.discharge + 0.20*(res.pCond-base.pCond) + 0.45*(pSuc-base.pSuc) + extraDischarge;
+ res.suction=base.suction + 0.28*(pSuc-base.pSuc) - 0.6*clamp(1-dpRatio,0,2);
+ res.oil=base.oil + 0.12*(res.pCond-base.pCond) + 7*clamp(1-dpRatio,0,2) + 1.4*f;
+ res.dome=base.dome + 0.10*(res.pCond-base.pCond) + 5.5*clamp(1-dpRatio,0,2) + 1.1*f;
+ res.condIn=base.condIn + 0.18*(res.pCond-base.pCond) + 2.5*f*(s.fault==='condObstruction');
+ res.condMid=base.condMid + 0.14*(res.pCond-base.pCond) + 3.8*f*(s.fault==='condObstruction');
+ res.condOut=base.condOut + 0.11*(res.pCond-base.pCond) + 5.2*f*(s.fault==='condObstruction');
+ res.airIn=t;
+ res.airOut=base.airOut + 0.08*(res.pCond-base.pCond) + extraAirOut;
+ res.evapOut=base.evapOut + 0.16*(pBoiler-base.pBoiler) + 1.8*clamp(1-dpRatio,0,2);
+ res.satCondSheet=base.satCondSheet + 0.17*(res.pCond-base.pCond);
+ res.satEvapSheet=base.satEvapSheet + 0.44*(pBoiler-base.pBoiler) - 0.12*(pSuc-base.pSuc);
+ res.superheatSheet=base.superheatSheet + 5.0*clamp(1-dpRatio,0,2) + extraSuperheat;
+ res.subcoolSheet=base.subcoolSheet + 0.02*(res.pCond-base.pCond) + extraSubcool;
+ res.power=Math.max(0,base.power + 0.003*(res.pCond-base.pCond) + extraPower);
+ res.oilReturnIdx=clamp(100*dpRatio - (s.fault==='highSuctionDrop'?15*f:0),10,145);
+ res.gasCaptureIdx=clamp(100 - 55*clamp(1-dpRatio,0,2) - (s.fault==='lowDelta'?10*f:0),15,120);
+ return {r:res,valid,inside:t>=data[0].ambient&&t<=data[1].ambient,effectiveCap,capFactor,notes,base};
+}
+function decimals(unit){return unit==='psig'||unit==='psi'||unit==='L/h'||unit==='kW'||unit==='%'||unit==='K'?2:1}
+function rowCard(k,label,unit){
+ const value=results.r[k], origin=measured(k), delta=value-origin;
+ const type=Number.isFinite(delta)?delta>0.005?'up':delta<-0.005?'down':'same':'same';
+ let note='Estimativa referenciada nos ensaios E038/E030';
+ if(k==='flow'&&mode==='target')note='Saída escolhida fixa; vazão calculada pelo balanço de energia';
+ else if(k==='beerOut'&&mode==='flow')note='Vazão fixa; temperatura de saída calculada';
+ else if(k==='dpBS')note='Parâmetro editável: diferença entre pressão do boiler e da sucção';
+ else if(k==='oilReturnIdx')note='Índice didático: quanto maior, mais robusta a tendência de retorno de óleo';
+ else if(k==='gasCaptureIdx')note='Índice didático: ponta do sifão captando vapor/gás com mais estabilidade';
+ else if(['pBoiler','pSuc'].includes(k))note='Pressão editável pelo usuário e refletida no restante do sistema';
+ return `<div class="reading"><div class="name">${label}</div><b>${fmt(value,decimals(unit))} ${unit}</b><div class="sub">Real: ${fmt(origin,decimals(unit))} ${unit}</div><div class="delta ${type}">${Number.isFinite(delta)?`${delta>0?'▲':delta<0?'▼':'='} ${delta>0?'+':''}${fmt(delta,decimals(unit))} ${unit}`:'Sem comparação'}</div><div class="tiny">${note}</div></div>`;
+}
+function metric(label,key,unit){const v=results.r[key],delta=v-measured(key);return `<div class="metric"><small>${label}</small><b>${fmt(v,2)} ${unit}</b><span class="delta ${delta>0.005?'up':delta<-0.005?'down':'same'}">${Number.isFinite(delta)?`Antes ${fmt(measured(key),2)} · ${delta>0?'+':''}${fmt(delta,2)} ${unit}`:'Sem comparação'}</span></div>`}
+function updateDeltaInfo(){
+ const dp=(Number(s.pBoiler)-Number(s.pSuc));
+ $('deltaPSucBoiler').value=Number.isFinite(dp)?dp.toFixed(2):'';
+ let msg='A diferença entre pressão do boiler e pressão de sucção influencia o arraste de vapor, o retorno de óleo e a estabilidade do evaporador.';
+ if(Number.isFinite(dp)){
+   if(dp<2) msg='ΔP muito baixo: tendência de menor velocidade de sucção, pior retorno de óleo e pior captação de vapor na ponta do sifão.';
+   else if(dp<5) msg='ΔP reduzido: o sistema tende a perder robustez no retorno de óleo e na retirada de vapor do boiler.';
+   else if(dp<=10) msg='ΔP em faixa intermediária: condição mais próxima dos ensaios disponíveis.';
+   else msg='ΔP elevado: arraste de vapor mais forte, mas o modelo não foi validado para esta condição.';
+ }
+ $('deltaInfo').textContent=msg;
+ $('faultSeverityLabel').textContent=`${Number(s.faultSeverity)||0}% • ${faultLabel(s.fault)}`;
+}
+function render(){
+ results=calc(); const res=results.r;
+ $('metrics').innerHTML=
+   metric('Vazão do chope','flow','L/h')+
+   metric('Temperatura de saída','beerOut','°C')+
+   metric('ΔP boiler − sucção','dpBS','psi')+
+   metric('Retorno de óleo','oilReturnIdx','%')+
+   metric('Carga térmica do chope','qProduct','kW')+
+   metric('Pressão de condensação','pCond','psig');
+ $('readings').innerHTML=KEYS.map(([k,l,u])=>rowCard(k,l,u)).join('');
+ for(const [k,u] of [['ambient','°C'],['pCond','psig'],['discharge','°C'],['pSuc','psig'],['flow','L/h'],['beerOut','°C']]){const el=$('svg-'+k); if(el) el.textContent=fmt(res[k],1)+' '+u;}
+ $('targetbox').classList.toggle('hide',mode!=='target');
+ $('flowbox').classList.toggle('hide',mode!=='flow');
+ document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
+ const warnings=[];
+ if(!results.inside)warnings.push('Extrapolação: ambiente fora do intervalo de 24,25 a 32,15 °C. Não considerar previsão validada.');
+ if(!results.valid)warnings.push('Cenário incompatível: ΔP boiler-sucção muito baixo ou combinação de entradas fora do alcance do modelo.');
+ if(imported&&selected.id==='imported')warnings.push('O ponto importado é usado apenas como referência de comparação.');
+ warnings.push(`Falha simulada: ${faultLabel(s.fault)} (${Number(s.faultSeverity)||0}%).`);
+ warnings.push('As respostas numéricas para falhas e para ΔP boiler-sucção são tendências didáticas apoiadas nos ensaios E038/E030, e não uma homologação do equipamento.');
+ warnings.push(...results.notes);
+ $('cautions').textContent=warnings.join(' ');
+ $('methodNote').textContent=mode==='target'
+  ? 'Modo fio de líquido: a saída escolhida é mantida e a vazão é recalculada. As pressões do boiler e da sucção alteram a capacidade efetiva, o retorno de óleo e a estabilidade do vapor captado pelo sifão.'
+  : 'Modo vazão fixa: a vazão é mantida e a saída do chope é recalculada. As pressões editáveis deslocam a condição prevista do evaporador inundado.';
+ $('statusModel').textContent=results.inside&&results.valid?'Modelo experimental com ΔP':'⚠ Extrapolação / limite';
+ updateDeltaInfo();
+}
+function syncInputs(){ for(const key of ['ambient','beerIn','target','flow']) $(key).value=Number.isFinite(s[key])?s[key]:''; $('pBoilerSet').value=Number.isFinite(s.pBoiler)?s.pBoiler.toFixed(2):''; $('pSucSet').value=Number.isFinite(s.pSuc)?s.pSuc.toFixed(2):''; $('fault').value=s.fault; $('faultSeverity').value=s.faultSeverity; updateDeltaInfo(); }
+function selectRef(id){ selected=id==='E030'?data[1]:id==='imported'&&imported?{...data[0],...imported}:data[0]; s={...s,ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:Number.isFinite(selected.flow)?selected.flow:59.4,pBoiler:Number.isFinite(selected.pBoiler)?selected.pBoiler:(selected.pSuc+8),pSuc:Number.isFinite(selected.pSuc)?selected.pSuc:24}; syncInputs(); render(); }
+$('reference').addEventListener('change',e=>selectRef(e.target.value));
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render()}));
+for(const key of ['ambient','beerIn','target','flow']) $(key).addEventListener('input',e=>{const n=Number(e.target.value); if(Number.isFinite(n)){s[key]=n; render();}});
+[['pBoilerSet','pBoiler'],['pSucSet','pSuc']].forEach(([id,key])=>$(id).addEventListener('input',e=>{const n=Number(e.target.value); if(Number.isFinite(n)){s[key]=n; render();}}));
+$('fault').addEventListener('change',e=>{s.fault=e.target.value; render();});
+$('faultSeverity').addEventListener('input',e=>{s.faultSeverity=Number(e.target.value)||0; render();});
+$('reset').addEventListener('click',()=>{mode='target'; s={...s,fault:'none',faultSeverity:0}; selectRef('E038'); $('reference').value='E038';});
+$('monitor').addEventListener('click',()=>{$('app').classList.toggle('monitor'); $('monitor').textContent=$('app').classList.contains('monitor')?'↩ Sair do monitor':'▣ Modo monitor';});
+$('save').addEventListener('click',()=>{try{localStorage.setItem('treinamemo_v15_scenario',JSON.stringify({mode,ref:selected.id,s})); $('saveStatus').textContent='✓ Cenário salvo neste navegador';}catch(e){$('saveStatus').textContent='Falha ao salvar: armazenamento indisponível';}});
+$('restore').addEventListener('click',()=>{try{const o=JSON.parse(localStorage.getItem('treinamemo_v15_scenario')||'null'); if(!o) throw Error('Não há cenário salvo'); selectRef(o.ref); mode=o.mode==='flow'?'flow':'target'; s={...s,...o.s}; syncInputs(); render(); $('reference').value=o.ref; $('saveStatus').textContent='✓ Cenário recuperado';}catch(e){$('saveStatus').textContent=e.message;}});
+if(imported){$('reference').value='imported'; selectRef('imported')} else { selectRef('E038'); }
+// Boiler reference is the user's original supplied image, not a recreated SVG.
+const BOILER_FOCUS={
+ all:{description:'Imagem original preservada. A serpentina dourada, o sifão azul em U e o nível do líquido podem ser observados sem legendas sobrepostas.'},
+ coil:{left:25,top:41,width:49,height:44,description:'A serpentina do chope aparece em múltiplas voltas horizontais douradas no líquido refrigerante. O chope circula dentro dos tubos e transfere calor ao R134a ao redor.'},
+ siphon:{left:40,top:10,width:25,height:39,description:'O tubo azul em U representa a geometria do sifão de sucção no material de referência. O corpo passa pela zona de líquido; a região de captação do vapor deve permanecer acima do nível livre.'},
+ liquid:{left:23,top:35,width:55,height:50,description:'O líquido refrigerante ocupa parte do boiler, envolvendo a serpentina de chope e parte do sifão. A altura correta depende da carga, do projeto e das condições de operação.'},
+ vapor:{left:25,top:9,width:53,height:26,description:'Na parte superior existe espaço de vapor refrigerante. O gás segue pela sucção em direção ao compressor; a entrada de líquido no compressor deve ser evitada.'}
+};
+function showBoilerPart(key){
+ const info=BOILER_FOCUS[key]||BOILER_FOCUS.all;
+ const ring=$('boilerFocus');ring.style.display=key==='all'?'none':'block';
+ if(key!=='all')for(const prop of ['left','top','width','height'])ring.style[prop]=info[prop]+'%';
+ $('boilerDescription').textContent=info.description;
+ document.querySelectorAll('.boiler-part').forEach(b=>b.classList.toggle('active',b.dataset.focus===key));
+}
+$('viewBoiler').addEventListener('click',()=>{ $('boilerReference').hidden=false;$('circuitDiagram').classList.add('circuit-hidden');$('viewBoiler').classList.add('active');$('viewCircuit').classList.remove('active');$('viewBoiler').setAttribute('aria-pressed','true');$('viewCircuit').setAttribute('aria-pressed','false'); });
+$('viewCircuit').addEventListener('click',()=>{ $('boilerReference').hidden=true;$('circuitDiagram').classList.remove('circuit-hidden');$('viewCircuit').classList.add('active');$('viewBoiler').classList.remove('active');$('viewBoiler').setAttribute('aria-pressed','false');$('viewCircuit').setAttribute('aria-pressed','true'); });
+document.querySelectorAll('.boiler-part').forEach(b=>b.addEventListener('click',()=>showBoilerPart(b.dataset.focus)));
+showBoilerPart('all');
+
 </script></body></html>
