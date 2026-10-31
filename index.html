@@ -18,7 +18,7 @@
 @media(prefers-reduced-motion:reduce){.focus-ring{animation:none}}
 
 .boiler-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}.boiler-legend>div{border:1px solid #365668;border-radius:10px;padding:11px;background:#102939;min-width:0}.boiler-legend strong{display:block;font-size:12px}.boiler-legend small{display:block;color:#a7c3d1;font-size:11px;margin-top:5px;line-height:1.35}.boiler-legend .swatch{float:left;width:10px;height:10px;border-radius:50%;margin:4px 8px 0 0}@media(max-width:780px){.boiler-legend{grid-template-columns:1fr}}
-.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V19 • Circuito corrigido</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
+.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V26 • Simulação da sucção</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
 <div class="notice warning intro">Prévia calibrada nos dois ensaios de fio de líquido. A comparação é experimental e local: sem mapa do compressor, sem identificação independente do efeito da vazão sobre as pressões, sem previsão validada fora da faixa observada. Os valores medidos nunca são sobrescritos.</div>
 <div class="layout"><section class="panel"><div class="hero"><div><h2>Circuito instrumentado — expansão direta</h2><span class="tiny">Condensador superior • capilar à esquerda • boiler central • compressor à direita</span></div><span class="tag" id="statusModel">Tendência experimental</span></div><div class="visual-modes" role="group" aria-label="Visualização do equipamento">
 <button class="visual-mode" id="viewBoiler" type="button" aria-pressed="false">Boiler — imagem de referência</button>
@@ -168,10 +168,14 @@
 <!-- Static sensor names are kept separated from readings: 6 live readout ids must exist -->
 <g transform="translate(26 73)" class="readout"><rect width="157" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Ambiente</text><text id="svg-ambient" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(884 75)" class="readout"><rect width="185" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Condensação</text><text id="svg-pCond" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 253)" class="readout"><rect width="174" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Descarga</text><text id="svg-discharge" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 514)" class="readout"><rect width="170" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Sucção</text><text id="svg-pSuc" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(26 625)" class="readout"><rect width="166" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Vazão de chope</text><text id="svg-flow" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1060 637)" class="readout"><rect width="186" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Saída do chope</text><text id="svg-beerOut" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g fill="#bfd3de" font-size="12"><text x="384" y="151">Líquido · alta pressão</text><text x="820" y="150">Vapor · alta pressão</text><text x="251" y="534">Baixa pressão após expansão</text><text x="774" y="574">Sucção · baixa pressão</text></g>
 </svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="boiler-legend" aria-label="Identificação dos circuitos do boiler"><div><span class="swatch" style="background:#ffd14b"></span><strong>Serpentina do chope</strong><small>Chope entra por baixo e sai por cima do boiler</small></div><div><span class="swatch" style="background:#38bfff"></span><strong>Sifão de sucção</strong><small>Boca na zona de vapor, curva logo acima da serpentina e saída conectada à linha de sucção</small></div><div><span class="swatch" style="background:#1684b7"></span><strong>Refrigerante no boiler</strong><small>Líquido preenchendo até pouco acima da serpentina do chope</small></div></div><div class="legend"><span><i class="dot" style="background:#ef646b"></i>Gás de alta / descarga</span><span><i class="dot" style="background:#e7b04f"></i>Líquido de alta</span><span><i class="dot" style="background:#35b8fa"></i>Baixa pressão / sucção</span><span><i class="dot" style="background:#33d5b3"></i>Chope</span></div><div class="notice">O circuito esquemático (na segunda aba) diferencia descarga, líquido de alta, expansão, sucção e chope. O boiler possui ebulição animada localizada. É um desenho esquemático para treinamento, não um P&amp;ID de fabricação; confirme a posição exata de sensores e válvulas com o projeto real.</div></section>
-<aside class="panel editor"><h2>Configurar cenário</h2><div class="control"><label>Ensaio usado como referência</label><select id="reference"><option value="E038">E038 • 24 °C • 59,40 L/h</option><option value="E030">E030 • 32 °C • 37,08 L/h</option><option value="imported">Importado da biblioteca (quando disponível)</option></select></div><div class="mode"><button data-mode="target" class="active" type="button">Saída fixa • calcular vazão</button><button data-mode="flow" type="button">Vazão fixa • calcular saída</button></div><div class="controls"><div class="control"><label for="ambient">Temperatura ambiente (°C)</label><input type="number" step="0.1" id="ambient"></div><div class="control"><label for="beerIn">Entrada do chope (°C)</label><input type="number" step="0.1" id="beerIn"></div><div class="control" id="targetbox"><label for="target">Saída desejada (°C)</label><input type="number" step="0.1" id="target" value="3"></div><div class="control" id="flowbox"><label for="flow">Vazão imposta (L/h)</label><input type="number" step="0.1" id="flow" value="59.4"></div></div><div class="controls"><div class="control"><label for="pBoilerSet">Pressão do boiler (psig)</label><input type="number" step="0.1" id="pBoilerSet"></div><div class="control"><label for="pSucSet">Pressão de sucção (psig)</label><input type="number" step="0.1" id="pSucSet"></div><div class="control"><label for="deltaPSucBoiler">ΔP boiler − sucção (psi)</label><input type="number" step="0.1" id="deltaPSucBoiler" readonly></div><div class="control"><label for="fault">Falha didática (efeitos qualitativos)</label><select id="fault"><option value="none">Nenhuma</option><option value="condObstruction">Condensador obstruído</option><option value="highSuctionDrop">Restrição / perda de pressão na sucção</option></select></div></div><div class="controls"><div class="control" style="grid-column:1/-1"><label for="faultSeverity">Intensidade da falha (%)</label><input type="range" min="0" max="100" step="5" id="faultSeverity" value="0"><div class="tiny">Intensidade atual: <span id="faultSeverityLabel">0%</span></div></div></div><div id="deltaInfo" class="notice" style="margin-top:12px">ΔP = Pboiler − Psucção. É perda de carga; quanto menor, mais próxima a sucção fica da pressão do boiler.</div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
-<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Grandezas da coluna de instrumentação, exceto as pressões inseridas e ΔP, refletem interpolação entre E038/E030: não são uma previsão independente da alteração da perda de carga.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V25 • Modelo revisado de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
+<aside class="panel editor"><h2>Configurar cenário</h2><div class="control"><label>Ensaio usado como referência</label><select id="reference"><option value="E038">E038 • 24 °C • 59,40 L/h</option><option value="E030">E030 • 32 °C • 37,08 L/h</option><option value="imported">Importado da biblioteca (quando disponível)</option></select></div><div class="mode"><button data-mode="target" class="active" type="button">Saída fixa • calcular vazão</button><button data-mode="flow" type="button">Vazão fixa • calcular saída</button></div><div class="controls"><div class="control"><label for="ambient">Temperatura ambiente (°C)</label><input type="number" step="0.1" id="ambient"></div><div class="control"><label for="beerIn">Entrada do chope (°C)</label><input type="number" step="0.1" id="beerIn"></div><div class="control" id="targetbox"><label for="target">Saída desejada (°C)</label><input type="number" step="0.1" id="target" value="3"></div><div class="control" id="flowbox"><label for="flow">Vazão imposta (L/h)</label><input type="number" step="0.1" id="flow" value="59.4"></div></div><div class="controls"><div class="control"><label for="pBoilerSet">Pressão do boiler (psig)</label><input type="number" step="0.1" id="pBoilerSet"></div><div class="control"><label for="pSucSet">Pressão de sucção (psig)</label><input type="number" step="0.1" id="pSucSet"></div><div class="control"><label for="deltaPSucBoiler">ΔP boiler − sucção (psi)</label><input type="number" step="0.1" id="deltaPSucBoiler" readonly></div><div class="control"><label for="fault">Falha didática (efeitos qualitativos)</label><select id="fault"><option value="none">Nenhuma</option><option value="condObstruction">Condensador obstruído</option><option value="highSuctionDrop">Restrição / perda de pressão na sucção</option></select></div></div><details class="notice" style="margin:12px 0"><summary style="cursor:pointer;font-weight:700">Modelo comparativo do compressor — hipóteses editáveis</summary>
+<p class="tiny" style="margin-top:10px">Estimativa condicionada. Pressão de condensação e temperatura de sucção mantidas constantes; efeito frigorífico específico (kJ/kg) mantido constante; rotação fixa. Não é um mapa validado do AL4480Y.</p>
+<div class="controls"><div class="control"><label for="clearance">Volume nocivo equivalente (%)</label><input id="clearance" type="number" min="0" max="20" step="0.5" value="5"></div><div class="control"><label for="nPoly">Expoente politrópico de reexpansão (n)</label><input id="nPoly" type="number" min="1.05" max="1.8" step="0.05" value="1.2"></div></div>
+<p class="tiny">Aproximação: eficiência volumétrica relativa calculada pela reexpansão do gás residual. Não estima retorno de óleo, rendimento elétrico ou ajuste do capilar.</p></details>
+<div class="controls"><div class="control" style="grid-column:1/-1"><label for="faultSeverity">Intensidade da falha (%)</label><input type="range" min="0" max="100" step="5" id="faultSeverity" value="0"><div class="tiny">Intensidade atual: <span id="faultSeverityLabel">0%</span></div></div></div><div id="deltaInfo" class="notice" style="margin-top:12px">ΔP = Pboiler − Psucção. É perda de carga; quanto menor, mais próxima a sucção fica da pressão do boiler.</div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
+<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Vazão de chope e capacidade útil usam estimativa condicional da vazão mássica aspirada; os demais sensores são referências/interpolações, não previsões independentes das alterações.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V26 • Modelo comparativo de sucção de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
 <style>@keyframes drift{to{stroke-dashoffset:-70}}.pulse{animation:drift 2.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
-@keyframes flowGas{to{stroke-dashoffset: -116}}@keyframes flowLiquid{to{stroke-dashoffset: 116}}@keyframes flowSuction{to{stroke-dashoffset:-112}}@keyframes flowBeer{to{stroke-dashoffset:-96}}@keyframes boilLift{0%{transform:translateY(0);opacity:.1}15%{opacity:.75}85%{opacity:.8}100%{transform:translateY(-125px);opacity:0}}@keyframes surfaceWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes strokePump{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes flowGas{to{stroke-dashoffset: -116}}@keyframes flowLiquid{to{stroke-dashoffset:-116}}@keyframes flowSuction{to{stroke-dashoffset:-112}}@keyframes flowBeer{to{stroke-dashoffset:-96}}@keyframes boilLift{0%{transform:translateY(0);opacity:.1}15%{opacity:.75}85%{opacity:.8}100%{transform:translateY(-125px);opacity:0}}@keyframes surfaceWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes strokePump{0%,100%{opacity:.6}50%{opacity:1}}
 .diagram .vaporMove{animation:flowGas 2.3s linear infinite}.diagram .liquidMove{animation:flowLiquid 2.9s linear infinite}.diagram .lowMove{animation:flowSuction 2.4s linear infinite}.diagram .beerMove{animation:flowBeer 3.1s linear infinite}.diagram .bubble{animation:boilLift 3.1s linear infinite;transform-box:fill-box;transform-origin:center}.diagram .b2{animation-delay:-1.2s}.diagram .b3{animation-delay:-2.3s}.diagram .b4{animation-delay:-.7s}.diagram .b5{animation-delay:-1.8s}.diagram .b6{animation-delay:-2.7s}.diagram .waveBoiler{animation:surfaceWave 2s ease-in-out infinite}.diagram .compressPulse{animation:strokePump .42s linear infinite}.diagram .readout text{font-family:system-ui,sans-serif}
 @media(prefers-reduced-motion:reduce){.diagram .vaporMove,.diagram .liquidMove,.diagram .lowMove,.diagram .beerMove,.diagram .bubble,.diagram .waveBoiler,.diagram .compressPulse{animation:none}}
 </style>
@@ -185,13 +189,13 @@ const KEYS=[
  ['evapOut','Saída do evaporador','°C'],['pCond','Pressão de condensação','psig'],['pSuc','Pressão de sucção','psig'],['pBoiler','Pressão do boiler','psig'],['dpBS','ΔP boiler − sucção','psi'],
  ['satCondSheet','T. saturação (alta) — tendência','°C'],['satEvapSheet','T. saturação (baixa) — tendência','°C'],['superheatSheet','Superaquecimento — tendência','K'],['subcoolSheet','Sub-resfriamento — tendência','K'],
  ['beerIn','Entrada do chope','°C'],['beerOut','Saída do chope','°C'],['flow','Vazão do chope','L/h'],['qProduct','Carga térmica do chope','kW'],['power','Potência ativa elétrica','kW'],
- ['suctionPressureRatio','Pressão de admissão relativa — T fixa','%']
+ ['suctionPressureRatio','Pressão de admissão relativa — T fixa','%'],['massFlowRatio','Vazão mássica relativa — modelo','%'],['volEffRatio','Eficiência volumétrica relativa — modelo','%']
 ];
 let imported=null;
 try{const h=JSON.parse(localStorage.getItem('treinamemo_handoff_v8')||'null');if(h?.measurements){const d=h.measurements;imported={id:'imported',label:h.name||'Ensaio importado',ambient:Number(d.ambient),beerIn:Number(d.beerIn),pCond:Number(d.pCond),flow:Number(h.flow),pSuc:Number(d.pSuc),pBoiler:Number(d.pBoiler)||32,discharge:Number(d.discharge),beerOut:Number(d.beerOut),source:'Ponto selecionado na Biblioteca'};if(!Number.isFinite(imported.ambient)||!Number.isFinite(imported.beerIn))imported=null;}}catch(e){console.warn(e)}
 if(!imported)$('reference').querySelector('option[value="imported"]').disabled=true;
 let selected=EXAMPLES[0],mode='target';
-let s={ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:selected.flow,pBoiler:selected.pBoiler,pSuc:selected.pSuc,fault:'none',faultSeverity:0};
+let s={ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:selected.flow,pBoiler:selected.pBoiler,pSuc:selected.pSuc,fault:'none',faultSeverity:0,clearance:5,nPoly:1.2};
 let results=null;
 const data=EXAMPLES;
 const rho=1.01, cp=3900;
@@ -203,12 +207,12 @@ const mix=(key,t)=>{const a=data[0][key],b=data[1][key];return Number.isFinite(a
 function measured(key){
  if(key==='qProduct')return q(selected.flow,selected.beerIn,selected.beerOut);
  if(key==='dpBS')return (selected.pBoiler-selected.pSuc);
- if(key==='suctionPressureRatio')return 100;
+ if(key==='suctionPressureRatio'||key==='massFlowRatio'||key==='volEffRatio')return 100;
  return selected[key];
 }
 function baseAt(t){
  const base={};
- for(const [k] of KEYS){ if(k==='qProduct'||k==='dpBS'||k==='suctionPressureRatio') continue; base[k]=mix(k,t); }
+ for(const [k] of KEYS){ if(k==='qProduct'||k==='dpBS'||k==='suctionPressureRatio'||k==='massFlowRatio'||k==='volEffRatio') continue; base[k]=mix(k,t); }
  base.pBoiler=Number.isFinite(base.pBoiler)?base.pBoiler:selected.pBoiler;
  base.pSuc=Number.isFinite(base.pSuc)?base.pSuc:selected.pSuc;
  base.dpBS=base.pBoiler-base.pSuc;
@@ -216,36 +220,51 @@ function baseAt(t){
  return base;
 }
 function faultLabel(v){return ({none:'Nenhuma',condObstruction:'Condensador obstruído',highSuctionDrop:'Restrição / perda de pressão na sucção'})[v]||'Nenhuma'}
-/* Termodinâmica essencial: ΔP = P_boiler - P_sucção. A redução do ΔP, com P_boiler fixo,
- * eleva P_sucção do compressor e normalmente favorece a capacidade. Não inferimos um
- * aumento percentual de capacidade sem mapa compressor/entalpias/velocidade de gás.
- * A razão P_suc,abs / P_suc,abs(ref), a T fixa, é apenas proxy idealizada de densidade.
+/* Modelo comparativo de compressor alternativo, não mapa validado:
+ * ηv=1+C-C*(Pcond,abs/Psuc,abs)^(1/n)
+ * para rotação e temperatura de sucção fixas, m_dot ∝ Psuc,abs * ηv.
+ * Assume Δh_evap constante e transfere a razão de m_dot para a capacidade de chope.
+ * Esse resultado NÃO identifica o efeito isolado de ΔP experimentalmente.
  */
+const PSI_ATM=14.6959;
+function compressorComparison(pSuc, pSucRef, pCond, clearancePct, exponent){
+  const C=clearancePct/100, n=exponent;
+  const absP=pSuc+PSI_ATM,absR=pSucRef+PSI_ATM, absD=pCond+PSI_ATM;
+  const eta=p=>1+C-C*Math.pow(absD/p,1/n);
+  const etaNow=eta(absP),etaRef=eta(absR);
+  if(!(absP>0&&absR>0&&absD>absP&&absD>absR&&etaNow>0&&etaRef>0&&C>=0&&C<=0.2&&n>=1.05&&n<=1.8))return null;
+  return {pressureRatio:absP/absR,volumeRatio:etaNow/etaRef,massRatio:absP*etaNow/(absR*etaRef),etaNow,etaRef};
+}
 function calc(){
  const t=s.ambient,tin=s.beerIn,base=baseAt(t);let valid=true;
  const pBoiler=Number(s.pBoiler),pSuc=Number(s.pSuc);
  const dp=pBoiler-pSuc;
  const dpRef=base.pBoiler-base.pSuc;
  const pRefAtSameBoiler=pBoiler-dpRef;
- const suctionPressureRatio=100*(pSuc+14.6959)/(pRefAtSameBoiler+14.6959);
- if(!(Number.isFinite(dp)&&dp>=0&&pSuc>-14.6959&&pBoiler>-14.6959&&pRefAtSameBoiler>-14.6959))valid=false;
- const effectiveCap=base.qProduct; // Não modificar capacidade com ΔP sem calibração.
+ // Comparação a P_boiler fixa, evitando confundir deslocamento da evaporação com perdas de sucção.
+ const comparison=compressorComparison(pSuc,pRefAtSameBoiler,base.pCond,Number(s.clearance),Number(s.nPoly));
+ if(!(Number.isFinite(dp)&&dp>=0&&comparison))valid=false;
+ const massRatio=comparison?.massRatio??NaN;
+ const volEffRatio=100*(comparison?.volumeRatio??NaN);
+ const suctionPressureRatio=100*(comparison?.pressureRatio??NaN);
+ // Aproximação limitada à hipótese de capacidade útil proporcional à vazão mássica, Δh constante.
+ const effectiveCap=base.qProduct*massRatio;
  let flow,out;
  if(mode==='target'){
    out=s.target;
-   flow=(tin>out&&effectiveCap>=0)?effectiveCap*3600000/(rho*cp*(tin-out)):NaN;
+   flow=(tin>out&&Number.isFinite(effectiveCap))?effectiveCap*3600000/(rho*cp*(tin-out)):NaN;
    if(!(flow>0&&Number.isFinite(flow)))valid=false;
  }else{
    flow=s.flow;
-   out=(flow>0)?tin-effectiveCap*3600000/(flow*rho*cp):NaN;
+   out=flow>0?tin-effectiveCap*3600000/(flow*rho*cp):NaN;
    if(!(Number.isFinite(out)&&out>=-5&&out<=tin)){out=NaN;valid=false;}
  }
  const res={...base,ambient:t,beerIn:tin,flow,beerOut:out,
-  pBoiler,pSuc,dpBS:dp,suctionPressureRatio,qProduct:q(flow,tin,out)};
- // Os demais sensores NÃO recebem offsets artificiais ao editar pressão ou falha.
- // Uma falha é explicada qualitativamente em /falhas.html.
+   pBoiler,pSuc,dpBS:dp,suctionPressureRatio,massFlowRatio:100*massRatio,volEffRatio,
+   qProduct:q(flow,tin,out)};
+ // Leituras não modeladas não recebem ajustes artificiais.
  return {r:res,valid,inside:t>=data[0].ambient&&t<=data[1].ambient,
-   effectiveCap,base,dpRef,deltaLoss:dp-dpRef};
+   effectiveCap,base,dpRef,deltaLoss:dp-dpRef,comparison};
 }
 function decimals(unit){return unit==='psig'||unit==='psi'||unit==='L/h'||unit==='kW'||unit==='%'||unit==='K'?2:1}
 function rowCard(k,label,unit){
@@ -255,7 +274,9 @@ function rowCard(k,label,unit){
  if(k==='flow'&&mode==='target')note='Saída escolhida fixa; vazão calculada pelo balanço de energia';
  else if(k==='beerOut'&&mode==='flow')note='Vazão fixa; temperatura de saída calculada';
  else if(k==='dpBS')note='Parâmetro editável: diferença entre pressão do boiler e da sucção';
- else if(k==='suctionPressureRatio')note='Relação de pressão absoluta na entrada, a T fixa; NÃO é capacidade frigorífica';
+ else if(k==='suctionPressureRatio')note='Razão entre pressões absolutas de sucção (a mesma Pboiler)';
+ else if(k==='massFlowRatio')note='Vazão mássica estimada com eficiência volumétrica simplificada; não medida';
+ else if(k==='volEffRatio')note='Reexpansão do gás residual; parâmetro comparativo não calibrado';
  else if(['pBoiler','pSuc'].includes(k))note='Pressão inserida pelo usuário; sensores independentes não são recalculados artificialmente';
  return `<div class="reading"><div class="name">${label}</div><b>${fmt(value,decimals(unit))} ${unit}</b><div class="sub">Real: ${fmt(origin,decimals(unit))} ${unit}</div><div class="delta ${type}">${Number.isFinite(delta)?`${delta>0?'▲':delta<0?'▼':'='} ${delta>0?'+':''}${fmt(delta,decimals(unit))} ${unit}`:'Sem comparação'}</div><div class="tiny">${note}</div></div>`;
 }
@@ -266,8 +287,8 @@ function updateDeltaInfo(){
  const d=results?results.deltaLoss:0;
  let msg='ΔP = Pboiler − Psucção: representa perda de carga entre o boiler e a entrada do compressor.';
  if(!Number.isFinite(dp)||dp<0){msg='Pressões inválidas: Psucção não pode superar Pboiler neste modelo de perda de carga.';}
- else if(d < -0.01){msg=`Perda de carga ${fmt(-d,2)} psi MENOR que a referência da mesma condição de boiler. Em geral, sucção menos penalizada → tendência de MAIOR capacidade e melhor rendimento. O ganho exato não foi calculado.`;}
- else if(d > 0.01){msg=`Perda de carga ${fmt(d,2)} psi MAIOR que a referência da mesma condição de boiler. Em geral, sucção mais penalizada → tendência de MENOR capacidade e rendimento. A queda exata não foi calculada.`;}
+ else if(d < -0.01){msg=`Perda de carga ${fmt(-d,2)} psi MENOR que a referência da mesma condição de boiler. Em geral, sucção menos penalizada → tendência de MAIOR capacidade e melhor rendimento. O simulador fornece um ganho condicional do modelo simplificado, não um resultado validado.`;}
+ else if(d > 0.01){msg=`Perda de carga ${fmt(d,2)} psi MAIOR que a referência da mesma condição de boiler. Em geral, sucção mais penalizada → tendência de MENOR capacidade e rendimento. A queda exibida é condicional ao modelo simplificado, não validada.`;}
  else {msg='Perda de carga igual à referência do ensaio, na condição de comparação.';}
  $('deltaInfo').textContent=msg+' Retorno de óleo: não estimado numericamente; requer verificação de vazão/velocidade e geometria.';
  $('faultSeverityLabel').textContent=`${Number(s.faultSeverity)||0}% • ${faultLabel(s.fault)}`;
@@ -278,7 +299,7 @@ function render(){
    metric('Vazão do chope','flow','L/h')+
    metric('Temperatura de saída','beerOut','°C')+
    metric('ΔP boiler − sucção','dpBS','psi')+
-   metric('Pressão de admissão relativa¹','suctionPressureRatio','%')+
+   metric('Vazão mássica relativa¹','massFlowRatio','%')+
    metric('Carga térmica do chope','qProduct','kW')+
    metric('Pressão de condensação','pCond','psig');
  $('readings').innerHTML=KEYS.map(([k,l,u])=>rowCard(k,l,u)).join('');
@@ -291,28 +312,29 @@ function render(){
  if(!results.valid)warnings.push('Entradas fisicamente incompatíveis; confira temperaturas, vazão e pressão de sucção menor ou igual à do boiler.');
  if(imported&&selected.id==='imported')warnings.push('O ponto importado é somente referência; interpolação baseada em E038/E030.');
  if(s.fault!=='none'&&s.faultSeverity>0)warnings.push(`Falha ${faultLabel(s.fault)}: efeitos qualitativos devem ser analisados no Laboratório de Falhas. Não calculamos offsets fictícios de sensores.`);
- warnings.push('¹ Pressão de admissão relativa = (Psucção + 14,6959) / (Psucção,ref + 14,6959), a mesma Pboiler e temperatura de sucção constante. Não é eficiência, capacidade ou vazão de refrigerante.');
- warnings.push('Não é possível calcular retorno de óleo em percentual a partir de ΔP. É necessário avaliar geometria, velocidade e vazão de refrigerante.');
- warnings.push('Capacidade térmica do chope calculada por interpolação dos dois ensaios, não por mapa termodinâmico do compressor. A mudança isolada da perda de carga NÃO altera artificialmente este valor.');
+ warnings.push('¹ Modelo simplificado de compressor alternativo: ṁ ∝ P_sucção,abs × η_vol, com η_vol ≈ 1+C−C×(P_cond/P_suc)^(1/n). Pressões ABSOLUTAS em ambas as equações; rotação e temperatura de admissão constantes; ganho frigorífico específico constante. O valor é CONDICIONAL e não é uma medição nem uma curva Tecumseh.');
+ warnings.push('A resposta de capilar, evaporador, condensador, propriedades reais, controles, superfícies térmicas e retorno de óleo não é resolvida aqui. Ganhos fora da referência exigem calibração/validação em ensaio.');
+ warnings.push('A perda de pressão na sucção normalmente reduz capacidade e COP; reduzir a perda costuma melhorar os dois, mas o ganho exato depende do sistema.');
  $('cautions').textContent=warnings.join(' ');
  $('methodNote').textContent=mode==='target'?
-   'Saída fixa: cálculo de vazão via balanço térmico dos ensaios E038/E030. A diferença de pressão mostra apenas a tendência física do rendimento, sem percentual inventado.':
-   'Vazão fixa: cálculo de temperatura de saída via balanço térmico experimental. O efeito isolado de ΔP na capacidade exige mapa do compressor e modelo de circuito.';
- $('statusModel').textContent=results.inside&&results.valid?'Estimativa experimental · ΔP físico':'⚠ Fora do modelo';
+   'Saída fixa: vazão estimada pelo balanço térmico dos ensaios × razão de vazão mássica do compressor calculada com hipótese de eficiência volumétrica. Estimativa não homologada.':
+   'Vazão fixa: temperatura estimada via balanço térmico × razão de vazão mássica aspirada (modelo alternativo simplificado). Não substitui mapa do compressor.';
+ $('statusModel').textContent=results.inside&&results.valid?'Modelo comparativo de compressor • não validado':'⚠ Fora do modelo';
  updateDeltaInfo();
 }
-function syncInputs(){ for(const key of ['ambient','beerIn','target','flow']) $(key).value=Number.isFinite(s[key])?s[key]:''; $('pBoilerSet').value=Number.isFinite(s.pBoiler)?s.pBoiler.toFixed(2):''; $('pSucSet').value=Number.isFinite(s.pSuc)?s.pSuc.toFixed(2):''; if(s.fault==='lowDelta')s.fault='none';$('fault').value=s.fault; $('faultSeverity').value=s.faultSeverity; updateDeltaInfo(); }
+function syncInputs(){ for(const key of ['ambient','beerIn','target','flow']) $(key).value=Number.isFinite(s[key])?s[key]:''; $('pBoilerSet').value=Number.isFinite(s.pBoiler)?s.pBoiler.toFixed(2):''; $('pSucSet').value=Number.isFinite(s.pSuc)?s.pSuc.toFixed(2):''; if(s.fault==='lowDelta')s.fault='none';$('fault').value=s.fault; $('faultSeverity').value=s.faultSeverity; $('clearance').value=s.clearance; $('nPoly').value=s.nPoly; updateDeltaInfo(); }
 function selectRef(id){ selected=id==='E030'?data[1]:id==='imported'&&imported?{...data[0],...imported}:data[0]; s={...s,ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:Number.isFinite(selected.flow)?selected.flow:59.4,pBoiler:Number.isFinite(selected.pBoiler)?selected.pBoiler:(selected.pSuc+8),pSuc:Number.isFinite(selected.pSuc)?selected.pSuc:24}; syncInputs(); render(); }
 $('reference').addEventListener('change',e=>selectRef(e.target.value));
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render()}));
 for(const key of ['ambient','beerIn','target','flow']) $(key).addEventListener('input',e=>{const n=Number(e.target.value); if(Number.isFinite(n)){s[key]=n; render();}});
 [['pBoilerSet','pBoiler'],['pSucSet','pSuc']].forEach(([id,key])=>$(id).addEventListener('input',e=>{const n=Number(e.target.value); if(Number.isFinite(n)){s[key]=n; render();}}));
+for(const key of ['clearance','nPoly']) $(key).addEventListener('input',e=>{if(e.target.value.trim()==='')return;const n=Number(e.target.value); if(Number.isFinite(n)){s[key]=n;render();}});
 $('fault').addEventListener('change',e=>{s.fault=e.target.value; render();});
 $('faultSeverity').addEventListener('input',e=>{s.faultSeverity=Number(e.target.value)||0; render();});
 $('reset').addEventListener('click',()=>{mode='target'; s={...s,fault:'none',faultSeverity:0}; selectRef('E038'); $('reference').value='E038';});
 $('monitor').addEventListener('click',()=>{$('app').classList.toggle('monitor'); $('monitor').textContent=$('app').classList.contains('monitor')?'↩ Sair do monitor':'▣ Modo monitor';});
-$('save').addEventListener('click',()=>{try{localStorage.setItem('treinamemo_v15_scenario',JSON.stringify({mode,ref:selected.id,s})); $('saveStatus').textContent='✓ Cenário salvo neste navegador';}catch(e){$('saveStatus').textContent='Falha ao salvar: armazenamento indisponível';}});
-$('restore').addEventListener('click',()=>{try{const o=JSON.parse(localStorage.getItem('treinamemo_v15_scenario')||'null'); if(!o) throw Error('Não há cenário salvo'); selectRef(o.ref); mode=o.mode==='flow'?'flow':'target'; s={...s,...o.s}; syncInputs(); render(); $('reference').value=o.ref; $('saveStatus').textContent='✓ Cenário recuperado';}catch(e){$('saveStatus').textContent=e.message;}});
+$('save').addEventListener('click',()=>{try{localStorage.setItem('treinamemo_v26_scenario',JSON.stringify({mode,ref:selected.id,s})); $('saveStatus').textContent='✓ Cenário salvo neste navegador';}catch(e){$('saveStatus').textContent='Falha ao salvar: armazenamento indisponível';}});
+$('restore').addEventListener('click',()=>{try{const o=JSON.parse(localStorage.getItem('treinamemo_v26_scenario')||'null'); if(!o) throw Error('Não há cenário salvo'); selectRef(o.ref); mode=o.mode==='flow'?'flow':'target'; s={...s,...o.s}; syncInputs(); render(); $('reference').value=o.ref; $('saveStatus').textContent='✓ Cenário recuperado';}catch(e){$('saveStatus').textContent=e.message;}});
 if(imported){$('reference').value='imported'; selectRef('imported')} else { selectRef('E038'); }
 // Boiler reference is the user's original supplied image, not a recreated SVG.
 const BOILER_FOCUS={
