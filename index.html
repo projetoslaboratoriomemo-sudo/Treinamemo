@@ -16,13 +16,15 @@
 .circuit-hidden{display:none!important}
 @media(max-width:530px){.visual-mode,.boiler-part{padding:8px 10px;font-size:11px}.boiler-reference{padding:6px}.boiler-description{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.focus-ring{animation:none}}
-</style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V17 • Boiler pela referência original</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
+
+.boiler-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}.boiler-legend>div{border:1px solid #365668;border-radius:10px;padding:11px;background:#102939;min-width:0}.boiler-legend strong{display:block;font-size:12px}.boiler-legend small{display:block;color:#a7c3d1;font-size:11px;margin-top:5px;line-height:1.35}.boiler-legend .swatch{float:left;width:10px;height:10px;border-radius:50%;margin:4px 8px 0 0}@media(max-width:780px){.boiler-legend{grid-template-columns:1fr}}
+</style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V19 • Circuito corrigido</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
 <div class="notice warning intro">Prévia calibrada nos dois ensaios de fio de líquido. A comparação é experimental e local: sem mapa do compressor, sem identificação independente do efeito da vazão sobre as pressões, sem previsão validada fora da faixa observada. Os valores medidos nunca são sobrescritos.</div>
 <div class="layout"><section class="panel"><div class="hero"><div><h2>Circuito instrumentado — expansão direta</h2><span class="tiny">Condensador superior • capilar à esquerda • boiler central • compressor à direita</span></div><span class="tag" id="statusModel">Tendência experimental</span></div><div class="visual-modes" role="group" aria-label="Visualização do equipamento">
-<button class="visual-mode active" id="viewBoiler" type="button" aria-pressed="true">Boiler — imagem de referência</button>
-<button class="visual-mode" id="viewCircuit" type="button" aria-pressed="false">Circuito frigorífico esquemático</button>
+<button class="visual-mode" id="viewBoiler" type="button" aria-pressed="false">Boiler — imagem de referência</button>
+<button class="visual-mode active" id="viewCircuit" type="button" aria-pressed="true">Circuito frigorífico esquemático</button>
 </div>
-<div id="boilerReference" class="boiler-reference">
+<div id="boilerReference" class="boiler-reference" hidden>
   <div class="boiler-art">
     <img src="boiler-referencia.jpeg" alt="Imagem de referência enviada: boiler cortado, serpentina dourada de múltiplas espiras horizontais e sifão azul em U, com líquido azul no reservatório" draggable="false"/>
     <div class="focus-ring" id="boilerFocus" aria-hidden="true"></div>
@@ -37,7 +39,7 @@
   <p class="boiler-description" id="boilerDescription">Imagem fornecida por você, preservada sem redesenho. Selecione um componente para destacá-lo; as explicações ficam fora da imagem.</p>
   <p class="boiler-warning">Referência visual, não desenho de fabricação. As cores e as setas do material original não devem ser usadas isoladamente para determinar o sentido real de cada conexão.</p>
 </div>
-<div class="diagram circuit-hidden" id="circuitDiagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+<div class="diagram" id="circuitDiagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -50,7 +52,7 @@
 </defs>
 <rect width="1280" height="760" fill="#071522"/>
 <text x="30" y="30" font-size="14" fill="#95c7d5" font-weight="bold">EXPANSÃO DIRETA · R134a · CIRCUITO INUNDADO</text>
-<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler redesenhado para se aproximar da referência enviada · visual limpo com callouts externos</text>
+<text x="30" y="51" font-size="12" fill="#83a7bb">Boiler esquemático: sifão ligado à sucção, sem tubo vermelho e legendas fora do desenho</text>
 <!-- Complete pipe routes are separate and preserve physical topology. -->
 <!-- Compressor discharge (right to upper condenser right, then left) -->
 <path d="M1034 390 L1034 200 Q1034 177 1010 177 L710 177" fill="none" stroke="#682a3e" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
@@ -92,106 +94,45 @@
 <!-- Capillary modeled as restriction just after solenoid, not full-length evaporator coil -->
 <g transform="translate(183 420)"><path d="M0 0 V84" stroke="#65d7ff" stroke-width="4"/><path d="M-9 5L9 12L-9 19L9 26L-9 33L9 40L-9 47L9 54L-9 61L9 68L-9 75" fill="none" stroke="#b6def2" stroke-width="2"/></g>
 <text x="124" y="467" fill="#def4ff" font-size="14" text-anchor="end">Capilar</text>
-<!-- flooded boiler body -->
-<g id="boilerAssembly">
-<rect x="535" y="450" width="217" height="249" rx="23" fill="url(#boilerMetal)" stroke="#d4ecf5" stroke-width="5"/>
-<rect x="547" y="465" width="193" height="219" rx="12" fill="#102b44"/>
-<rect x="555" y="474" width="177" height="26" rx="8" fill="#173853" opacity=".95"/>
-<g clip-path="url(#boilerClip)">
-  <!-- vapor zone -->
-  <rect x="547" y="465" width="193" height="90" fill="#1c3a56" opacity=".35"/>
-  <!-- liquid refrigerant -->
-  <rect x="547" y="555" width="193" height="129" fill="url(#refrigWater)"/>
-  <path d="M548 555 Q575 545 602 555 T654 555 T707 555 T740 555" stroke="#70ecff" stroke-width="4" fill="none" class="waveBoiler"/>
-  <!-- bubbles in liquid -->
-  <g fill="#b2fbff" opacity=".88">
-   <circle cx="569" cy="642" r="4" class="bubble b1"/><circle cx="582" cy="622" r="3.2" class="bubble b2"/><circle cx="596" cy="635" r="4.8" class="bubble b3"/>
-   <circle cx="612" cy="615" r="3.1" class="bubble b4"/><circle cx="627" cy="640" r="4.1" class="bubble b5"/><circle cx="643" cy="624" r="3" class="bubble b6"/>
-   <circle cx="702" cy="650" r="3.3" class="bubble b1"/><circle cx="718" cy="631" r="3" class="bubble b2"/>
+<!-- Boiler esquemático: sem legendas internas e sem tubo vermelho -->
+<g id="boilerAssembly" aria-label="Boiler inundado: serpentinas do chope em dourado, sifão azul conectado à sucção, entrada do refrigerante em azul">
+  <rect x="531" y="445" width="225" height="254" rx="22" fill="url(#boilerMetal)" stroke="#c6e4f0" stroke-width="5"/>
+  <rect x="543" y="464" width="201" height="220" rx="12" fill="#11283c"/>
+  <g clip-path="url(#boilerClip)">
+    <rect x="548" y="465" width="190" height="115" fill="#204860" opacity=".8"/>
+    <rect x="548" y="580" width="190" height="104" fill="url(#refrigWater)"/>
+    <path class="waveBoiler" d="M548 580 Q578 573 606 580 T666 580 T738 580" fill="none" stroke="#7af0ff" stroke-width="3.5"/>
+    <g fill="#b2f6ff" opacity=".8">
+      <circle cx="559" cy="662" r="3" class="bubble b1"/><circle cx="571" cy="647" r="4" class="bubble b2"/>
+      <circle cx="587" cy="659" r="3" class="bubble b3"/><circle cx="718" cy="661" r="3" class="bubble b4"/>
+      <circle cx="731" cy="645" r="4" class="bubble b5"/><circle cx="611" cy="663" r="2.5" class="bubble b6"/>
+    </g>
+    <!-- Sifão contínuo: boca de captação na zona de vapor, tubo banhado pelo líquido e saída conectada à sucção -->
+    <path id="siphonPipe" d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#084268" stroke-width="17" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#72d7ff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+    <path class="lowMove" d="M609 501 H620 Q632 501 632 516 V567 Q632 592 649 592 H687 Q704 592 704 574 V550 H737" fill="none" stroke="#ecfbff" stroke-width="3" stroke-dasharray="7 23" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="609" cy="501" r="4.5" fill="#d6f9ff"/>
+    <!-- Serpentina do chope, múltiplas voltas horizontais, um único percurso contínuo -->
+    <g id="serpentinaChope">
+      <path id="beerCoil" d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#804318" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#ffd14b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="beerMove" d="M547 624 H574 V617 Q574 610 583 610 H699 Q710 610 710 620 Q710 630 699 630 H581 Q571 630 571 640 Q571 649 581 649 H699 Q710 649 710 659 Q710 668 699 668 H583 Q573 668 573 677 H643" fill="none" stroke="#fff6d4" stroke-width="3" stroke-dasharray="7 24" stroke-linecap="round"/>
+    </g>
+    <!-- entrada de refrigerante após capilar, separada da serpentina do chope -->
+    <path d="M548 553 H575" stroke="#053c73" stroke-width="17" fill="none" stroke-linecap="round"/>
+    <path d="M548 553 H575" stroke="#32c6ff" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path class="lowMove" d="M548 553 H575" stroke="#e4fcff" stroke-width="3" stroke-dasharray="5 16" fill="none"/>
   </g>
-  <!-- side supports like the reference -->
-  <g fill="#778b9e" stroke="#d6e5ef" stroke-width="2.4" opacity=".96">
-    <circle cx="571" cy="592" r="8"/><circle cx="571" cy="620" r="8"/><circle cx="571" cy="648" r="8"/><circle cx="571" cy="676" r="8"/>
-    <circle cx="716" cy="592" r="8"/><circle cx="716" cy="620" r="8"/><circle cx="716" cy="648" r="8"/><circle cx="716" cy="676" r="8"/>
-  </g>
-  <!-- capillary / refrigerant inlet descending at left -->
-  <path d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#7c2938" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#ff3f54" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path class="vaporMove" d="M585 500 H606 Q618 500 618 514 V592" fill="none" stroke="#ffd6db" stroke-width="3" stroke-dasharray="6 18" stroke-linecap="round"/>
-  <!-- suction siphon, mostly submerged, tip in vapor zone -->
-  <path d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#0b3f67" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#8fe3ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path class="lowMove" d="M739 502 H710 Q700 502 700 514 V603 Q700 635 683 635 H650 Q634 635 634 619 V540 Q634 524 620 524 H602" fill="none" stroke="#e1fbff" stroke-width="3.5" stroke-dasharray="7 20" stroke-linecap="round"/>
-  <circle cx="602" cy="524" r="4.5" fill="#dffcff"/>
-  <!-- beer coil similar to the reference -->
-  <g id="serpentinaChope" opacity=".99">
-    <!-- inlet on left -->
-    <path d="M548 601 H586" fill="none" stroke="#8d4d1f" stroke-width="18" stroke-linecap="round"/>
-    <path d="M548 601 H586" fill="none" stroke="#ffd18f" stroke-width="7" stroke-linecap="round"/>
-    <path class="beerMove" d="M548 601 H586" fill="none" stroke="#fff4bf" stroke-width="3.2" stroke-dasharray="6 20"/>
-    <!-- multi-pass coil -->
-    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#87461a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#ffcf39" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M586 601 H686 Q702 601 702 614 Q702 627 686 627 H594 Q578 627 578 640 Q578 653 594 653 H686 Q702 653 702 666 Q702 679 686 679 H594 Q578 679 578 692 Q578 705 594 705 H670" fill="none" stroke="#fff6bf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-    <!-- exit downpipe -->
-    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#87461a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#ffcf39" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M670 705 Q652 705 652 718 V740" fill="none" stroke="#fff6bf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-  </g>
+  <rect x="530" y="443" width="227" height="15" rx="6" fill="#b3cbd7"/>
 </g>
-<rect x="532" y="444" width="222" height="15" rx="6" fill="#acc8d7" opacity=".8"/>
-<text x="644" y="718" text-anchor="middle" fill="#e4f5fd" font-size="18" font-weight="bold">BOILER / EVAPORADOR INUNDADO</text>
-<!-- beer route integrated with bottom exit -->
-<path d="M300 601H548" stroke="#a65d25" stroke-width="16" fill="none" stroke-linecap="round"/>
-<path d="M300 601H548" stroke="#f3c886" stroke-width="7" fill="none" stroke-linecap="round"/>
-<path class="beerMove" d="M300 601H548" stroke="#fff4bf" stroke-width="3.5" stroke-dasharray="7 25" fill="none"/>
-<path d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#a65d25" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#f3c886" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-<path class="beerMove" d="M652 740 V706 H754 V609 H803 V684 H855" fill="none" stroke="#fff4bf" stroke-width="3.5" stroke-dasharray="7 25"/>
-<rect x="294" y="587" width="31" height="27" rx="5" fill="#c17b38" stroke="#ffdfad" stroke-width="3"/>
-<rect x="839" y="678" width="39" height="22" rx="5" fill="#bb823d" stroke="#ffe1ad" stroke-width="3"/>
-<text x="328" y="637" fill="#ffdba8" font-size="13" font-weight="bold">CHOPE ENTRADA</text>
-<text x="818" y="730" fill="#ffdba8" font-size="13" text-anchor="middle" font-weight="bold">SAÍDA DO CHOPE</text>
-<!-- external callouts to keep the boiler clean -->
-<g font-family="Inter,system-ui,sans-serif">
-  <g>
-    <path d="M618 542 L500 520" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
-    <rect x="344" y="498" width="152" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
-    <text x="420" y="515" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">ENTRADA DO REFRIGERANTE</text>
-    <text x="420" y="531" text-anchor="middle" fill="#b7dceb" font-size="10.8">pós-capilar • entra no boiler</text>
-  </g>
-  <g>
-    <path d="M605 524 L486 466" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
-    <rect x="324" y="438" width="158" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
-    <text x="403" y="455" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">PONTA DO SIFÃO</text>
-    <text x="403" y="471" text-anchor="middle" fill="#b7dceb" font-size="10.8">capta vapor / gás</text>
-  </g>
-  <g>
-    <path d="M665 618 L808 618" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
-    <rect x="814" y="598" width="154" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
-    <text x="891" y="615" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">CORPO DO SIFÃO</text>
-    <text x="891" y="631" text-anchor="middle" fill="#b7dceb" font-size="10.8">submerso no líquido</text>
-  </g>
-  <g>
-    <path d="M700 502 L834 472" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
-    <rect x="840" y="450" width="148" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
-    <text x="914" y="467" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">SAÍDA / SUCÇÃO</text>
-    <text x="914" y="483" text-anchor="middle" fill="#b7dceb" font-size="10.8">retorno ao compressor</text>
-  </g>
-  <g>
-    <path d="M630 555 L474 575" stroke="#d9f6ff" stroke-width="2.5" fill="none"/>
-    <rect x="302" y="554" width="166" height="42" rx="8" fill="#0d2030" stroke="#7ecfff" stroke-width="2" opacity=".96"/>
-    <text x="385" y="571" text-anchor="middle" fill="#dff7ff" font-size="11.5" font-weight="700">NÍVEL DO LÍQUIDO</text>
-    <text x="385" y="587" text-anchor="middle" fill="#b7dceb" font-size="10.8">refrigerante no boiler</text>
-  </g>
-  <g>
-    <path d="M636 653 L813 682" stroke="#ffe7b0" stroke-width="2.5" fill="none"/>
-    <rect x="819" y="662" width="160" height="42" rx="8" fill="#2a1e09" stroke="#ffd38a" stroke-width="2" opacity=".96"/>
-    <text x="899" y="679" text-anchor="middle" fill="#fff1ce" font-size="11.5" font-weight="700">SERPENTINA DO CHOPE</text>
-    <text x="899" y="695" text-anchor="middle" fill="#f8dca4" font-size="10.8">passagens horizontais</text>
-  </g>
-</g>
-</g>
+<!-- circuito do chope, separado da sucção e conectado à serpentina -->
+<path d="M300 624 H548" stroke="#995625" stroke-width="15" fill="none" stroke-linecap="round"/>
+<path d="M300 624 H548" stroke="#f2bf74" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path class="beerMove" d="M300 624 H548" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24" fill="none"/>
+<path d="M643 677 V706 H803 V684 H855" fill="none" stroke="#995625" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M643 677 V706 H803 V684 H855" fill="none" stroke="#f2bf74" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path class="beerMove" d="M643 677 V706 H803 V684 H855" fill="none" stroke="#fff6cc" stroke-width="3" stroke-dasharray="7 24"/>
+<!-- nenhuma legenda escrita sobre o boiler: identificação no painel abaixo -->
 <!-- suction solenoid (near compressor, as reference) -->
 <g transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
 <text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
@@ -200,7 +141,7 @@
 <text x="1037" y="489" text-anchor="middle" font-size="16" fill="#eaf6ff" font-weight="bold">COMPRESSOR</text>
 <!-- Static sensor names are kept separated from readings: 6 live readout ids must exist -->
 <g transform="translate(26 73)" class="readout"><rect width="157" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Ambiente</text><text id="svg-ambient" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(884 75)" class="readout"><rect width="185" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Condensação</text><text id="svg-pCond" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 253)" class="readout"><rect width="174" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Descarga</text><text id="svg-discharge" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1080 514)" class="readout"><rect width="170" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Sucção</text><text id="svg-pSuc" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(26 625)" class="readout"><rect width="166" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Vazão de chope</text><text id="svg-flow" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g transform="translate(1060 637)" class="readout"><rect width="186" height="57" rx="9" fill="#edf3fb" stroke="#becfdd" stroke-width="1.3"/><text x="11" y="21" font-size="12" fill="#35506a">Saída do chope</text><text id="svg-beerOut" x="11" y="44" font-size="21" fill="#0b2e4a" font-weight="bold">—</text></g><g fill="#bfd3de" font-size="12"><text x="384" y="151">Líquido · alta pressão</text><text x="820" y="150">Vapor · alta pressão</text><text x="251" y="534">Baixa pressão após expansão</text><text x="774" y="574">Sucção · baixa pressão</text></g>
-</svg></div><div class="legend"><span><i class="dot" style="background:#ef646b"></i>Gás de alta / descarga</span><span><i class="dot" style="background:#e7b04f"></i>Líquido de alta</span><span><i class="dot" style="background:#35b8fa"></i>Baixa pressão / sucção</span><span><i class="dot" style="background:#33d5b3"></i>Chope</span></div><div class="notice">O circuito esquemático (na segunda aba) diferencia descarga, líquido de alta, expansão, sucção e chope. O boiler possui ebulição animada localizada. É um desenho esquemático para treinamento, não um P&amp;ID de fabricação; confirme a posição exata de sensores e válvulas com o projeto real.</div></section>
+</svg></div><div class="boiler-legend" aria-label="Identificação dos circuitos do boiler"><div><span class="swatch" style="background:#ffd14b"></span><strong>Serpentina do chope</strong><small>Voltas horizontais e saída pela parte inferior</small></div><div><span class="swatch" style="background:#38bfff"></span><strong>Sifão de sucção</strong><small>Boca na zona de vapor, curva logo acima da serpentina e saída conectada à linha de sucção</small></div><div><span class="swatch" style="background:#1684b7"></span><strong>Refrigerante no boiler</strong><small>Líquido preenchendo até pouco acima da serpentina do chope</small></div></div><div class="legend"><span><i class="dot" style="background:#ef646b"></i>Gás de alta / descarga</span><span><i class="dot" style="background:#e7b04f"></i>Líquido de alta</span><span><i class="dot" style="background:#35b8fa"></i>Baixa pressão / sucção</span><span><i class="dot" style="background:#33d5b3"></i>Chope</span></div><div class="notice">O circuito esquemático (na segunda aba) diferencia descarga, líquido de alta, expansão, sucção e chope. O boiler possui ebulição animada localizada. É um desenho esquemático para treinamento, não um P&amp;ID de fabricação; confirme a posição exata de sensores e válvulas com o projeto real.</div></section>
 <aside class="panel editor"><h2>Configurar cenário</h2><div class="control"><label>Ensaio usado como referência</label><select id="reference"><option value="E038">E038 • 24 °C • 59,40 L/h</option><option value="E030">E030 • 32 °C • 37,08 L/h</option><option value="imported">Importado da biblioteca (quando disponível)</option></select></div><div class="mode"><button data-mode="target" class="active" type="button">Saída fixa • calcular vazão</button><button data-mode="flow" type="button">Vazão fixa • calcular saída</button></div><div class="controls"><div class="control"><label for="ambient">Temperatura ambiente (°C)</label><input type="number" step="0.1" id="ambient"></div><div class="control"><label for="beerIn">Entrada do chope (°C)</label><input type="number" step="0.1" id="beerIn"></div><div class="control" id="targetbox"><label for="target">Saída desejada (°C)</label><input type="number" step="0.1" id="target" value="3"></div><div class="control" id="flowbox"><label for="flow">Vazão imposta (L/h)</label><input type="number" step="0.1" id="flow" value="59.4"></div></div><div class="controls"><div class="control"><label for="pBoilerSet">Pressão do boiler (psig)</label><input type="number" step="0.1" id="pBoilerSet"></div><div class="control"><label for="pSucSet">Pressão de sucção (psig)</label><input type="number" step="0.1" id="pSucSet"></div><div class="control"><label for="deltaPSucBoiler">ΔP boiler − sucção (psi)</label><input type="number" step="0.1" id="deltaPSucBoiler" readonly></div><div class="control"><label for="fault">Falha simulada</label><select id="fault"><option value="none">Nenhuma</option><option value="condObstruction">Condensador obstruído</option><option value="lowDelta">Baixa diferença entre pressão do boiler e sucção</option><option value="highSuctionDrop">Perda de pressão na linha de sucção</option></select></div></div><div class="controls"><div class="control" style="grid-column:1/-1"><label for="faultSeverity">Intensidade da falha (%)</label><input type="range" min="0" max="100" step="5" id="faultSeverity" value="0"><div class="tiny">Intensidade atual: <span id="faultSeverityLabel">0%</span></div></div></div><div id="deltaInfo" class="notice" style="margin-top:12px">A diferença entre pressão do boiler e pressão de sucção influencia o arraste de vapor, o retorno de óleo e a estabilidade do evaporador.</div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
 <div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Temperaturas e pressões são baseadas em médias de E038/E030, com interpolação conjunta em função do ambiente. A leitura não representa calibração independente da vazão.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V17 • Protótipo de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
 <style>@keyframes drift{to{stroke-dashoffset:-70}}.pulse{animation:drift 2.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
