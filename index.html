@@ -18,7 +18,7 @@
 @media(prefers-reduced-motion:reduce){.focus-ring{animation:none}}
 
 .boiler-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}.boiler-legend>div{border:1px solid #365668;border-radius:10px;padding:11px;background:#102939;min-width:0}.boiler-legend strong{display:block;font-size:12px}.boiler-legend small{display:block;color:#a7c3d1;font-size:11px;margin-top:5px;line-height:1.35}.boiler-legend .swatch{float:left;width:10px;height:10px;border-radius:50%;margin:4px 8px 0 0}@media(max-width:780px){.boiler-legend{grid-template-columns:1fr}}
-.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V27 • Simulação da sucção</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
+.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><strong>▣ TREINAMEMO</strong><small>REFRIGERATION LAB · ENSAIOS E SIMULAÇÃO</small></div><span class="tag">V27 • Simulação da sucção</span><a href="/engenharia.html" style="background:#147968;color:#fff;border-radius:9px;padding:10px;text-decoration:none">Engenharia científica</a></header><main class="wrap" id="app"><div class="hero"><div class="intro"><div class="tiny">MEMO / Engenharia de refrigeração</div><h1>Chopeira de expansão direta — R134a</h1><p>Circuito redesenhado com topologia visual orientada pelo vídeo enviado. Referência experimental E038 / E030.</p></div><div class="actions"><a class="btn" href="ensaios.html">Biblioteca de ensaios</a><a class="btn" href="#ph-cycle" style="background:#115b63;color:#e1fcfb">◉ Diagrama p-h</a><a class="btn" href="falhas.html" style="background:#a33b36;color:white">⚠ Laboratório de falhas</a><button id="monitor">▣ Modo monitor</button><button id="reset">Restaurar</button></div></div>
 <div class="notice warning intro">Prévia calibrada nos dois ensaios de fio de líquido. A comparação é experimental e local: sem mapa do compressor, sem identificação independente do efeito da vazão sobre as pressões, sem previsão validada fora da faixa observada. Os valores medidos nunca são sobrescritos.</div>
 <div class="layout"><section class="panel"><div class="hero"><div><h2>Circuito instrumentado — expansão direta</h2><span class="tiny">Condensador superior • capilar à esquerda • boiler central • compressor à direita</span></div><span class="tag" id="statusModel">Tendência experimental</span></div><div class="visual-modes" role="group" aria-label="Visualização do equipamento">
 <button class="visual-mode" id="viewBoiler" type="button" aria-pressed="false">Boiler — imagem de referência</button>
@@ -173,7 +173,11 @@
 <div class="controls"><div class="control"><label for="clearance">Volume nocivo equivalente (%)</label><input id="clearance" type="number" min="0" max="20" step="0.5" value="5"></div><div class="control"><label for="nPoly">Expoente politrópico de reexpansão (n)</label><input id="nPoly" type="number" min="1.05" max="1.8" step="0.05" value="1.2"></div></div>
 <p class="tiny">Aproximação: eficiência volumétrica relativa calculada pela reexpansão do gás residual. Não estima retorno de óleo, rendimento elétrico ou ajuste do capilar.</p></details>
 <div class="controls"><div class="control" style="grid-column:1/-1"><label for="faultSeverity">Intensidade da falha (%)</label><input type="range" min="0" max="100" step="5" id="faultSeverity" value="0"><div class="tiny">Intensidade atual: <span id="faultSeverityLabel">0%</span></div></div></div><div id="deltaInfo" class="notice" style="margin-top:12px">ΔP = Pboiler − Psucção. É perda de carga; quanto menor, mais próxima a sucção fica da pressão do boiler.</div><div class="actions"><button class="primary" id="save">Salvar cenário neste aparelho</button><button id="restore">Carregar cenário salvo</button></div><div id="saveStatus" class="status" aria-live="polite"></div><div class="notice warning" style="margin-top:14px" id="methodNote"></div></aside></div>
-<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Vazão de chope e capacidade útil usam estimativa condicional da vazão mássica aspirada; os demais sensores são referências/interpolações, não previsões independentes das alterações.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V27 • Modelo comparativo de sucção de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p></main>
+<div class="keycards" id="metrics"></div><div class="columns bottom"><section class="panel"><h2>Instrumentação • medido × previsto × diferença</h2><p class="tiny">Vazão de chope e capacidade útil usam estimativa condicional da vazão mássica aspirada; os demais sensores são referências/interpolações, não previsões independentes das alterações.</p><div class="readgrid" id="readings"></div></section><section class="panel secondary"><h2>Comparação da capacidade de extração</h2><table><thead><tr><th>Condição de ensaio</th><th>Ambiente</th><th>Entrada</th><th>Vazão</th><th>Saída</th></tr></thead><tbody><tr><td>E038</td><td>24,25 °C</td><td>24,07 °C</td><td>59,40 L/h</td><td>2,98 °C</td></tr><tr><td>E030</td><td>32,15 °C</td><td>32,01 °C</td><td>37,08 L/h</td><td>3,03 °C</td></tr></tbody></table><div id="cautions" class="notice warning" style="margin-top:15px"></div><p class="tiny">O balanço de energia utiliza propriedades aproximadas do chope: ρ = 1,01 kg/L; cp = 3,90 kJ/(kg·K). É possível cadastrar outras propriedades em versões futuras.</p></section></div><p class="tiny">TreinaMEMO V28 • Modelo comparativo de sucção de engenharia experimental • As medições reais permanecem imutáveis. Dados salvos localmente; a publicação na Vercel não sincroniza com Supabase.</p><section class="ph-panel" id="ph-cycle"><div class="ph-header"><div><div class="tiny" style="color:#76d9d3">V28 · ANÁLISE TERMODINÂMICA</div><h2 style="font-size:23px;margin:7px 0">Diagrama p-h do R134a</h2><p class="ph-explain">Curva de saturação real tabulada e <strong>fixa</strong> para o fluido. Os pontos mudam quando as condições mudam; a curva não muda.</p></div><a class="ph-nav" href="engenharia.html">Módulo de engenharia ↗</a></div><div class="ph-legend"><span style="--ph-color:#65c9f5">Saturação R134a</span><span style="--ph-color:#f3bb62">Ciclo de referência</span><span style="--ph-color:#7ce8aa">Ciclo simulado</span></div><div id="phPlot" class="ph-view" role="img" aria-label="Diagrama pressão-entalpia do R134a, com curva de saturação fixa e sobreposição dos dois ciclos"></div><div id="phKpis" class="ph-kpis"></div><div class="ph-tablewrap"><table class="ph-table"><thead><tr><th>Estado do ciclo</th><th>Pressão de referência</th><th>h referência</th><th>Pressão simulação</th><th>h simulação</th><th>Origem</th></tr></thead><tbody id="phRows"></tbody></table></div><div id="phAlerts" class="ph-flags"></div><p class="ph-explain"><strong>Base do fluido:</strong> dados tabulados de R134a a partir de CoolProp, referência IIR (h<sub>f</sub>=200 kJ/kg a 0 °C), com interpolação entre pontos; <strong>não é uma equação de estado completa</strong>. Fontes: <a style="color:#96deeb" href="https://luisbedoia.github.io/thermoprops/fluids/r134a/" target="_blank" rel="noopener">Thermoprops / CoolProp</a> e <a style="color:#96deeb" href="https://handbook.ashrae.org/Handbooks/F25/SI/F25_Ch30/F25_Ch30_si.aspx" target="_blank" rel="noopener">ASHRAE</a>. Fora da saturação, a entalpia é <strong>estimada</strong> com calor específico aproximado (vapor 0,92 e líquido 1,42 kJ/kg·K); a descarga é tendência condicionada, não previsão calibrada. Pressão no gráfico: <strong>absoluta</strong>, eixo logarítmico.</p><p class="ph-explain">A temperatura do ambiente e a entrada do chope são condições mantidas; temperaturas da sucção/descarga são projeções condicionadas. Condensador e boiler não são reequilibrados neste estágio; logo, temperaturas sem modelo independente ficam explicitamente como referência, não como previsão.</p></section></main>
+
+<style id="phStyle">
+.ph-panel{margin:19px 0;background:#0c2335;border:1px solid #3d6175;border-radius:16px;padding:18px}.ph-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.ph-view{background:#061a28;border:1px solid #315269;border-radius:13px;overflow:hidden;margin:12px 0}.ph-view svg{width:100%;height:auto;display:block;min-width:0}.ph-legend{display:flex;gap:15px;flex-wrap:wrap;font-size:12px;color:#c7dce9}.ph-legend span:before{content:'● ';color:var(--ph-color)}.ph-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}.ph-stat{border:1px solid #2d5367;background:#092131;border-radius:10px;padding:12px;min-width:0}.ph-stat small{display:block;color:#a8c4d3;font-size:11px}.ph-stat b{font-size:18px;display:block;margin-top:5px}.ph-stat em{font-size:10px;font-style:normal;color:#b5cad6}.ph-table{width:100%;min-width:700px;border-collapse:collapse}.ph-table td,.ph-table th{padding:9px;border-bottom:1px solid #27465b;font-size:12px;text-align:right}.ph-table td:first-child,.ph-table th:first-child{text-align:left}.ph-explain{color:#c4d9e5;font-size:12px;line-height:1.6}.ph-flags{font-size:12px;color:#f8d69f;padding:11px;background:#2c261d;border:1px solid #7c683f;border-radius:10px;margin-top:8px}.ph-tablewrap{overflow-x:auto}.ph-nav{font-size:12px;color:#b5d8e6}.ph-view .ph-hover{cursor:crosshair}@media(max-width:700px){.ph-panel{padding:11px}.ph-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
 <style>@keyframes drift{to{stroke-dashoffset:-70}}.pulse{animation:drift 2.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
 @keyframes flowGas{to{stroke-dashoffset: -116}}@keyframes flowLiquid{to{stroke-dashoffset:-116}}@keyframes flowSuction{to{stroke-dashoffset:-112}}@keyframes flowBeer{to{stroke-dashoffset:-96}}@keyframes boilLift{0%{transform:translateY(0);opacity:.1}15%{opacity:.75}85%{opacity:.8}100%{transform:translateY(-125px);opacity:0}}@keyframes surfaceWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes strokePump{0%,100%{opacity:.6}50%{opacity:1}}
 .diagram .vaporMove{animation:flowGas 2.3s linear infinite}.diagram .liquidMove{animation:flowLiquid 2.9s linear infinite}.diagram .lowMove{animation:flowSuction 2.4s linear infinite}.diagram .beerMove{animation:flowBeer 3.1s linear infinite}.diagram .bubble{animation:boilLift 3.1s linear infinite;transform-box:fill-box;transform-origin:center}.diagram .b2{animation-delay:-1.2s}.diagram .b3{animation-delay:-2.3s}.diagram .b4{animation-delay:-.7s}.diagram .b5{animation-delay:-1.8s}.diagram .b6{animation-delay:-2.7s}.diagram .waveBoiler{animation:surfaceWave 2s ease-in-out infinite}.diagram .compressPulse{animation:strokePump .42s linear infinite}.diagram .readout text{font-family:system-ui,sans-serif}
@@ -345,6 +349,7 @@ function render(){
    'Vazão fixa: temperatura estimada via balanço térmico × razão de vazão mássica aspirada (modelo alternativo simplificado). Não substitui mapa do compressor.';
  $('statusModel').textContent=results.inside&&results.valid?'Modelo comparativo de compressor • não validado':'⚠ Fora do modelo';
  updateDeltaInfo();
+ if(typeof window.treinaPHRender==='function') window.treinaPHRender();
 }
 function syncInputs(){ for(const key of ['ambient','beerIn','target','flow']) $(key).value=Number.isFinite(s[key])?s[key]:''; $('pBoilerSet').value=Number.isFinite(s.pBoiler)?s.pBoiler.toFixed(2):''; $('pSucSet').value=Number.isFinite(s.pSuc)?s.pSuc.toFixed(2):''; if(s.fault==='lowDelta')s.fault='none';$('fault').value=s.fault; $('faultSeverity').value=s.faultSeverity; $('clearance').value=s.clearance; $('nPoly').value=s.nPoly; updateDeltaInfo(); }
 function selectRef(id){ selected=id==='E030'?data[1]:id==='imported'&&imported?imported:data[0]; s={...s,ambient:selected.ambient,beerIn:selected.beerIn,target:3,flow:Number.isFinite(selected.flow)?selected.flow:NaN,pBoiler:Number.isFinite(selected.pBoiler)?selected.pBoiler:(selected.pSuc+8),pSuc:Number.isFinite(selected.pSuc)?selected.pSuc:24}; syncInputs(); render(); }
@@ -380,4 +385,124 @@ $('viewCircuit').addEventListener('click',()=>{ $('boilerReference').hidden=true
 document.querySelectorAll('.boiler-part').forEach(b=>b.addEventListener('click',()=>showBoilerPart(b.dataset.focus)));
 showBoilerPart('all');
 
+</script><script id="phEngine">
+'use strict';
+/* R134a saturation data from Thermoprops/CoolProp, IIR enthalpy datum.
+ * Columns: T Celsius, P kPa abs, saturated liquid h, saturated vapor h, kJ/kg.
+ * Saturation interpolation uses log(P) and linear h between tabulated points.
+ * All off-saturation states are deliberately tagged as approximations.
+ */
+const PH_SAT=[
+ [-80,3.6719,99.161,348.83],[-60,15.906,123.36,361.31],
+ [-40,51.209,148.14,374.00],[-30,84.38,160.79,380.31],
+ [-20,132.74,173.64,386.55],[-10,200.60,186.69,392.66],
+ [0,292.80,200.00,398.60],[10,414.61,213.57,404.31],
+ [20,571.71,227.47,409.75],[30,770.20,241.72,414.81],
+ [40,1016.60,256.41,419.43],[50,1317.91,271.62,423.43],
+ [60,1681.80,287.51,426.63],[80,2633.20,322.39,428.81]
+];
+const PH_PSI_KPA=6.894757293,PH_PATM=101.325;
+const phAbs=psig=>PH_PATM+psig*PH_PSI_KPA;
+const phNum=(n,d=1)=>Number.isFinite(n)?n.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+function phSat(p){
+ if(!Number.isFinite(p)||p<PH_SAT[0][1]||p>PH_SAT[PH_SAT.length-1][1])return null;
+ for(let i=1;i<PH_SAT.length;i++){
+   const a=PH_SAT[i-1],b=PH_SAT[i];
+   if(p>b[1])continue;
+   const f=(Math.log(p)-Math.log(a[1]))/(Math.log(b[1])-Math.log(a[1]));
+   return {t:a[0]+f*(b[0]-a[0]),p,hf:a[2]+f*(b[2]-a[2]),hg:a[3]+f*(b[3]-a[3])};
+ }
+ return null;
+}
+function phCycle(ref,sim){
+ const bP=phAbs(sim.pBoiler),suP=phAbs(sim.pSuc),coP=phAbs(ref.pCond);
+ const satB=phSat(bP),satS=phSat(suP),satH=phSat(coP);
+ if(!(satB&&satS&&satH&&bP>=suP&&coP>bP))return null;
+ const refS=phSat(phAbs(ref.pSuc)),refB=phSat(phAbs(ref.pBoiler));
+ if(![ref.suction,ref.discharge,ref.condOut,ref.pCond,ref.pSuc,ref.pBoiler].every(Number.isFinite))return null;
+ if(!(refS&&refB))return null;
+ const CpV=.92,CpL=1.42;
+ const refSH=ref.suction-refS.t;
+ // Trend only: T suction responds to Tsat change with bounded coupling, not a real sensor prediction.
+ const tS=ref.suction+0.65*(satS.t-refS.t);
+ const sh=tS-satS.t;
+ const tDref=ref.discharge;
+ const ratioRef=coP/phAbs(ref.pSuc),ratioNow=coP/suP;
+ const tD=(tS+273.15)+(tDref-ref.suction)*Math.pow(ratioNow/ratioRef,.18);
+ const tDcalc=tD-273.15;
+ const make=(refCase)=>{
+   const pB=refCase?phAbs(ref.pBoiler):bP, pS=refCase?phAbs(ref.pSuc):suP;
+   const B=phSat(pB), S=phSat(pS),H=phSat(coP);
+   const Ts=refCase?ref.suction:tS, Td=refCase?tDref:tDcalc;
+   const h1= S.hg+CpV*(Ts-S.t);
+   const h2= h1+CpV*(Td-Ts); // difference approximation only; true h(P,T) requires full EOS
+   const h3= H.hf+CpL*(ref.condOut-H.t);
+   const h4=h3;
+   const h5=B.hg; // assumed saturated vapor leaving boiler
+   const points=[{p:pS,h:h1,t:Ts,tag:'1 · Sucção compressor'},
+      {p:coP,h:h2,t:Td,tag:'2 · Descarga'},
+      {p:coP,h:h3,t:ref.condOut,tag:'3 · Saída condensador'},
+      {p:pB,h:h4,t:B.t,tag:'4 · Pós-expansão'},
+      {p:pB,h:h5,t:B.t,tag:'5 · Vapor no boiler (suposição)'}];
+   const x=(h4-B.hf)/(B.hg-B.hf);
+   return {points,sh:Ts-S.t,sc:H.t-ref.condOut,x,q:h5-h4,w:h2-h1,ts:S.t,td:Td,mode:refCase?'Referência':'Simulação'};
+ };
+ return {reference:make(true),scenario:make(false),satB,satS,satH,refSH};
+}
+function phRender(){
+ const mount=document.getElementById('phPlot');if(!mount||!selected||!results)return;
+ const ref={...selected};
+ const sim=results.r;
+ const cy=phCycle(ref,sim);
+ if(!cy){mount.innerHTML='<p style="padding:20px;color:#ffd6a1">Não foi possível posicionar o ciclo: confira pressões e sensores ou a faixa tabulada da saturação.</p>';
+ document.getElementById('phKpis').innerHTML='';document.getElementById('phRows').innerHTML='';document.getElementById('phAlerts').textContent='Não há dados suficientes ou o estado está fora da faixa da tabela para este cenário.';return;}
+ const W=940,H=470,left=72,right=24,top=29,bottom=58;
+ const xmin=105,xmax=535,pmin=9,pmax=3400;
+ const x=h=>left+(h-xmin)/(xmax-xmin)*(W-left-right);
+ const y=p=>H-bottom-(Math.log(p)-Math.log(pmin))/(Math.log(pmax)-Math.log(pmin))*(H-top-bottom);
+ const point=t=>`${x(t.h).toFixed(2)},${y(t.p).toFixed(2)}`;
+ const line=(arr,close)=>arr.map((a,i)=>`${i?'L':'M'}${point(a)}`).join(' ')+(close?' Z':'');
+ const fl=PH_SAT.map(a=>({p:a[1],h:a[2]}));
+ const fv=PH_SAT.map(a=>({p:a[1],h:a[3]}));
+ const dome=line(fl,false)+' '+fv.slice().reverse().map(a=>'L'+point(a)).join(' ')+' Z';
+ let svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Diagrama pressão entalpia real R134a">`;
+ svg+=`<rect width="${W}" height="${H}" fill="#061b2b"/>`;
+ for(const val of [150,200,250,300,350,400,450,500])svg+=`<line x1="${x(val)}" y1="${top}" x2="${x(val)}" y2="${H-bottom}" stroke="#234257"/><text x="${x(val)}" y="${H-bottom+24}" fill="#b5cfdd" font-size="12" text-anchor="middle">${val}</text>`;
+ for(const val of [10,20,50,100,200,500,1000,2000,3000])svg+=`<line x1="${left}" y1="${y(val)}" x2="${W-right}" y2="${y(val)}" stroke="#234257"/><text x="${left-10}" y="${y(val)+4}" fill="#b5cfdd" font-size="12" text-anchor="end">${val}</text>`;
+ svg+=`<path d="${dome}" fill="#164761" fill-opacity=".58" stroke="none"/><path d="${line(fl)}" stroke="#65c9f5" fill="none" stroke-width="3"/><path d="${line(fv)}" stroke="#65c9f5" fill="none" stroke-width="3"/>`;
+ svg+=`<text x="${W-30}" y="25" text-anchor="end" fill="#9ebdcd" font-size="11">Curva tabulada até 80 °C · topo truncado</text>`;
+ svg+=`<text x="${(x(200)+x(400))/2}" y="${y(80)}" fill="#7db5ce" font-size="13" text-anchor="middle">Região bifásica</text>`;
+ const lines=[['reference','#f3bb62','6 5'],['scenario','#7ce8aa','']];
+ for(const [key,color,dash] of lines){
+   const arr=cy[key].points;
+   svg+=`<path d="${line([...arr,arr[0]])}" fill="none" stroke="${color}" stroke-width="${key==='reference'?2.3:3.3}" stroke-dasharray="${dash}" stroke-linecap="round" stroke-linejoin="round"/>`;
+   for(let i=0;i<arr.length;i++){
+      let pt=arr[i];
+      svg+=`<circle cx="${x(pt.h)}" cy="${y(pt.p)}" r="${key==='reference'?5:6}" fill="${color}" stroke="#0b2233" stroke-width="2" class="ph-hover"><title>${key==='reference'?'Referência':'Simulação'} ${pt.tag}: P ${phNum(pt.p,2)} kPa abs; h ${phNum(pt.h,2)} kJ/kg; T ${phNum(pt.t,1)} °C</title></circle>`;
+      if(key==='scenario')svg+=`<text x="${x(pt.h)+9}" y="${y(pt.p)-8}" font-size="12" font-weight="700" fill="${color}">${i+1}</text>`;
+   }
+ }
+ svg+=`<text x="${W/2}" y="${H-10}" fill="#dcecf5" font-size="15" text-anchor="middle">Entalpia específica — h (kJ/kg) · referência IIR</text>`;
+ svg+=`<text x="17" y="${H/2}" fill="#dcecf5" font-size="14" text-anchor="middle" transform="rotate(-90 17 ${H/2})">Pressão absoluta — kPa (log)</text>`;
+ svg+='</svg>';
+ mount.innerHTML=svg;
+ const kp=(label,value,desc)=>`<div class="ph-stat"><small>${label}</small><b>${value}</b><em>${desc}</em></div>`;
+ const p1=cy.reference,p2=cy.scenario;
+ document.getElementById('phKpis').innerHTML=kp('Superaquecimento — sucção',`${phNum(p1.sh)} → ${phNum(p2.sh)} K`,'Estimativa, T sucção acoplada')+kp('Sub-resfriamento — alta',`${phNum(p2.sc)} K`,'Alta mantida na referência')+kp('Título pós-expansão',`${phNum(p2.x*100)}%`,'h4 = h3 · estimativa')+kp('Efeito frigorífico específico',`${phNum(p1.q)} → ${phNum(p2.q)} kJ/kg`,'Boiler: vapor saturado assumido');
+ const titles=['1 · Sucção compressor','2 · Descarga compressor','3 · Saída condensador','4 · Pós-expansão','5 · Saída boiler'];
+ document.getElementById('phRows').innerHTML=titles.map((title,i)=>{
+   const a=p1.points[i],b=p2.points[i],source=['Estimado P/T','T medida na referência; estimada na simulação','T condensador mantida','Expansão isoentálpica','Vapor saturado assumido'][i];
+   return `<tr><td>${title}</td><td>${phNum(a.p)} kPa</td><td>${phNum(a.h)} kJ/kg</td><td>${phNum(b.p)} kPa</td><td>${phNum(b.h)} kJ/kg</td><td>${source}</td></tr>`;
+ }).join('');
+ const issues=[];
+ if(p1.sh<0||p2.sh<0)issues.push('Temperatura de sucção abaixo da saturação: vapor superaquecido não confirmado; verifique sensor/pressão.');
+ if(p2.sc<0)issues.push('Saída do condensador acima da temperatura de saturação: sub-resfriamento não confirmado.');
+ if(!(p2.x>=0&&p2.x<=1))issues.push('Título após expansão fora de 0 a 1: hipótese bifásica não válida neste estado.');
+ if(p2.w<=0)issues.push('Modelo simplificado indica trabalho específico não positivo; condição não resolvida.');
+ issues.push('O gráfico usa pressão/entalpia tabuladas do R134a; temperaturas de sucção/descarga e entalpias monofásicas fora da saturação são estimativas, não valores CoolProp exatos. O modelo da alta e do boiler não recalcula o equilíbrio completo.');
+ if(Math.abs(s.pSuc-selected.pSuc)>0.001)issues.push('Mudança de ΔP: posição 1 responde à nova pressão de admissão; a pressão alta permanece ancorada no ensaio até existir modelo de condensador.');
+ document.getElementById('phAlerts').textContent=issues.join(' ');
+}
+window.treinaPHRender=phRender;
+if(typeof selected!=='undefined'&&typeof results!=='undefined')phRender();
 </script></body></html>
