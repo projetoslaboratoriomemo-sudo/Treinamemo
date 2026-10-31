@@ -23,7 +23,31 @@
 .diagram svg{display:block;width:100%;min-width:0;height:auto}
 @media(max-width:900px){.diagram svg{min-width:0}}
 @media(prefers-reduced-motion:reduce){.diagram .vaporMove,.diagram .liquidMove,.diagram .lowMove,.diagram .beerMove,.diagram .bubble,.diagram .waveBoiler,.diagram .compressPulse{animation:none}}
-.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} </style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V22 • Layout corrigido</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Boiler, sifão e serpentina idênticos à visualização principal. A falha é aplicada sobre este circuito.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+.diagram{overflow-x:auto;max-width:100%;} .diagram svg{min-width:0!important;max-width:100%;} .diagram.zoom svg{min-width:1060px!important;max-width:none;} .diagram-zoom{font:600 12px system-ui;background:#173e53;color:#d0f5ff;border:1px solid #417086;border-radius:8px;padding:8px 12px;margin:8px 0 3px;cursor:pointer;} .grid>*{min-width:0;} @media(max-width:680px){main{max-width:100%;overflow-x:hidden} .panel{min-width:0;max-width:100%;} .diagram{width:100%;}} 
+/* V24: estados e sequenciamento didático */
+.sequence-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}
+.sequence-controls button{background:#17617a}
+.sequence-controls button[disabled]{opacity:.44;cursor:not-allowed}
+.stategrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.statecell{border:1px solid #34546b;border-radius:10px;padding:11px;background:#102d42;min-width:0}
+.statecell small{font-size:11px;color:#adcbd8;display:block}
+.statecell strong{font-size:14px;display:block;margin-top:5px}
+.statecell.warn{border-color:#cf9657;background:#352a27}
+.statecell.danger{border-color:#d46664;background:#3a252b}
+.statecell.ok{border-color:#32796c}
+#stage-description{min-height:55px;font-size:13px;line-height:1.6;color:#d5eaf4}
+#stage-count{font-weight:700;color:#88e0e8}
+.guide-choices{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+.guide-choices button{background:#123c54;text-align:left;border:1px solid #3b7184;min-height:54px}
+.guide-choices button.selected{background:#1c5873;border-color:#a1e8ed}
+.guide-choices button:focus-visible{outline:3px solid #c3eeff;outline-offset:2px}
+.guide-choices button.correct{background:#164e3e;border-color:#82d9b2}
+.guide-choices button.wrong{background:#5a2b31;border-color:#ef9f9f}
+.guide-msg{border-radius:9px;padding:11px;background:#0e3145;border:1px solid #3c6a7d;font-size:13px;line-height:1.5;margin-top:9px}
+.hidden{display:none!important}
+@media(max-width:580px){.guide-choices,.stategrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#liquidSolenoidAlert,#suctionSolenoidAlert{animation:none}}
+</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V24 • Falhas das solenoides e diagnóstico guiado</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Mesmo diagrama do simulador principal. As falhas das solenoides e as proteções são representadas de forma esquemática.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -75,6 +99,7 @@
 <!-- alert halos for solenoid fault modes --><circle id="liquidSolenoidAlert" cx="183" cy="349" r="48" fill="#ff8a57" opacity="0" filter="url(#gblue)"/><circle id="suctionSolenoidAlert" cx="921" cy="550" r="48" fill="#ff8a57" opacity="0" filter="url(#gblue)"/><!-- solenoid on liquid side -->
 <g id="liquidSolenoid" transform="translate(183 349)"><rect x="-29" y="-14" width="58" height="29" rx="4" fill="#d89232" stroke="#ffe4a0" stroke-width="3"/><path d="M-15 -19L0 -33L15 -19" fill="#eaa94a"/><rect x="-14" y="-39" width="28" height="18" rx="3" fill="#1f8dc1" stroke="#98e7ff" stroke-width="2"/><path d="M-18 0H18" stroke="#ffedb3" stroke-width="5"/></g>
 <text x="93" y="330" fill="#eaf5fb" font-size="14">Solenoide</text><text x="93" y="347" fill="#eaf5fb" font-size="14">de líquido</text>
+<g id="liquidValveBadge" opacity="0" aria-hidden="true"><rect x="214" y="307" width="118" height="35" rx="8" fill="#7f2830" stroke="#ffd4a9" stroke-width="2"/><text id="liquidValveBadgeText" x="273" y="330" text-anchor="middle" font-size="13" font-weight="700" fill="#fff4e0">TRAVADA</text></g>
 <!-- Capillary modeled as restriction just after solenoid, not full-length evaporator coil -->
 <g transform="translate(183 420)"><path d="M0 0 V84" stroke="#65d7ff" stroke-width="4"/><path d="M-9 5L9 12L-9 19L9 26L-9 33L9 40L-9 47L9 54L-9 61L9 68L-9 75" fill="none" stroke="#b6def2" stroke-width="2"/></g>
 <text x="124" y="467" fill="#def4ff" font-size="14" text-anchor="end">Capilar</text>
@@ -146,6 +171,7 @@
 <!-- suction solenoid (near compressor, as reference) -->
 <g id="suctionSolenoid" transform="translate(921 550)"><rect x="-24" y="-17" width="49" height="34" rx="5" fill="#ba7b30" stroke="#fbe2a0" stroke-width="2.5"/><rect x="-12" y="-40" width="24" height="20" fill="#3994c7" stroke="#98dcf7" stroke-width="2"/><path d="M-12 0H13" stroke="#fff0bf" stroke-width="5"/></g>
 <text x="891" y="520" fill="#d3ebf8" font-size="14" text-anchor="middle">Solenoide de sucção</text>
+<g id="suctionValveBadge" opacity="0" aria-hidden="true"><rect x="875" y="588" width="119" height="34" rx="8" fill="#7f2830" stroke="#ffd4a9" stroke-width="2"/><text id="suctionValveBadgeText" x="934" y="611" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff4e0">NÃO ABRE</text></g>
 <!-- compressor right; drive movement localized -->
 <g id="compressorUnit"><rect x="974" y="358" width="130" height="109" rx="24" fill="url(#compressMetal)" stroke="#bdd6e7" stroke-width="4"/><rect x="989" y="347" width="103" height="19" rx="6" fill="#9ab6c7"/><rect x="990" y="389" width="98" height="59" rx="13" fill="#193047" stroke="#6c91a8" stroke-width="2"/><path d="M1020 423L1036 403L1055 423L1037 444Z" stroke="#9fd6f2" stroke-width="4" fill="none" class="compressPulse"/><circle cx="1037" cy="422" r="6" fill="#c9ebfb"/></g>
 <text x="1037" y="489" text-anchor="middle" font-size="16" fill="#eaf6ff" font-weight="bold">COMPRESSOR</text>
@@ -166,7 +192,30 @@
  <rect x="392" y="45" width="489" height="42" rx="12" fill="#0b2837" stroke="#44788a" stroke-width="1.5"/>
  <text id="faultOverlayLabel" x="636" y="72" text-anchor="middle" fill="#d7f5ff" font-size="17" font-weight="700">Operação normal</text>
 </g>
-</svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div></section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="liquid_no_close">Solenoide de líquido não fecha</option><option value="liquid_no_open">Solenoide de líquido não abre</option><option value="suction_no_open">Solenoide de sucção não abre</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small id="uaNote">Índice didático, não medição de UA</small></div><div class="metric"><small>Grandeza / efeito dominante</small><strong id="dominant">Referência</strong><small id="dominantNote">Sem falha ativa</small></div><div class="metric"><small>Lógica de controle</small><strong id="controlLogic">Normal</strong><small id="controlNote">Sem comutação indevida</small></div><div class="metric"><small>Proteção com maior risco</small><strong id="protectionRisk">Baixo</strong><small id="protectionNote">Sem risco relevante</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama continuam sendo os valores reais de referência do ensaio E038. Nesta página, o foco é didático: <b>mostrar a sequência de sintomas e proteções</b> quando uma falha é inserida.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? Qual proteção ou lógica elétrica tenderia a atuar? Relacione a falha com os sinais do circuito.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Selecione uma falha e observe a sequência didática proposta para interpretar sintomas, pressões, temperaturas e atuação das proteções.</div></div></aside></div></main><script>
+</svg></div><button type="button" class="diagram-zoom" onclick="const d=this.previousElementSibling;d.classList.toggle('zoom');this.textContent=d.classList.contains('zoom')?'Ajustar circuito à tela':'Ampliar circuito para detalhes'">Ampliar circuito para detalhes</button><div class="legend"><span style="--c:#f45e69">Descarga</span><span style="--c:#e1ab4c">Líquido de alta</span><span style="--c:#35a9f6">Sucção</span><span style="--c:#ffcf39">Serpentina do chope</span></div><p class="tcaption">O nível de líquido e a geometria do sifão são os mesmos da página principal. As nuvens de sujeira representam visualmente a falha; não são partículas reais de refrigerante.</p></div><div class="panel"><h2>Sequência didática</h2><ol class="steps" id="steps"><li>Condensador limpo: troca de calor na condição de referência.</li></ol><div class="notice">As mudanças indicadas são tendências físicas. Para prever valores em psig, temperaturas e vazões com precisão, precisamos dos mapas do compressor, características do condensador e do dispositivo de expansão.</div></div>
+<div class="panel" id="sequence-panel">
+ <h2>Sequência dos pressostatos e comandos</h2>
+ <p class="sub">Representação temporal didática, <strong>não</strong> reproduz segundos, pressões de disparo ou lógica elétrica calibrada. Os estágios mostram uma sequência possível da falha selecionada.</p>
+ <div class="stategrid" aria-live="polite">
+  <div class="statecell" id="state-liquid"><small>Solenoide de líquido</small><strong id="state-liquid-label">Comando normal</strong></div>
+  <div class="statecell" id="state-suction"><small>Solenoide de sucção</small><strong id="state-suction-label">Comando normal</strong></div>
+  <div class="statecell" id="state-low"><small>Pressostato de baixa • controle elétrico</small><strong id="state-low-label">Estável</strong></div>
+  <div class="statecell" id="state-high"><small>Minipressostato de alta • proteção</small><strong id="state-high-label">Sem atuação</strong></div>
+  <div class="statecell" id="state-compressor"><small>Compressor</small><strong id="state-compressor-label">Em funcionamento</strong></div>
+  <div class="statecell" id="state-pressure"><small>Comportamento de pressão</small><strong id="state-pressure-label">Referência</strong></div>
+ </div>
+ <div class="sequence-controls"><button type="button" id="stagePrev">◀ Voltar</button><button type="button" id="stageNext">Próximo estágio ▶</button><button type="button" id="stageAuto">▶ Animar etapas</button><button type="button" id="stageReset">Reiniciar</button><span id="stage-count">Etapa 1/4</span></div>
+ <div id="stage-description" aria-live="polite"></div>
+</div>
+<div class="panel" id="guided-panel">
+ <h2>Diagnóstico guiado — descubra a falha</h2>
+ <p class="sub">O sistema apresenta sintomas de um caso. Escolha a causa provável <strong>antes de revelar o gabarito</strong>. A falha ativa no circuito acima não revela este desafio independente.</p>
+ <div class="notice" id="case-symptoms" aria-live="polite">Selecione um desafio.</div>
+ <div class="guide-choices" id="case-choices"></div>
+ <div class="sequence-controls"><button type="button" id="checkAnswer" disabled>Verificar diagnóstico</button><button type="button" id="nextChallenge">Outro caso</button><button type="button" id="revealAnswer">Revelar explicação</button></div>
+ <div class="guide-msg hidden" id="case-feedback" aria-live="polite"></div>
+</div>
+</section><aside><div class="panel"><h2>Inserir uma falha</h2><div class="control"><label>Falha selecionada</label><select id="fault"><option value="condenser">Condensador obstruído</option><option value="fan">Ventilador com rotação reduzida</option><option value="liquid_no_close">Solenoide de líquido não fecha</option><option value="liquid_no_open">Solenoide de líquido não abre</option><option value="suction_no_open">Solenoide de sucção não abre</option><option value="capillary">Restrição no capilar</option><option value="compressor">Perda de eficiência do compressor</option><option value="suction">Perda de pressão na sucção / sifão</option></select></div><div class="control"><label>Intensidade didática <b id="pct">0%</b></label><input type="range" min="0" max="100" step="5" id="severity" value="0"></div><button id="reset" type="button">Restaurar funcionamento normal</button><div class="sub" style="margin-top:10px"><strong id="airlabel">Passagem de ar visual: 100%</strong></div><div class="sub" style="margin-top:10px" id="description">Ajuste a intensidade da falha para observar suas tendências.</div></div><div class="panel"><h2>Condição de referência × falha</h2><div class="cards"><div class="metric"><small>Troca térmica relativa ilustrativa</small><strong id="ua">100%</strong><small id="uaNote">Índice didático, não medição de UA</small></div><div class="metric"><small>Grandeza / efeito dominante</small><strong id="dominant">Referência</strong><small id="dominantNote">Sem falha ativa</small></div><div class="metric"><small>Lógica de controle</small><strong id="controlLogic">Normal</strong><small id="controlNote">Sem comutação indevida</small></div><div class="metric"><small>Proteção com maior risco</small><strong id="protectionRisk">Baixo</strong><small id="protectionNote">Sem risco relevante</small></div></div><div id="trends" style="margin-top:10px"></div><div class="sub" style="margin-top:10px">As leituras no diagrama continuam sendo os valores reais de referência do ensaio E038. Nesta página, o foco é didático: <b>mostrar a sequência de sintomas e proteções</b> quando uma falha é inserida.</div></div><div class="panel"><h2>Desafio para o aluno</h2><p class="sub">Qual alteração você observaria primeiro? Qual proteção ou lógica elétrica tenderia a atuar? Relacione a falha com os sinais do circuito.</p><button id="reveal" type="button">Mostrar explicação</button><div class="sub" id="explanation" hidden>Selecione uma falha e observe a sequência didática proposta para interpretar sintomas, pressões, temperaturas e atuação das proteções.</div></div></aside></div></main><script>
 const $=id=>document.getElementById(id);
 const cases={
   condenser:{
@@ -283,6 +332,9 @@ function render(){
   $('condenserDirt').setAttribute('opacity',key==='condenser'?String(Math.min(.98,s)): '0');
   $('liquidSolenoidAlert').setAttribute('opacity', (val>0 && (key==='liquid_no_close' || key==='liquid_no_open')) ? String(0.22 + 0.48*s) : '0');
   $('suctionSolenoidAlert').setAttribute('opacity', (val>0 && key==='suction_no_open') ? String(0.22 + 0.48*s) : '0');
+  $('liquidValveBadge').setAttribute('opacity',(val>0&&(key==='liquid_no_close'||key==='liquid_no_open'))?'1':'0');
+  $('suctionValveBadge').setAttribute('opacity',(val>0&&key==='suction_no_open')?'1':'0');
+  setText('liquidValveBadgeText',key==='liquid_no_close'?'NÃO FECHA':'NÃO ABRE');
   $('faultOverlayLabel').textContent=val===0?'Operação normal':c.name+' • '+val+'%';
   const fanRotation=document.querySelector('#fanBlades animateTransform');
   if(fanRotation){
@@ -308,4 +360,77 @@ function render(){
 $('reset').onclick=()=>{$('severity').value=0;$('fault').value='condenser';render()};
 $('reveal').onclick=()=>{$('explanation').hidden=!$('explanation').hidden};
 render();
+
+/* V24: sequência de atuação (estágios simbólicos sem tempo/calibração) */
+let stage=0,autoHandle=null;
+const SEQUENCE={
+ liquid_no_close:[
+  {liquid:'Falha: não veda',suction:'Comando normal',low:'Estável / referência',high:'Sem atuação prevista',compressor:'Em comando',pressure:'Boiler isolado? Não',text:'A solenoide deveria fechar, mas permanece com passagem de refrigerante.'},
+  {liquid:'Permanece aberta',suction:'Comando normal',low:'Pode comutar',high:'Sem atuação prevista',compressor:'Comando instável',pressure:'Boiler ↑',text:'Mesmo sem extração, o boiler pode receber refrigerante e sua pressão tende a subir rumo à alta. A restrição do capilar condiciona a velocidade dessa evolução.'},
+  {liquid:'Permanece aberta',suction:'Comando normal',low:'Comutação repetida',high:'Sem atuação prevista',compressor:'Liga / desliga',pressure:'Tendência à equalização',text:'Se a pressão cruza repetidamente os limiares do pressostato de baixa, o controle elétrico pode ciclar rapidamente sem tiragem de chope.'},
+  {liquid:'Necessita reparo',suction:'Comando normal',low:'Ciclo curto anormal',high:'Avaliar em campo',compressor:'Partidas repetidas',pressure:'Instabilidade',text:'Diagnóstico: solenoide de líquido sem vedação. Avaliar comando, estanqueidade e temporização de proteção do compressor.'}
+ ],
+ liquid_no_open:[
+  {liquid:'Falha: não abre',suction:'Comando normal',low:'Referência inicial',high:'Armado',compressor:'Em comando',pressure:'Fluxo reduzido',text:'O comando solicita alimentação, mas a solenoide de líquido não abre.'},
+  {liquid:'Fechada',suction:'Aberta',low:'Pode atuar',high:'Armado',compressor:'Em funcionamento',pressure:'Boiler sem alimentação',text:'O refrigerante não chega ao boiler na vazão esperada; aparecem sintomas semelhantes a restrição no capilar.'},
+  {liquid:'Fechada',suction:'Aberta',low:'Pode desligar',high:'Risco condicionado',compressor:'Rendimento baixo',pressure:'Desequilíbrio do ciclo',text:'A capacidade cai. Dependendo do balanço de pressões, do circuito e do comando, uma proteção pode atuar.'},
+  {liquid:'Verificar bobina/êmbolo',suction:'Aberta',low:'Verificar pressões',high:'Pode atuar',compressor:'Pode desligar',pressure:'Alimentação bloqueada',text:'Diagnóstico: solenoide de líquido não abre. A atuação da alta é possível em algumas condições, não garantida.'}
+ ],
+ suction_no_open:[
+  {liquid:'Comando normal',suction:'Falha: não abre',low:'Referência inicial',high:'Armado',compressor:'Em comando',pressure:'Retorno bloqueado',text:'O controle solicita abertura da sucção, mas a válvula não abre.'},
+  {liquid:'Comando normal',suction:'Fechada',low:'Pode atuar',high:'Armado',compressor:'Circulação anormal',pressure:'Boiler × compressor',text:'O retorno de vapor fica bloqueado e surge grande resistência entre boiler e entrada do compressor.'},
+  {liquid:'Comando normal',suction:'Fechada',low:'Avaliar comportamento',high:'Risco de desarme',compressor:'Funcionamento comprometido',pressure:'Desequilíbrio grave',text:'Há perda severa de capacidade e podem surgir pressões anormais; o desarme de alta depende da resposta global.'},
+  {liquid:'Verificar condição',suction:'Verificar bobina/êmbolo',low:'Verificar comando',high:'Pode desligar',compressor:'Possível desligamento',pressure:'Retorno bloqueado',text:'Diagnóstico: solenoide de sucção não abre. Verificar válvula e proteções antes de qualquer tentativa de religamento.'}
+ ]
+};
+function sequenceFor(key){
+ return SEQUENCE[key]||[
+  {liquid:'Comando normal',suction:'Comando normal',low:'Referência',high:'Sem desarme',compressor:'Em funcionamento',pressure:'Condição inicial',text:'Condição inicial; acompanhe os sintomas no circuito.'},
+  {liquid:'Comando normal',suction:'Comando normal',low:'Avaliar',high:'Avaliar',compressor:'Em carga',pressure:'Tendência da falha',text:'A condição selecionada se agrava e modifica o equilíbrio do circuito.'},
+  {liquid:'Comando normal',suction:'Comando normal',low:'Avaliar',high:'Pode atuar',compressor:'Capacidade alterada',pressure:'Fora da referência',text:'As leituras de campo ajudam a confirmar quais componentes estão fora da condição normal.'},
+  {liquid:'Verificar',suction:'Verificar',low:'Conferir estado',high:'Conferir estado',compressor:'Verificar proteção',pressure:'Diagnosticar',text:'Conclua o diagnóstico verificando a causa e as proteções aplicáveis.'}
+ ];
+}
+function stopSequence(){if(autoHandle!==null){clearInterval(autoHandle);autoHandle=null;}setText('stageAuto','▶ Animar etapas');}
+function showStage(){const seq=sequenceFor($('fault').value),a=seq[stage]||seq[0];
+ const states=[['liquid',a.liquid],['suction',a.suction],['low',a.low],['high',a.high],['compressor',a.compressor],['pressure',a.pressure]];
+ states.forEach(([name,label])=>{setText('state-'+name+'-label',label);const el=$('state-'+name);if(!el)return;el.classList.remove('warn','danger','ok');if(/não abre|não veda|fechada|ciclo curto|comutação repetida|liga \/ desliga|bloqueado|desliga|pode atuar|risco|instável|anormal|reparo/i.test(label))el.classList.add('warn');else el.classList.add('ok');});
+ setText('stage-count','Etapa '+(stage+1)+'/4');setText('stage-description',a.text);
+ $('stagePrev').disabled=stage===0;$('stageNext').disabled=stage===3;
+}
+function advanceStage(){if(stage<3){stage++;showStage();}else stopSequence();}
+$('stagePrev').addEventListener('click',()=>{stopSequence();stage=Math.max(0,stage-1);showStage();});
+$('stageNext').addEventListener('click',()=>{stopSequence();advanceStage();});
+$('stageReset').addEventListener('click',()=>{stopSequence();stage=0;showStage();});
+$('stageAuto').addEventListener('click',()=>{if(autoHandle!==null){stopSequence();return;}if(stage===3)stage=0;showStage();setText('stageAuto','⏸ Pausar');autoHandle=setInterval(()=>{if(stage>=3){stopSequence();return;}stage++;showStage();},1900);});
+$('fault').addEventListener('change',()=>{stopSequence();stage=0;showStage();});
+/* Desafio independente: o nome da falha não aparece antes da resposta. */
+const CHALLENGES=[
+ {id:'liquid_no_close', symptoms:'Sem extração de chope, a pressão do boiler se aproxima da alta; o comando por pressostato de baixa liga e desliga repetidamente.',why:'A solenoide da linha de líquido pode estar deixando passar refrigerante mesmo quando deveria estar fechada. O processo de equalização é limitado pelo capilar e pelo estado do circuito.'},
+ {id:'liquid_no_open',symptoms:'O boiler perde alimentação de refrigerante; o equipamento parece ter capilar entupido e perde capacidade. A válvula recebe comando de abertura.',why:'Se há comando elétrico e a solenoide de líquido não abre, o boiler deixa de receber refrigerante; é preciso diferenciar de restrição real no capilar.'},
+ {id:'suction_no_open',symptoms:'A alimentação pode estar disponível, mas o retorno de vapor do boiler ao compressor está bloqueado. A refrigeração perde capacidade e proteções podem atuar.',why:'A solenoide de sucção travada fechada interrompe o retorno e pode gerar forte desequilíbrio de pressões.'},
+ {id:'condenser',symptoms:'Pressão de condensação e temperatura de descarga elevadas, com passagem de ar prejudicada e ventilador girando normalmente.',why:'Um condensador sujo/obstruído compromete a troca térmica com o ar ambiente.'},
+ {id:'fan',symptoms:'A pressão de condensação sobe, mas o condensador está limpo e o ventilador está visivelmente girando muito devagar.',why:'A perda de ventilação reduz a rejeição de calor mesmo com as aletas desobstruídas.'},
+ {id:'capillary',symptoms:'Alimentação insuficiente do evaporador e perda de capacidade, mas a solenoide de líquido abre normalmente.',why:'A restrição deve estar no dispositivo de expansão ou em outro ponto da linha de alimentação, não no comando da solenoide.'}
+];
+const CHOICE_IDS=['liquid_no_close','liquid_no_open','suction_no_open','condenser','fan','capillary'];
+let challengeIndex=0,selectedChoice=null,graded=false;
+function paintChallenge(){const ch=CHALLENGES[challengeIndex];selectedChoice=null;graded=false;
+ setText('case-symptoms','SINTOMAS: '+ch.symptoms);
+ $('case-choices').innerHTML='';
+ CHOICE_IDS.forEach(id=>{const b=document.createElement('button');b.type='button';b.textContent=cases[id].name;b.dataset.choice=id;b.addEventListener('click',()=>{if(graded)return;selectedChoice=id;document.querySelectorAll('#case-choices button').forEach(el=>el.classList.toggle('selected',el.dataset.choice===id));$('checkAnswer').disabled=false;});$('case-choices').appendChild(b);});
+ $('checkAnswer').disabled=true;$('case-feedback').classList.add('hidden');$('case-feedback').textContent='';
+}
+function gradeChallenge(reveal){if(graded)return;const ch=CHALLENGES[challengeIndex],ok=selectedChoice===ch.id;
+ if(!reveal&&!selectedChoice)return;
+ graded=true;
+ document.querySelectorAll('#case-choices button').forEach(el=>{el.disabled=true;if(el.dataset.choice===ch.id)el.classList.add('correct');else if(el.dataset.choice===selectedChoice&&!ok)el.classList.add('wrong');});
+ const out=$('case-feedback');out.classList.remove('hidden');out.textContent=(reveal?'Gabarito: ':ok?'Correto! ':'Não é essa a causa mais provável. ')+cases[ch.id].name+'. '+ch.why;
+ $('checkAnswer').disabled=true;
+}
+$('checkAnswer').addEventListener('click',()=>gradeChallenge(false));
+$('revealAnswer').addEventListener('click',()=>gradeChallenge(true));
+$('nextChallenge').addEventListener('click',()=>{challengeIndex=(challengeIndex+1)%CHALLENGES.length;paintChallenge();});
+paintChallenge();showStage();
+
 </script></body></html>
