@@ -47,7 +47,7 @@
 .hidden{display:none!important}
 @media(max-width:580px){.guide-choices,.stategrid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#liquidSolenoidAlert,#suctionSolenoidAlert{animation:none}}
-</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><a href="index.html">← Voltar ao simulador</a></header><main><span class="chip">V24 • Falhas das solenoides e diagnóstico guiado</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Mesmo diagrama do simulador principal. As falhas das solenoides e as proteções são representadas de forma esquemática.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
+</style></head><body><header><div><b>▣ TREINAMEMO</b><div class="sub">REFRIGERATION LAB • DIAGNÓSTICO DE FALHAS</div></div><div style="display:flex;gap:9px;flex-wrap:wrap"><a href="academia.html">Academia de Refrigeração</a><a href="index.html">← Voltar ao simulador</a></div></header><main><span class="chip">V24 • Falhas das solenoides e diagnóstico guiado</span><h1>Provocando falhas no sistema</h1><p class="sub">Selecione uma falha no mesmo circuito da página principal e acompanhe suas tendências físicas. Referência selecionada: E038 • R134a • CX070. Esta é uma demonstração física de tendências, não um cálculo homologado da máquina.</p><div class="grid"><section><div class="panel"><h2>Circuito de expansão direta — mesmo desenho do simulador</h2><p class="sub" style="margin-top:0">Mesmo diagrama do simulador principal. As falhas das solenoides e as proteções são representadas de forma esquemática.</p><div class="diagram"><svg viewBox="0 0 1280 760" aria-label="Circuito animado da chopeira de expansão direta, conforme vídeo de referência: condensador superior, linha de líquido pela esquerda, boiler central, compressor à direita, retorno de sucção e circuito de chope independentes" role="img">
 <defs>
  <linearGradient id="boilerMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7d9bab"/><stop offset=".15" stop-color="#e0f3fa"/><stop offset=".30" stop-color="#6e99ac"/><stop offset=".52" stop-color="#bddce8"/><stop offset=".8" stop-color="#7897a9"/><stop offset="1" stop-color="#d3eefb"/></linearGradient>
  <linearGradient id="refrigWater" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#45d9ff" stop-opacity=".54"/><stop offset="1" stop-color="#066fc5" stop-opacity=".82"/></linearGradient>
@@ -432,5 +432,14 @@ $('checkAnswer').addEventListener('click',()=>gradeChallenge(false));
 $('revealAnswer').addEventListener('click',()=>gradeChallenge(true));
 $('nextChallenge').addEventListener('click',()=>{challengeIndex=(challengeIndex+1)%CHALLENGES.length;paintChallenge();});
 paintChallenge();showStage();
+/* TreinaMEMO Academia: link contextual de aula para falha correspondente. */
+const academyFault=new URLSearchParams(window.location.search).get('falha');
+if(academyFault && Object.prototype.hasOwnProperty.call(cases,academyFault)){
+  $('fault').value=academyFault;
+  $('severity').value='75';
+  $('fault').dispatchEvent(new Event('input',{bubbles:true}));
+  $('fault').dispatchEvent(new Event('change',{bubbles:true}));
+}
+
 
 </script></body></html>
